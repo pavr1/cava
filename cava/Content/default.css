@@ -1,0 +1,21 @@
+﻿body {
+    padding-top: 0px !important;
+    height: 100%;
+}
+
+
+.bg {
+    /* The image used */
+    /*background-image: url(images/background.jpg);*/
+    /* Full height */
+    height: 100%;
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.navbar{
+    /*display:block !important;
+    padding: unset !important;*/
+}
