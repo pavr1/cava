@@ -1,5 +1,4 @@
-﻿using cava.Custom.Serialization;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -7,9 +6,9 @@ using System.Web.Mvc;
 
 namespace cava.Controllers
 {
-    public class KitchenController : Controller
+    public class ReservationController : Controller
     {
-        // GET: Kitchen
+        // GET: Reservation
         public ActionResult Index()
         {
             return View();

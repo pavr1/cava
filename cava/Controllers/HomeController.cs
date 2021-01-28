@@ -1,4 +1,5 @@
-﻿using System;
+﻿using cava.Custom.Serialization;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -25,6 +26,21 @@ namespace cava.Controllers
             ViewBag.Message = "Your contact page.";
 
             return View();
+        }
+
+        public string Bar()
+        {
+            return Serializer.RenderViewToString(this.ControllerContext, "Bar", null);
+        }
+
+        public string Kitchen()
+        {
+            return Serializer.RenderViewToString(this.ControllerContext, "Kitchen", null);
+        }
+
+        public string Experience()
+        {
+            return Serializer.RenderViewToString(this.ControllerContext, "Experience", null);
         }
     }
 }

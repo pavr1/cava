@@ -19,11 +19,10 @@ namespace cava.Models
         [Display(Name = "Nombre")]
         public string ReserverFirstName { get; set; }
         [Required]
-        [Display(Name = "Primer Apellido")]
+        [Display(Name = "Apellidos")]
         public string ReserverMiddleName { get; set; }
-        [Required]
-        [Display(Name = "Segundo Apellido")]
-        public string ReserverLastName { get; set; }
+        [Display(Name = "Fecha de Nacimiento")]
+        public DateTime? DOB { get; set; }
         [Required]
         [Display(Name = "Número Telefónico")]
         public string Phone { get; set; }

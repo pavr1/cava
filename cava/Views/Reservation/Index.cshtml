@@ -1,0 +1,138 @@
+﻿@model cava.Models.Reservation
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<div class="card text-white bg-primary">
+    <div class="card-header">Información de Reservación</div>
+    <div class="row pb-3 pl-3">
+        <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mt-3">
+            <input type="datetime" class="form-control" name="txt-date" value="" placeholder="Nombre" />
+        </div>
+        <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mt-3">
+            <input type="number" class="form-control" name="txt-date" value="" placeholder="Apellidos" />
+        </div>
+        <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mt-3">
+            <input type="number" class="form-control" name="txt-date" value="" placeholder="Fecha de Nacimiento" />
+        </div>
+    </div>
+    <div class="row pb-3 pl-3">
+        <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mt-3">
+
+        </div>
+        <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mt-3">
+            <input type="number" class="form-control" name="txt-date" value="" placeholder="Correo Electrónico" />
+        </div>
+        <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mt-3">
+            <input type="number" class="form-control" name="txt-date" value="" placeholder="Teléfono" />
+        </div>
+    </div>
+    <hr />
+    <div class="row pb-3 pl-3">
+        <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mt-3">
+
+        </div>
+        <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mt-3">
+            <input type="datetime" class="form-control" name="txt-date" value="" placeholder="Fecha de Reservación" />
+        </div>
+        <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mt-3">
+            <input type="number" class="form-control" name="txt-date" value="" placeholder="Número de personas" />
+        </div>
+    </div>
+</div>
+
+<div class="">
+    <div class="row pb-3 pl-3">
+        <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mt-3">
+
+        </div>
+        <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mt-3">
+            <input type="button" value="Cancelar" class="btn btn-danger pl-5 pr-5" />
+        </div>
+        <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mt-3">
+            <input type="button" value="Reservar" class="btn btn-info pl-5 pr-5" />
+        </div>
+    </div>
+</div>
+
+
+    @*<div class="form-horizontal">
+        <h4>Reservation</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.Date, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Date, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Date, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.NumberOfPeople, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.NumberOfPeople, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.NumberOfPeople, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ReserverFirstName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ReserverFirstName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ReserverFirstName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ReserverMiddleName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ReserverMiddleName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ReserverMiddleName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ReserverLastName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ReserverLastName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ReserverLastName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Phone, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Phone, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>*@
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

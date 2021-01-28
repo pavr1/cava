@@ -29,5 +29,7 @@ namespace cava.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<cava.Models.Reservation> Reservations { get; set; }
     }
 }

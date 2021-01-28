@@ -169,6 +169,8 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Controllers\ReservationController.cs" />
+    <Compile Include="Custom\Serialization\Serializer.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BarController.cs" />
     <Compile Include="Controllers\ExperienceController.cs" />
@@ -207,7 +209,7 @@
     <Content Include="Content\bootstrap.min.css">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\default.css">
+    <Content Include="Content\custom.css">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\images\background.jpg" />
@@ -216,6 +218,11 @@
     <Content Include="Content\images\Bar\cava_158.jpg" />
     <Content Include="Content\images\Bar\cava_160.jpg" />
     <Content Include="Content\images\Bar\cava_91.jpg" />
+    <Content Include="Content\images\Experience\IMG_0046_1.jpg" />
+    <Content Include="Content\images\Experience\IMG_0085.jpg" />
+    <Content Include="Content\images\Experience\IMG_0159.jpg" />
+    <Content Include="Content\images\Experience\IMG_9853.jpg" />
+    <Content Include="Content\images\Experience\IMG_9992-HDR.jpg" />
     <Content Include="Content\images\Icons\CAVA - INDIVIDUAL.png" />
     <Content Include="Content\images\IMG_9893.jpg" />
     <Content Include="Content\images\Kitchen\cava_141.jpg" />
@@ -240,6 +247,7 @@
     <Content Include="Scripts\bootstrap.min.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Scripts\custom.js" />
     <Content Include="Scripts\esm\popper-utils.js" />
     <Content Include="Scripts\esm\popper-utils.min.js" />
     <Content Include="Scripts\esm\popper.js" />
@@ -454,9 +462,10 @@
     <Content Include="Scripts\popper-utils.js.map">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Views\Experience\Index.cshtml" />
-    <Content Include="Views\Bar\Index.cshtml" />
-    <Content Include="Views\Kitchen\Index.cshtml" />
+    <Content Include="Views\Home\Experience.cshtml" />
+    <Content Include="Views\Home\Bar.cshtml" />
+    <Content Include="Views\Home\Kitchen.cshtml" />
+    <Content Include="Views\Reservation\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
