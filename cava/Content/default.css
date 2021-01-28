@@ -33,8 +33,7 @@
     color:white !important;
     z-index: 1 !important;
     position:relative !important;
-    font-family: Broadway !important;
-    font-size: 30px !important;
+    font-size: 50px !important;
     border:initial;
     border-color:white;
     border-radius:10px;
@@ -52,5 +51,4 @@
 .custom-label{
     color:white;
     font-size: 20px;
-    font-family:Arial;
 }
