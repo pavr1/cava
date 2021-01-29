@@ -218,12 +218,12 @@
     <Content Include="Content\images\Bar\cava_158.jpg" />
     <Content Include="Content\images\Bar\cava_160.jpg" />
     <Content Include="Content\images\Bar\cava_91.jpg" />
-    <Content Include="Content\images\Experience\IMG_0046_1.jpg" />
-    <Content Include="Content\images\Experience\IMG_0085.jpg" />
-    <Content Include="Content\images\Experience\IMG_0159.jpg" />
-    <Content Include="Content\images\Experience\IMG_9853.jpg" />
-    <Content Include="Content\images\Experience\IMG_9992-HDR.jpg" />
+    <Content Include="Content\images\Experience\e1.png" />
+    <Content Include="Content\images\Experience\e2.png" />
+    <Content Include="Content\images\Experience\e3.png" />
     <Content Include="Content\images\Icons\CAVA - INDIVIDUAL.png" />
+    <Content Include="Content\images\Icons\icon.png" />
+    <Content Include="Content\images\Icons\icon2.png" />
     <Content Include="Content\images\IMG_9893.jpg" />
     <Content Include="Content\images\Kitchen\cava_141.jpg" />
     <Content Include="Content\images\Kitchen\cava_157.jpg" />

@@ -4729,7 +4729,7 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
     display: -ms-flexbox;
     display: flex;
     -ms-flex-direction: column;
-    flex-direction: column;
+    /*flex-direction: column;*/
     min-width: 0;
     word-wrap: break-word;
     background-color: #fff;
@@ -6795,7 +6795,7 @@ a.bg-light:focus, a.bg-light:hover, button.bg-light:focus, button.bg-light:hover
 }
 
 .bg-dark {
-    background-color: #555 !important
+    background-color: #03254c !important
 }
 
 a.bg-dark:focus, a.bg-dark:hover, button.bg-dark:focus, button.bg-dark:hover {
@@ -10761,7 +10761,8 @@ select, select.form-control, textarea, textarea.form-control {
 }
 
 .card {
-    border-radius: 5px 5px 5px 5px/25px 25px 25px 5px
+    border-radius: 5px 5px 5px 5px/25px 25px 25px 5px;
+    background-color: #03254c !important;
 }
 
 .card-outline-danger, .card-outline-info, .card-outline-primary, .card-outline-success, .card-outline-warning {

@@ -18,17 +18,7 @@
 .navbar{
     opacity: 0.9;
     width: 100%;
-    /*display:block !important;
-    padding: unset !important;*/
 }
-
-/*.active .nav-link {
-    color: white !important;
-}
-
-.nav-link {
-    color: white !important;
-}*/
 
 .cava-title{
     color:white !important;
@@ -50,5 +40,12 @@
 }
 
 .btn{
-    width: 200px 
+    width: 150px 
+}
+
+.custom-label{
+    font-family:Arial !important;
+    font-weight:normal;
+    font-size:20px;
+    text-align:justify
 }
