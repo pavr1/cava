@@ -13,19 +13,35 @@
 });
 
 function LoadBar() {
-    $.get("/Home/Bar", {}, function (data) {
-        $('#main-container').html(data);
+    $('.collapse').collapse('toggle');
+    $('#main-container').fadeOut(500);
 
-        $('#btn-toggle').prop('checked', true).change()
-    });
+    setTimeout(() => {
+        $.get("/Home/Bar", {}, function (data) {
+            $('#main-container').html(data);
+            $('#main-container').fadeIn(800);
+        });
+    }, 500);
 }
 function LoadKitchen() {
-    $.get("/Home/Kitchen", {}, function (data) {
-        $('#main-container').html(data);
-    });
+    $('.collapse').collapse('toggle');
+    $('#main-container').fadeOut(500);
+
+    setTimeout(() => {
+        $.get("/Home/Kitchen", {}, function (data) {
+            $('#main-container').html(data);
+            $('#main-container').fadeIn(800);
+        });
+    }, 500);
 }
 function LoadExperience() {
-    $.get("Home/Experience", {}, function (data) {
-        $('#main-container').html(data);
-    });
+    $('#main-container').fadeOut(500);
+    $('.collapse').collapse('toggle');
+
+    setTimeout(() => {
+        $.get("Home/Experience", {}, function (data) {
+            $('#main-container').html(data);
+            $('#main-container').fadeIn(800);
+        });
+    }, 500);
 }

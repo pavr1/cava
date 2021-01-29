@@ -13,39 +13,60 @@
     <script src="~/Scripts/jquery-3.5.1.js"></script>
     <script src="~/Scripts/custom.js"></script>
 </head>
-<body class="bg">
+<body class="bg" style="overflow-y:scroll">
     <div class="navbar navbar-expand-lg fixed-top navbar-dark bg-primary">
-        @*<img src="~/Content/images/Icons/CAVA - INDIVIDUAL.png" class="flex-row" style="width:100px;height:80px; align-self:flex-start; border-radius:50px" />*@
-
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <a class="nav-link flex-row cava-title" href="#">
                 <img src="~/Content/images/Icons/icon2.png" style="height:90px;width:150px;border-radius:20px" />
                 <span class="sr-only">(current)</span>
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+                <span class="navbar-toggler-icon accordion"></span>
             </button>
 
             <div class="collapse navbar-collapse" id="navbarColor02">
-                <ul class="navbar-nav mr-auto">
+                <div class="row col-xl-6 col-lg-10 col-md-12 col-sm-10 pl-0 pr-0">
+                    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-6 center-aligned">
+                        <a id="menu-experience-id" class="nav-link btn btn-primary">
+                            EXPERIENCIAS
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </div>
+                    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-6">
+                        <a id="menu-bar-id" href="#" class="nav-link btn btn-primary mr-xl-3 mr-lg-3 mr-md-3 mr-sm-3">MIXOLOGÍA</a>
+                    </div>
+                    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-6">
+                        <a id="menu-kitchen-id" href="#" class="nav-link btn btn-primary mr-xl-3 mr-lg-3 mr-md-3 mr-sm-3 mt-1">GASTRONOMÍA</a>
+                    </div>
+                    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-6">
+                        <a id="menu-reservation-id" href="#" class="nav-link btn btn-danger mr-xl-3 mr-lg-3 mr-md-3 mr-sm-3 mt-1">RESERVAS</a>
+                    </div>
+                </div>
+                <div class="row col-xl-6 col-lg-2 col-md-12 col-sm-2">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mt-md-3 mt-sm-3 mt-3">
+                        <img src="~/Content/images/Icons/icon3.png" class="float-right d-xl-block d-lg-none d-md-block d-sm-none" style="height:50px;width:110px;border-radius:20px;" />
+                        <img src="~/Content/images/Icons/icon3.png" class="d-xl-none d-lg-block d-md-none d-sm-none d-none" style="height:50px;width:110px;border-radius:20px;" />
+                    </div>
+                </div>
+                @*<ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
                         <a id="menu-experience-id" class="nav-link btn btn-primary mr-3">
-                            EXPERIENCIA
+                            EXPERIENCIAS
                             <span class="sr-only">(current)</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a id="menu-bar-id" href="#" class="nav-link btn btn-primary mr-3">CANTINA</a>
+                        <a id="menu-bar-id" href="#" class="nav-link btn btn-primary mr-3">MIXOLOGÍA</a>
                     </li>
                     <li class="nav-item">
-                        <a id="menu-kitchen-id" href="#" class="nav-link btn btn-primary mr-3">COCINA</a>
+                        <a id="menu-kitchen-id" href="#" class="nav-link btn btn-primary mr-3">GASTRONOMÍA</a>
                     </li>
                     <li class="nav-item">
                         <a id="menu-reservation-id" href="#" class="nav-link btn btn-danger mr-3">RESERVAS</a>
                     </li>
                 </ul>
 
-                <img src="~/Content/images/Icons/icon3.png" style="height:50px;width:110px;border-radius:20px" />
+                <img src="~/Content/images/Icons/icon3.png" style="height:50px;width:110px;border-radius:20px" />*@
             </div>
         </nav>
     </div>

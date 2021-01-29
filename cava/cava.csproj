@@ -218,9 +218,15 @@
     <Content Include="Content\images\Bar\cava_158.jpg" />
     <Content Include="Content\images\Bar\cava_160.jpg" />
     <Content Include="Content\images\Bar\cava_91.jpg" />
-    <Content Include="Content\images\Experience\e1.png" />
-    <Content Include="Content\images\Experience\e2.png" />
-    <Content Include="Content\images\Experience\e3.png" />
+    <Content Include="Content\images\Experience\e1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\images\Experience\e2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\images\Experience\e3.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\images\Icons\CAVA - INDIVIDUAL.png" />
     <Content Include="Content\images\Icons\icon.png" />
     <Content Include="Content\images\Icons\icon2.png" />

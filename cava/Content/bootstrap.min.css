@@ -4724,7 +4724,7 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
     display: -ms-flexbox;
     display: flex;
     -ms-flex-direction: column;
-    flex-direction: column;
+    /*flex-direction: column;*/
     min-width: 0;
     word-wrap: break-word;
     background-color: #32383e;
