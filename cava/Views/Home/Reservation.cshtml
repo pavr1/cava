@@ -1,0 +1,74 @@
+﻿@model cava.Models.Reservation
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="row">
+        <div class="col">
+            <label class="white-label">¡RESERVA CON NOSOTROS!</label>
+        </div>
+    </div>
+    <div class="card row pb-5 pt-4">
+        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 mt-3">
+            <input id="txt-people-amount" type="number" class="form-control ml-md-3 d-flex" min="1" max="20" value="" placeholder="NÚMERO DE PERSONAS" />
+        </div>
+        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 mt-3">
+            <input id="txt-reservation-date" type="datetime" class="form-control custom-date" value="" placeholder="FECHA DE RESERVACIÓN" />
+        </div>
+        <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mt-3">
+            <button id="btn-reservation-1" type="button" class="btn btn-info float-right mr-4">CONTINUAR</button>
+        </div>
+    </div>
+
+
+
+    <div id="reservation-modal" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="card no-flex">
+                    <div class="row pb-3 pl-3">
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6 mt-3">
+                            <div id="lbl-reservation-date" class="col-form-label white-label"></div>
+                        </div>
+                        <div id="lbl-reservation-time" class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6 mt-3">
+                            <label class="col-form-label white-label">7:00 pm</label>
+                        </div>
+                    </div>
+                    <div class="row pb-3 pl-3">
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 mt-3">
+                            <input type="text" class="form-control" name="txt-name" value="" placeholder="NOMBRE" />
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 mt-3">
+                            <input type="text" class="form-control" name="txt-last-names" value="" placeholder="APELLIDOS" />
+                        </div>
+                    </div>
+                    <div class="row pb-3 pl-3">
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 mt-3">
+                            <input type="text" class="form-control" name="txt-email" value="" placeholder="CORREO ELECTRÓNICO" />
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 mt-3">
+                            <input type="text" class="form-control" name="txt-phone" value="" placeholder="TELÉFONO" />
+                        </div>
+                    </div>
+                    <div class="row pb-3 pl-3">
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 mt-3">
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 mt-3">
+                            <input type="button" value="CONFIRMAR RESERVCIÓN" class="btn w-100 btn-danger" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+
+<link rel="stylesheet" href="~/Content/jquery.datetimepicker.css" />
+<script src="~/Scripts/jquery.datetimepicker.full.js"></script>
+<script src="~/Scripts/reservation.js"></script>

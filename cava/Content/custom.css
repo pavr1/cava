@@ -54,3 +54,12 @@
     text-align:center !important;
     align-content:center !important;
 }
+
+.white-label{
+    color: white !important;
+    font-weight:100 !important;
+}
+
+.no-flex{
+    display:block !important;
+}

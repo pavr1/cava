@@ -170,6 +170,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\ReservationController.cs" />
+    <Compile Include="Custom\Cultures\CostaRicanCulture.cs" />
     <Compile Include="Custom\Serialization\Serializer.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BarController.cs" />
@@ -236,6 +237,7 @@
     <Content Include="Content\images\Kitchen\cava_83.jpg" />
     <Content Include="Content\images\Kitchen\cava_86.jpg" />
     <Content Include="Content\images\Kitchen\cava_92.jpg" />
+    <Content Include="Content\jquery.datetimepicker.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css">
@@ -320,6 +322,7 @@
     <None Include="Scripts\jquery.validate-vsdoc.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <Content Include="Scripts\jquery.datetimepicker.full.js" />
     <Content Include="Scripts\jquery.validate.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -335,6 +338,7 @@
     <Content Include="Scripts\modernizr-2.8.3.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Scripts\notify.js" />
     <Content Include="Scripts\popper-utils.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -347,6 +351,7 @@
     <Content Include="Scripts\popper.min.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Scripts\reservation.js" />
     <Content Include="Scripts\src\index.js" />
     <Content Include="Scripts\src\methods\defaults.js" />
     <Content Include="Scripts\src\methods\destroy.js" />
@@ -471,7 +476,7 @@
     <Content Include="Views\Home\Experience.cshtml" />
     <Content Include="Views\Home\Bar.cshtml" />
     <Content Include="Views\Home\Kitchen.cshtml" />
-    <Content Include="Views\Reservation\Index.cshtml" />
+    <Content Include="Views\Home\Reservation.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

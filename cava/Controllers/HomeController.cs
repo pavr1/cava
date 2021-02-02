@@ -42,5 +42,10 @@ namespace cava.Controllers
         {
             return Serializer.RenderViewToString(this.ControllerContext, "Experience", null);
         }
+
+        public string Reservation()
+        {
+            return Serializer.RenderViewToString(this.ControllerContext, "Reservation", null);
+        }
     }
 }
