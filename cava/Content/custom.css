@@ -15,20 +15,20 @@
     background-position: center;
 }
 
-.navbar{
+.navbar {
     opacity: 0.95;
     width: 100%;
 }
 
-.cava-title{
-    color:white !important;
+.cava-title {
+    color: white !important;
     z-index: 1 !important;
-    position:relative !important;
+    position: relative !important;
     font-size: 50px !important;
-    border:initial;
-    border-color:white;
-    border-radius:10px;
-    vertical-align:top;
+    border: initial;
+    border-color: white;
+    border-radius: 10px;
+    vertical-align: top;
 }
 
 .custom-container {
@@ -36,30 +36,41 @@
     opacity: 1;
     border-radius: 10px;
     padding: 5px;
-    margin:5px;
+    margin: 5px;
 }
 
-.btn{
-    width: 120px 
+.btn {
+    width: 120px
 }
 
-.custom-label{
-    font-family:Arial !important;
-    font-weight:normal;
-    font-size:20px;
-    text-align:justify
+.custom-label {
+    font-family: Arial !important;
+    font-weight: normal;
+    font-size: 20px;
+    text-align: justify
 }
 
-.center-aligned{
-    text-align:center !important;
-    align-content:center !important;
+.center-aligned {
+    text-align: center !important;
+    align-content: center !important;
 }
 
-.white-label{
+.white-label {
     color: white !important;
-    font-weight:100 !important;
+    font-weight: 100 !important;
 }
 
-.no-flex{
-    display:block !important;
+.no-flex {
+    display: block !important;
+}
+
+.bi {
+    color: white !important;
+    font-size: 1.5rem !important;
+}
+
+.custom-hr{
+    margin-top: 0rem !important;
+    margin-bottom: 0rem !important;
+    border-color:white !important;
 }

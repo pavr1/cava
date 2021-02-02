@@ -1,5 +1,8 @@
 ﻿@model cava.Models.Reservation
 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+<script src="~/Scripts/jquery-mask/src/jquery.mask.js"></script>
+
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
@@ -21,41 +24,41 @@
         </div>
     </div>
 
-
-
     <div id="reservation-modal" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="card no-flex">
                     <div class="row pb-3 pl-3">
                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6 mt-3">
-                            <div id="lbl-reservation-date" class="col-form-label white-label"></div>
+                            <span class="bi bi-calendar pr-3"></span><label id="lbl-reservation-date" class="col-form-label white-label"></label>
                         </div>
-                        <div id="lbl-reservation-time" class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6 mt-3">
-                            <label class="col-form-label white-label">7:00 pm</label>
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6 mt-3">
+                            <span class="bi bi-alarm pr-3"></span><label id="lbl-reservation-time" class="col-form-label white-label"></label>
+                        </div>
+                    </div>
+                    <hr class="custom-hr" />
+                    <div class="row pb-3 pl-3">
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 mt-3">
+                            <input type="text" class="form-control" id="txt-name" value="" placeholder="NOMBRE" />
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 mt-3 pl-md-0 pr-md-3">
+                            <input type="text" class="form-control" id="txt-last-names" value="" placeholder="APELLIDOS" />
                         </div>
                     </div>
                     <div class="row pb-3 pl-3">
                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 mt-3">
-                            <input type="text" class="form-control" name="txt-name" value="" placeholder="NOMBRE" />
+                            <input type="text" class="form-control" id="txt-email" value="" placeholder="CORREO ELECTRÓNICO" />
                         </div>
-                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 mt-3">
-                            <input type="text" class="form-control" name="txt-last-names" value="" placeholder="APELLIDOS" />
-                        </div>
-                    </div>
-                    <div class="row pb-3 pl-3">
-                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 mt-3">
-                            <input type="text" class="form-control" name="txt-email" value="" placeholder="CORREO ELECTRÓNICO" />
-                        </div>
-                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 mt-3">
-                            <input type="text" class="form-control" name="txt-phone" value="" placeholder="TELÉFONO" />
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 mt-3 pl-md-0">
+                            <input type="text" class="form-control" id="txt-phone" value="" placeholder="TELÉFONO" />
                         </div>
                     </div>
                     <div class="row pb-3 pl-3">
                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 mt-3">
+                            <input id="btn-cancel-reservation" type="button" value="CANCELAR" class="btn w-100 btn-danger" />
                         </div>
                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 mt-3">
-                            <input type="button" value="CONFIRMAR RESERVCIÓN" class="btn w-100 btn-danger" />
+                            <input id="btn-confirm-reservation" type="button" value="CONFIRMAR RESERVCIÓN" class="btn w-100 btn-info" />
                         </div>
                     </div>
                 </div>
