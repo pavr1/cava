@@ -70,13 +70,19 @@ $("#btn-reservation-1").click(function () {
     var reservationDateTime = $("#txt-reservation-date").val();
 
     if (amount === "") {
-        $.notify("¡NÚMERO DE PERSONAS REQUERIDO!", "warn");
+        $("#txt-people-amount").notify(
+            "¡NÚMERO DE PERSONAS REQUERIDO!",
+            { position: "top" },
+        );
 
         $("#txt-people-amount").focus();
         $("#txt-people-amount").addClass("border-danger");
         return;
     } else if (reservationDateTime === "") {
-        $.notify("¡FECHA DE RESERVACIÓN REQUERIDA!", "warn");
+        $("#txt-reservation-date").notify(
+            "¡FECHA DE RESERVACIÓN REQUERIDA!",
+            { position: "top" }
+        );
 
         $("#txt-reservation-date").focus();
         $("#txt-people-amount").removeClass("border-danger");
@@ -86,7 +92,7 @@ $("#btn-reservation-1").click(function () {
 
     $("#txt-people-amount").removeClass("border-danger");
     $("#txt-reservation-date").removeClass("border-danger");
-    
+
     $('#reservation-modal').modal('toggle')
     $("#txt-name").focus();
 });
@@ -102,12 +108,16 @@ $("#btn-cancel-reservation").click(function () {
 
 $("#btn-confirm-reservation").click(function () {
     var firstName = $("#txt-name").val();
-    var lastName = $("#txt-last-name").val();
+    var lastName = $("#txt-last-names").val();
     var email = String($("#txt-email").val()).toLowerCase();
     var phone = $("#txt-phone").val();
 
     if (firstName === "") {
-        $.notify("¡NOMBRE REQUERIDO!", "warn");
+        $("#txt-name").notify(
+            "¡NOMBRE REQUERIDO!",
+            { position: "top" }
+        );
+
         $("#txt-name").focus();
         $("#txt-name").removeClass("border-danger");
 
@@ -115,15 +125,23 @@ $("#btn-confirm-reservation").click(function () {
     }
 
     if (lastName === "") {
-        $.notify("¡APELLIDOS REQUERIDOS!", "warn");
-        $("#txt-last-name").focus();
-        $("#txt-last-name").removeClass("border-danger");
+        $("#txt-last-names").notify(
+            "¡APELLIDOS REQUERIDOS!",
+            { position: "top" }
+        );
+
+        $("#txt-last-names").focus();
+        $("#txt-last-names").removeClass("border-danger");
 
         return;
     }
 
     if (email === "") {
-        $.notify("¡CORREO ELECTRÓNICO REQUERIDO!", "warn");
+        $("#txt-email").notify(
+            "¡CORREO ELECTRÓNICO REQUERIDO!",
+            { position: "top" }
+        );
+
         $("#txt-email").focus();
         $("#txt-email").removeClass("border-danger");
 
@@ -133,7 +151,11 @@ $("#btn-confirm-reservation").click(function () {
     var re = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
 
     if (!re.test(email)) {
-        $.notify("¡CORREO ELECTRÓNICO INVÁLIDO!", "warn");
+        $("#txt-email").notify(
+            "¡CORREO ELECTRÓNICO INVÁLIDO!",
+            { position: "top" }
+        );
+
         $("#txt-email").focus();
         $("#txt-email").removeClass("border-danger");
 
@@ -141,7 +163,11 @@ $("#btn-confirm-reservation").click(function () {
     }
 
     if (phone === "") {
-        $.notify("¡TELÉFONO REQUERIDO!", "warn");
+        $("#txt-phone").notify(
+            "¡TELÉFONO REQUERIDO!",
+            { position: "top" }
+        );
+
         $("#txt-phone").focus();
         $("#txt-phone").removeClass("border-danger");
 
