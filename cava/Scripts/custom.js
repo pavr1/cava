@@ -14,10 +14,28 @@
     $("#menu-reservation-id").click(function () {
         LoadReservation();
     });
+
+    SetCollapsableBehavior();
 });
 
+function ShouldItCollaps() {
+    var width = $(window).width();
+
+    //xs = < 576;
+    //sm = 576 - 767;
+    //md = 768 - 991;
+    //lg = 992 - 1190;
+    //xl = > 1200
+
+    //if with is less lg or xl (md/sm/xs)
+    return (width < 992);
+}
+
 function LoadBar() {
-    $('.collapse').collapse('toggle');
+    if (ShouldItCollaps()) {
+        $('.collapse').collapse('toggle');
+    }
+
     $('#main-container').fadeOut(500);
 
     setTimeout(() => {
@@ -28,7 +46,10 @@ function LoadBar() {
     }, 500);
 }
 function LoadKitchen() {
-    $('.collapse').collapse('toggle');
+    if (ShouldItCollaps()) {
+        $('.collapse').collapse('toggle');
+    }
+
     $('#main-container').fadeOut(500);
 
     setTimeout(() => {
@@ -39,8 +60,12 @@ function LoadKitchen() {
     }, 500);
 }
 function LoadExperience() {
+    if (ShouldItCollaps()) {
+        $('.collapse').collapse('toggle');
+    }
+
     $('#main-container').fadeOut(500);
-    $('.collapse').collapse('toggle');
+    
 
     setTimeout(() => {
         $.get("Home/Experience", {}, function (data) {
@@ -51,8 +76,11 @@ function LoadExperience() {
 }
 
 function LoadReservation() {
+    if (ShouldItCollaps()) {
+        $('.collapse').collapse('toggle');
+    }
+
     $('#main-container').fadeOut(500);
-    $('.collapse').collapse('toggle');
 
     setTimeout(() => {
         $.get("Home/Reservation", {}, function (data) {

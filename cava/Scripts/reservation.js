@@ -23,12 +23,16 @@ month[9] = "Octubre";
 month[10] = "Noviembre";
 month[11] = "Diciembre";
 
+var selectedReservationDate = new Date();
+
 var logic = function (currentDateTime) {
     var formattedDate = weekday[currentDateTime.getDay()] + " " + currentDateTime.getDate() + " de " + month[currentDateTime.getMonth()];
     var formattedTime = currentDateTime.toLocaleString('es-CR', { hour: 'numeric', minute: 'numeric', hour12: true });
 
     $('#lbl-reservation-date').html(formattedDate);
     $('#lbl-reservation-time').html(formattedTime);
+
+    selectedReservationDate = currentDateTime.toLocaleString('en-US');
 };
 
 jQuery('.custom-date').datetimepicker({
@@ -98,12 +102,7 @@ $("#btn-reservation-1").click(function () {
 });
 
 $("#btn-cancel-reservation").click(function () {
-    $("#txt-name").val("");
-    $("#txt-last-names").val("");
-    $("#txt-email").val("");
-    $("#txt-phone").val("");
-
-    $('#reservation-modal').modal('toggle')
+    ClearAndCloseModal();
 });
 
 $("#btn-confirm-reservation").click(function () {
@@ -174,4 +173,43 @@ $("#btn-confirm-reservation").click(function () {
         return;
     }
 
+    CreateReservation();
 });
+
+function ClearAndCloseModal() {
+    $("#txt-name").val("");
+    $("#txt-last-names").val("");
+    $("#txt-email").val("");
+    $("#txt-phone").val("");
+
+    $('#reservation-modal').modal('toggle')
+}
+
+function CrearReservationData() {
+    $("#txt-people-amount").val("");
+    $("#txt-reservation-date").val("");
+}
+
+function CreateReservation() {
+    var amount = $("#txt-people-amount").val();
+    var firstName = $("#txt-name").val();
+    var lastName = $("#txt-last-names").val();
+    var email = String($("#txt-email").val()).toLowerCase();
+    var phone = $("#txt-phone").val();
+
+    $.post("/Home/CreateReservation", { reservationDate: selectedReservationDate, numberOfPeople: amount, reserverFirstName: firstName, reserverLastName: lastName, DOB: null, phone: phone, email: email },
+        function (data) {
+            var code = Number(data);
+
+            if (code === 1) {
+                CrearReservationData();
+                ClearAndCloseModal();
+
+                $.notify("¡RESERVACIÓN CREADA!", "success");
+            } else if (code === 2) {
+                $.notify("¡DATOS INVÁLIDOS!", "warn");
+            } else if (code === -1) {
+                $.notify("¡ALGO SALIÓ MAL, INTENTA DE NUEVO!", "warn");
+            }
+        });
+}

@@ -1,4 +1,5 @@
 ﻿using cava.Custom.Serialization;
+using cava.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -46,6 +47,46 @@ namespace cava.Controllers
         public string Reservation()
         {
             return Serializer.RenderViewToString(this.ControllerContext, "Reservation", null);
+        }
+
+        [HttpPost]
+        public int CreateReservation(DateTime reservationDate, int numberOfPeople, string reserverFirstName, string reserverLastName, DateTime? DOB, string phone, string email)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    using (ApplicationDbContext db = new ApplicationDbContext())
+                    {
+                        var reservation = new Reservation
+                        {
+                            DOB = DOB,
+                            Email = email,
+                            NumberOfPeople = numberOfPeople,
+                            Phone = phone,
+                            ReservationDate = reservationDate,
+                            ReserverFirstName = reserverFirstName,
+                            ReserverLastName = reserverLastName,
+                            Status = Enums.ReservationStatus.Active
+                        };
+
+                        db.Reservations.Add(reservation);
+                        db.SaveChanges();
+                    }
+
+                    return 1;
+                }
+                else
+                {
+                    return 0;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                //log ex
+                return -1;
+            }
         }
     }
 }

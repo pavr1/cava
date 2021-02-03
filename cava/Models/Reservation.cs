@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using cava.Enums;
+using System;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
 
 namespace cava.Models
 {
@@ -11,7 +9,7 @@ namespace cava.Models
         public int ReservationId { get; set; }
         [Required]
         [Display(Name = "Fecha de Reservación")]
-        public DateTime Date { get; set; }
+        public DateTime ReservationDate { get; set; }
         [Required]
         [Display(Name = "Número de Personas")]
         public int NumberOfPeople { get; set; }
@@ -20,7 +18,7 @@ namespace cava.Models
         public string ReserverFirstName { get; set; }
         [Required]
         [Display(Name = "Apellidos")]
-        public string ReserverMiddleName { get; set; }
+        public string ReserverLastName { get; set; }
         [Display(Name = "Fecha de Nacimiento")]
         public DateTime? DOB { get; set; }
         [Required]
@@ -29,5 +27,6 @@ namespace cava.Models
         [Required]
         [Display(Name = "Correo Electrónico")]
         public string Email { get; set; }
+        public ReservationStatus Status { get; set; }
     }
 }
