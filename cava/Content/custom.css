@@ -69,8 +69,29 @@
     font-size: 1.5rem !important;
 }
 
-.custom-hr{
+.custom-hr {
     margin-top: 0rem !important;
     margin-bottom: 0rem !important;
-    border-color:white !important;
+    border-color: white !important;
+}
+
+
+.div-table {
+    background-color: white !important;
+    color: black !important;
+    font-family: Neucha,-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    padding: 5px !important;
+}
+
+.div-table-border {
+    border-top: 2px solid #333 !important;
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+}
+
+.btn-small{
+    height:30px;
+    width:30px;
+    color:white !important;
+    vertical-align:central !important;
 }

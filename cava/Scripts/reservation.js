@@ -29,8 +29,8 @@ var logic = function (currentDateTime) {
     var formattedDate = weekday[currentDateTime.getDay()] + " " + currentDateTime.getDate() + " de " + month[currentDateTime.getMonth()];
     var formattedTime = currentDateTime.toLocaleString('es-CR', { hour: 'numeric', minute: 'numeric', hour12: true });
 
-    $('#lbl-reservation-date').html(formattedDate);
-    $('#lbl-reservation-time').html(formattedTime);
+    $('#lbl-reservation-date').html(formattedDate.toUpperCase());
+    $('#lbl-reservation-time').html(formattedTime.toUpperCase());
 
     selectedReservationDate = currentDateTime.toLocaleString('en-US');
 };
@@ -97,7 +97,7 @@ $("#btn-reservation-1").click(function () {
     $("#txt-people-amount").removeClass("border-danger");
     $("#txt-reservation-date").removeClass("border-danger");
 
-    $('#reservation-modal').modal('toggle')
+    $('#reservation-modal').modal('toggle');
     $("#txt-name").focus();
 });
 
@@ -212,4 +212,8 @@ function CreateReservation() {
                 $.notify("¡ALGO SALIÓ MAL, INTENTA DE NUEVO!", "warn");
             }
         });
+}
+
+function UpdateReservationModal(reservationId) {
+    $('#reservation-modal').modal('toggle')
 }

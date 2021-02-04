@@ -12,6 +12,8 @@ namespace cava.Enums
         //reservation used and over
         Expired = 2,
         //reservation cancelled.
-        Cancelled = 3
+        Cancelled = 3,
+        //reservation confirmed
+        Confirmed = 4
     }
 }

@@ -15,10 +15,12 @@
         LoadReservation();
     });
 
-    SetCollapsableBehavior();
+    $("input[type=text]").keyup(function () {
+        $(this).val($(this).val().toUpperCase());
+    });
 });
 
-function ShouldItCollaps() {
+function ShouldItCollapse() {
     var width = $(window).width();
 
     //xs = < 576;
@@ -32,7 +34,7 @@ function ShouldItCollaps() {
 }
 
 function LoadBar() {
-    if (ShouldItCollaps()) {
+    if (ShouldItCollapse()) {
         $('.collapse').collapse('toggle');
     }
 
@@ -46,7 +48,7 @@ function LoadBar() {
     }, 500);
 }
 function LoadKitchen() {
-    if (ShouldItCollaps()) {
+    if (ShouldItCollapse()) {
         $('.collapse').collapse('toggle');
     }
 
@@ -60,7 +62,7 @@ function LoadKitchen() {
     }, 500);
 }
 function LoadExperience() {
-    if (ShouldItCollaps()) {
+    if (ShouldItCollapse()) {
         $('.collapse').collapse('toggle');
     }
 
@@ -76,7 +78,7 @@ function LoadExperience() {
 }
 
 function LoadReservation() {
-    if (ShouldItCollaps()) {
+    if (ShouldItCollapse()) {
         $('.collapse').collapse('toggle');
     }
 

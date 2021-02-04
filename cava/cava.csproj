@@ -4280,6 +4280,7 @@
     <Content Include="Scripts\popper.min.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Scripts\reservationhandler.js" />
     <Content Include="Scripts\reservation.js" />
     <Content Include="Scripts\src\index.js" />
     <Content Include="Scripts\src\methods\defaults.js" />
@@ -4406,6 +4407,7 @@
     <Content Include="Views\Home\Bar.cshtml" />
     <Content Include="Views\Home\Kitchen.cshtml" />
     <Content Include="Views\Home\Reservation.cshtml" />
+    <Content Include="Views\Home\ReservationHandler.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title - Cava</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
@@ -12,6 +12,8 @@
 
     <script src="~/Scripts/jquery-3.5.1.js"></script>
     <script src="~/Scripts/custom.js"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 </head>
 <body class="bg" style="overflow-y:scroll">
     <div class="navbar navbar-expand-lg fixed-top navbar-dark bg-primary">
@@ -48,6 +50,7 @@
                         <img src="~/Content/images/Icons/icon3.png" class="d-xl-none d-lg-block d-md-none d-sm-none d-none" style="height:50px;width:110px;border-radius:20px;" />
                     </div>
                 </div>
+                <a class="nav-link" href="~/Account/Login" id="loginLink"><i class="fas fa-sign-in-alt">&nbsp;</i>Inicia Sesión</a>
             </div>
         </nav>
     </div>
@@ -55,7 +58,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <p>&copy; @DateTime.Now.Year - cava.com</p>
         </footer>
     </div>
     @Scripts.Render("~/bundles/jquery")
