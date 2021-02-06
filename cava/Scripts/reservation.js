@@ -185,33 +185,39 @@ function ClearAndCloseModal() {
     $('#reservation-modal').modal('toggle')
 }
 
-function CrearReservationData() {
+function ClearReservationData() {
     $("#txt-people-amount").val("");
     $("#txt-reservation-date").val("");
 }
 
 function CreateReservation() {
+    $('#btn-confirm-reservation').html('<div class="d-inline-flex"><span class="spinner-grow spinner-grow-sm d-inline-block" role="status" aria-hidden="true"></span><span class="input-group-prepend ml-2">PROCESANDO...</span></div>');
+
     var amount = $("#txt-people-amount").val();
     var firstName = $("#txt-name").val();
     var lastName = $("#txt-last-names").val();
     var email = String($("#txt-email").val()).toLowerCase();
     var phone = $("#txt-phone").val();
 
-    $.post("/Home/CreateReservation", { reservationDate: selectedReservationDate, numberOfPeople: amount, reserverFirstName: firstName, reserverLastName: lastName, DOB: null, phone: phone, email: email },
-        function (data) {
-            var code = Number(data);
+    setTimeout(function () {
+        $.post("/Home/CreateReservation", { reservationDate: selectedReservationDate, numberOfPeople: amount, reserverFirstName: firstName, reserverLastName: lastName, DOB: null, phone: phone, email: email },
+            function (data) {
+                var code = Number(data);
 
-            if (code === 1) {
-                CrearReservationData();
-                ClearAndCloseModal();
+                if (code === 1) {
+                    ClearReservationData();
+                    ClearAndCloseModal();
 
-                $.notify("¡RESERVACIÓN CREADA!", "success");
-            } else if (code === 2) {
-                $.notify("¡DATOS INVÁLIDOS!", "warn");
-            } else if (code === -1) {
-                $.notify("¡ALGO SALIÓ MAL, INTENTA DE NUEVO!", "warn");
-            }
-        });
+                    $.notify("¡RESERVACIÓN CREADA!", "success");
+                } else if (code === 2) {
+                    $.notify("¡DATOS INVÁLIDOS!", "warn");
+                } else if (code === -1) {
+                    $.notify("¡ALGO SALIÓ MAL, INTENTA DE NUEVO!", "warn");
+                }
+
+                $('#btn-confirm-reservation').html('CONFIRMAR RESERVCIÓN');
+            });
+    }, 1000);
 }
 
 function UpdateReservationModal(reservationId) {

@@ -1,28 +1,25 @@
-﻿@model List<cava.Models.Reservation>
-
-
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cava - Cava</title>
+    <link href="/Content/bootstrap.css" rel="stylesheet">
+    <link href="/Content/site.css" rel="stylesheet">
 
-    <title>@ViewBag.Title - My ASP.NET Application</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+    <script src="/Scripts/modernizr-2.8.3.js"></script>
 
-    <link rel="stylesheet" href="~/Content/custom.css" />
-    <link rel="stylesheet" href="~/Content/bootstrap.css" />
-    <script src="~/Scripts/jquery-3.5.1.js"></script>
-    <script src="~/Scripts/custom.js"></script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <script src="https://unpkg.com/bootstrap-table@1.18.2/dist/bootstrap-table.min.js"></script>
+    <link rel="stylesheet" href="/Content/custom.css">
+    <link rel="stylesheet" href="/Content/bootstrap.css">
+
+    <script src="/Scripts/jquery-3.5.1.js"></script>
+    <script src="/Scripts/custom.js"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
-
-    <script src="~/Scripts/reservationhandler.js"></script>
+    <script src="/Scripts/jquery-mask/src/jquery.mask.js"></script>
 </head>
 <body class="bg" style="overflow-y:scroll">
     <div class="navbar navbar-expand-lg fixed-top navbar-dark bg-primary">
@@ -47,7 +44,7 @@
                 <div class="row col-xl-6 col-lg-2 col-md-12 col-sm-2">
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mt-md-3 mt-sm-3 mt-3">
                         <img src="~/Content/images/Icons/icon3.png" class="float-right d-xl-block d-lg-none d-md-block d-sm-none" style="height:50px;width:110px;border-radius:20px;" />
-                        <img src="~/Content/images/Icons/icon3.png" class="d-xl-none d-lg-block d-md-none d-sm-none d-none" style="height:50px;width:110px;border-radius:20px;" />
+                        <img src="~/Content/images/Icons/icon3.png" class="d-xl-none d-lg-block d-md-none d-sm-none d-none" style="height: 50px; width: 110px; border-radius: 20px;" />
                     </div>
                 </div>
                 <a class="nav-link" href="~/Account/Login" id="loginLink"><i class="fas fa-sign-in-alt">&nbsp;</i>Inicia Sesión</a>
@@ -58,145 +55,61 @@
     <br />
     <br />
     <br />
-    <div class="row">
-        <div class="col">
-            <label class="white-label">¡RESERVACIONES ACTIVAS!</label>
-        </div>
-    </div>
-    <hr class="custom-hr" />
-
-    <div class="container mt-3">
+    <br />
+    <div id="filter-container" class="card no-flex p-3" hidden="hidden">
         <div class="row">
-            <div class="col-lg-6 col-md-6 col-sm-11 col-xs-11">
-                <input type="text" class="search form-control" placeholder="BÚSQUEDA" />
-            </div>
-            <div class="col-lg-6 col-md-6 col-sm-1 col-xs-1">
-
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <label class="white-label">BÚSQUEDA</label>
             </div>
         </div>
-        <br />
-        <div class="list div-table">
-            <div class="d-xl-block d-lg-block d-md-none d-sm-none d-none">
-                <div class="row">
-                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-6">
-                        <label class="font-weight-bold font-weight-bolder"><b>A NOMBRE DE: </b></label>
-                    </div>
-                    <div class="col-xl-2 col-lg-2 col-md-2 col-sm-6 col-6">
-                        <label class="font-weight-bold">FECHA</label>
-                    </div>
-                    <div class="col-xl-1 col-lg-1 col-md-1 col-sm-12 col-12">
-                        <label class="font-weight-bold">PERSONAS</label>
-                    </div>
-                    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 col-6">
-                        <label class="font-weight-bold">CORREO ELECTRÓNICO</label>
-                    </div>
-                    <div class="col-xl-2 col-lg-2 col-md-2 col-sm-6 col-6">
-                        <label class="font-weight-bold">TELÉFONO</label>
-                    </div>
-                    <hr />
-                </div>
+        <div class="row">
+            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                <input id="txt-reservation-name" type="text" class="form-control no-max-width" placeholder="NOMBRE" />
             </div>
-            @foreach (var reservation in Model)
-            {
-                <div class="row div-table-border table-hover">
-                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-6">
-                        <label class="font-weight-bold d-xl-none d-lg-none d-md-block d-sm-block d-block">A NOMBRE DE: </label> <label class="">@reservation.ReserverFirstName  @reservation.ReserverLastName</label>
-                    </div>
-                    <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6 col-6 pt-xl-0 pt-lg-0 pt-md-4">
-                        <label class="font-weight-bold d-xl-none d-lg-none d-md-block d-sm-block d-block">FECHA: </label> <label class="">@reservation.ReservationDate</label>
-                    </div>
-                    <div class="d-xl-none d-lg-none d-md-none d-sm-none d-block pt-xl-0 pt-lg-0 col-6">
-
-                    </div>
-                    <div class="col-xl-1 col-lg-1 col-md-4 col-sm-6 col-6 pt-xl-0 pt-lg-0 pt-md-4">
-                        <label class="font-weight-bold d-xl-none d-lg-none d-md-block d-sm-block d-block">PERSONAS: </label> <label class="">@reservation.NumberOfPeople</label>
-                    </div>
-                    <div class="d-xl-none d-lg-none d-md-block d-sm-block d-block pt-xl-0 pt-lg-0 col-md-4 col-6">
-
-                    </div>
-                    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-6">
-                        <label class="font-weight-bold d-xl-none d-lg-none d-md-block d-sm-block d-block">CORREO ELECTRÓNICO: </label> <label class="">@reservation.Email</label>
-                    </div>
-                    <div class="d-xl-none d-lg-none d-md-none d-sm-none d-block pt-xl-0 pt-lg-0 col-6">
-
-                    </div>
-                    <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6 col-6">
-                        <label class="font-weight-bold d-xl-none d-lg-none d-md-block d-sm-block d-block">TELÉFONO: </label> <label class="">@reservation.Phone</label>
-                        <input type="button" class="btn btn-info float-right btn-small" value="..." onclick="UpdateReservationModal(@reservation.ReservationId, '@reservation.ReservationDate.ToString("dddd, dd MMMM")', '@reservation.ReservationDate.ToString("hh:mm tt")', '@reservation.ReserverFirstName', '@reservation.ReserverLastName',
-                            '@reservation.Email', '@reservation.Phone', @reservation.NumberOfPeople)" />
-                    </div>
-                    <hr />
-                </div>
-            }
-        </div>
-
-        <div id="reservation-handler-modal" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                    <div class="card no-flex">
-                        <div class="row pb-3 pl-3 pr-3">
-                            <input type="hidden" id="hdf-reservation-id" />
-                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-4 mt-3">
-                                <span class="bi bi-calendar pr-3"><br class="d-sm-none" /></span><label id="lbl-reservation-date" class="col-form-label white-label"></label>
-                            </div>
-                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-4 mt-3">
-                                <span class="bi bi-alarm pr-3"><br class="d-sm-none" /></span><label id="lbl-reservation-time" class="col-form-label white-label"></label>
-                            </div>
-                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-4 mt-3">
-                                <span class="bi bi-people pr-3"><br class="d-sm-none" /></span><label id="lbl-reservation-amount" class="col-form-label white-label"></label>
-                            </div>
-                        </div>
-                        <hr class="custom-hr" />
-                        <div class="row pb-3 pl-3 pr-3">
-                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 mt-3">
-                                <input type="text" class="form-control col pr-5" id="txt-name" value="" placeholder="NOMBRE" />
-                            </div>
-                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 mt-3 pl-md-0 pr-md-3">
-                                <input type="text" class="form-control col" id="txt-last-names" value="" disabled placeholder="APELLIDOS" />
-                            </div>
-                        </div>
-                        <div class="row pb-3 pl-3 pr-3">
-                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 mt-3">
-                                <input type="text" class="form-control col" id="txt-email" value="" disabled placeholder="CORREO ELECTRÓNICO" />
-                            </div>
-                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 mt-3 pl-md-0">
-                                <input type="text" class="form-control col" id="txt-phone" value="" disabled placeholder="TELÉFONO" />
-                            </div>
-                        </div>
-                        <div class="row pb-3 pl-3 pr-3">
-                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12 mt-3">
-                                <input id="btn-toggle-reservation" type="button" value="SALIR" class="btn btn-warning w-100" />
-                            </div>
-                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12 mt-3">
-                                <input id="btn-cancel-reservation" type="button" value="CANCELAR" class="btn btn-danger w-100" />
-                            </div>
-                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12 mt-3">
-                                <input id="btn-confirm-reservation" type="button" value="FINALIZAR" class="btn btn-info w-100" />
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                <input id="txt-reservation-email" type="text" class="form-control no-max-width" placeholder="CORREO ELECTRÓNICO" />
+            </div>
+            <div class="col-xl-3 col-lg-3 col-md-6 ccol-sm-12 col-xs-12">
+                <input id="txt-reservation-phone" type="text" class="form-control no-max-width" placeholder="TELÉFONO" />
+            </div>
+            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                <input id="txt-reservation-date" type="datetime" autocomplete="off" class="form-control custom-date col no-max-width" value="@DateTime.Now.ToString("dd/MM/yyyy")" placeholder="FECHA DE RESERVACIÓN" />
             </div>
         </div>
-
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - cava.com</p>
-        </footer>
+        <div class="row pt-3">
+            <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9 col-12">
+                <input type="hidden" id="hdn-selected-status" value="1" />
+                <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                    <label class="btn btn-info active" id="rdb-active">
+                        <input type="radio" name="options" autocomplete="off" checked> ACTIVAS
+                    </label>
+                    <label class="btn btn-info" id="rdb-canceled">
+                        <input type="radio" name="options" autocomplete="off"> CANCELADAS
+                    </label>
+                    <label class="btn btn-info" id="rdb-confirmed">
+                        <input type="radio" name="options" autocomplete="off"> CONFIRMADAS
+                    </label>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-12 pt-3 pt-xl-0 pt-lg-0 pt-md-0 pt-sm-0">
+                <input id="btn-retrieve-reservations" type="button" class="btn btn-info float-right" value="CONSULTAR" />
+            </div>
+        </div>
     </div>
+    <link rel="stylesheet" href="~/Content/jquery.datetimepicker.css" />
+    <script src="~/Scripts/jquery.datetimepicker.full.js"></script>
+    <div id="div-reservation-handler-container">
+
+    </div>
+
+    <link rel="stylesheet" href="/Content/jquery.datetimepicker.css">
+    <script src="/Scripts/jquery.datetimepicker.full.js"></script>
+    <script src="~/Scripts/reservationhandler.js"></script>
+    <hr>
+
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
 
-    <script src="~/Scripts/notify.js"></script>
-    <script>
-        $(document).ready(function () {
-            $("#tbl-reservations").on("keyup", function () {
-                var value = $(this).val().toLowerCase();
-                $("#tbl-reservations tr").filter(function () {
-                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-                });
-            });
-        });
-    </script>
+    <script src="/Scripts/notify.js"></script>
 </body>
 </html>

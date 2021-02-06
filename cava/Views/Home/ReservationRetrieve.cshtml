@@ -1,0 +1,128 @@
+﻿@model List<cava.Models.Reservation>
+
+<script src="~/Scripts/reservationretrieve.js"></script>
+<br />
+<div class="container mt-3">
+    <div class="row">
+        <div class="col">
+            <label class="white-label">¡RESERVACIONES ACTIVAS!</label>
+        </div>
+    </div>
+    <hr class="custom-hr" />
+
+    <br />
+    <div class="list div-table">
+        <div class="d-xl-block d-lg-block d-md-none d-sm-none d-none">
+            <div class="row">
+                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-6">
+                    <label class="font-weight-bold font-weight-bolder"><b>A NOMBRE DE: </b></label>
+                </div>
+                <div class="col-xl-2 col-lg-2 col-md-2 col-sm-6 col-6">
+                    <label class="font-weight-bold">FECHA</label>
+                </div>
+                <div class="col-xl-1 col-lg-1 col-md-1 col-sm-12 col-12">
+                    <label class="font-weight-bold">PERSONAS</label>
+                </div>
+                <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 col-6">
+                    <label class="font-weight-bold">CORREO ELECTRÓNICO</label>
+                </div>
+                <div class="col-xl-2 col-lg-2 col-md-2 col-sm-6 col-6">
+                    <label class="font-weight-bold">TELÉFONO</label>
+                </div>
+                <hr />
+            </div>
+        </div>
+        @if (Model.Count > 0)
+        {
+            foreach (var reservation in Model)
+            {
+                <div class="row div-table-border table-hover">
+                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-6">
+                        <label class="font-weight-bold d-xl-none d-lg-none d-md-block d-sm-block d-block">A NOMBRE DE: </label> <label class="">@reservation.ReserverFirstName  @reservation.ReserverLastName</label>
+                    </div>
+                    <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6 col-6 pt-xl-0 pt-lg-0 pt-md-4">
+                        <label class="font-weight-bold d-xl-none d-lg-none d-md-block d-sm-block d-block">FECHA: </label> <label class="">@reservation.ReservationDate</label>
+                    </div>
+                    <div class="d-xl-none d-lg-none d-md-none d-sm-none d-block pt-xl-0 pt-lg-0 col-6">
+
+                    </div>
+                    <div class="col-xl-1 col-lg-1 col-md-4 col-sm-6 col-6 pt-xl-0 pt-lg-0 pt-md-4">
+                        <label class="font-weight-bold d-xl-none d-lg-none d-md-block d-sm-block d-block">PERSONAS: </label> <label class="">@reservation.NumberOfPeople</label>
+                    </div>
+                    <div class="d-xl-none d-lg-none d-md-block d-sm-block d-block pt-xl-0 pt-lg-0 col-md-4 col-6">
+
+                    </div>
+                    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-6">
+                        <label class="font-weight-bold d-xl-none d-lg-none d-md-block d-sm-block d-block">CORREO ELECTRÓNICO: </label> <label class="">@reservation.Email</label>
+                    </div>
+                    <div class="d-xl-none d-lg-none d-md-none d-sm-none d-block pt-xl-0 pt-lg-0 col-6">
+
+                    </div>
+                    <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6 col-6">
+                        <label class="font-weight-bold d-xl-none d-lg-none d-md-block d-sm-block d-block">TELÉFONO: </label> <label class="">@reservation.Phone</label>
+                        <input type="button" class="btn btn-info float-right btn-small" value="..." onclick="UpdateReservationModal(@reservation.ReservationId, '@reservation.ReservationDate.ToString("dddd, dd MMMM")', '@reservation.ReservationDate.ToString("hh:mm tt")', '@reservation.ReserverFirstName', '@reservation.ReserverLastName',
+                            '@reservation.Email', '@reservation.Phone', @reservation.NumberOfPeople)" />
+                    </div>
+                    <hr />
+                </div>
+            }
+        }
+        else
+        {
+            <div class="row div-table-border table-hover">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                    <label class="font-weight-bold d-flex justify-content-center">¡NO SE ENCONTRAROR REGISTROS!</label>
+                </div>
+            </div>
+        }
+    </div>
+
+    <div id="reservation-handler-modal" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="card no-flex">
+                    <div class="row pb-3 pl-3 pr-3">
+                        <input type="hidden" id="hdf-reservation-id" />
+                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-4 mt-3">
+                            <span class="bi bi-calendar pr-3"><br class="d-sm-none" /></span><label id="lbl-reservation-date" class="col-form-label white-label"></label>
+                        </div>
+                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-4 mt-3">
+                            <span class="bi bi-alarm pr-3"><br class="d-sm-none" /></span><label id="lbl-reservation-time" class="col-form-label white-label"></label>
+                        </div>
+                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-4 mt-3">
+                            <span class="bi bi-people pr-3"><br class="d-sm-none" /></span><label id="lbl-reservation-amount" class="col-form-label white-label"></label>
+                        </div>
+                    </div>
+                    <hr class="custom-hr" />
+                    <div class="row pb-3 pl-3 pr-3">
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 mt-3">
+                            <input type="text" class="form-control col pr-5" id="txt-name" value="" placeholder="NOMBRE" />
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 mt-3 pl-md-0 pr-md-3">
+                            <input type="text" class="form-control col" id="txt-last-names" value="" disabled placeholder="APELLIDOS" />
+                        </div>
+                    </div>
+                    <div class="row pb-3 pl-3 pr-3">
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 mt-3">
+                            <input type="text" class="form-control col" id="txt-email" value="" disabled placeholder="CORREO ELECTRÓNICO" />
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 mt-3 pl-md-0">
+                            <input type="text" class="form-control col" id="txt-phone" value="" disabled placeholder="TELÉFONO" />
+                        </div>
+                    </div>
+                    <div class="row pb-3 pl-3 pr-3">
+                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12 mt-3">
+                            <input id="btn-toggle-reservation" type="button" value="SALIR" class="btn btn-warning w-100" />
+                        </div>
+                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12 mt-3">
+                            <input id="btn-cancel-reservation" type="button" value="CANCELAR" class="btn btn-danger w-100" />
+                        </div>
+                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12 mt-3">
+                            <input id="btn-confirm-reservation" type="button" value="FINALIZAR" class="btn btn-info w-100" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

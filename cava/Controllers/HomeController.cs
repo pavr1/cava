@@ -2,9 +2,7 @@
 using cava.Enums;
 using cava.Models;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace cava.Controllers
@@ -92,19 +90,45 @@ namespace cava.Controllers
 
         public ActionResult ReservationHandler()
         {
-            try
-            {
-                using (ApplicationDbContext db = new ApplicationDbContext())
-                {
-                    var activeReservations = db.Reservations.Where(x => x.Status == Enums.ReservationStatus.Active).OrderBy(o => o.ReservationDate).ToList();
+            return View();
+        }
 
-                    return View(activeReservations);
-                }
-            }
-            catch (Exception ex)
+        public string RetrieveReservations(string status, string name, string email, string phone, DateTime? date)
+        {
+            var statusEnum = ReservationStatus.Active;
+
+            if(date == null)
             {
-                //log ex
-                return View();
+                date = DateTime.Now;
+            }
+
+            if (!Enum.TryParse(status, out statusEnum))
+            {
+                //throw error (not likely to happen)
+            }
+
+            using (ApplicationDbContext db = new ApplicationDbContext())
+            {
+                var activeReservations = db.Reservations.Where(x => x.Status == statusEnum && System.Data.Entity.DbFunctions.TruncateTime(x.ReservationDate) == ((DateTime)date).Date);
+
+                if (name != null && !name.Trim().Equals(string.Empty))
+                {
+                    activeReservations = activeReservations.Where(x => name.Contains(x.ReserverFirstName) || name.Contains(x.ReserverLastName));
+                }
+
+                if (email != null && !email.Trim().Equals(string.Empty))
+                {
+                    activeReservations = activeReservations.Where(x => x.Email.Contains(email));
+                }
+
+                if (phone != null && !phone.Trim().Equals(string.Empty))
+                {
+                    activeReservations = activeReservations.Where(x => x.Phone.Contains(phone));
+                }
+
+                var list = activeReservations.ToList();
+
+                return Serializer.RenderViewToString(this.ControllerContext, "ReservationRetrieve", list);
             }
         }
 

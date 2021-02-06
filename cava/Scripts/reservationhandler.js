@@ -1,68 +1,105 @@
 ﻿$(document).ready(function () {
-    $('#btn-toggle-reservation').click(function () {
-        $('#reservation-handler-modal').modal('toggle');
+    $('#filter-container').fadeOut(1);
+    setTimeout(() => {
+        $('#filter-container').removeAttr('hidden');
+    }, 200);
+    $('#filter-container').fadeIn(800);
+
+    setTimeout(() => {
+        GetReservations();
+    }, 500);
+
+    $('#btn-retrieve-reservations').click(function () {
+        GetReservations();
     });
 
-    $('#btn-cancel-reservation').click(function () {
-        var reservationId = $('#hdf-reservation-id').val();
-
-        //3 = Canceled
-        UpdateReservation(reservationId, 3);
+    $('#rdb-active').click(function () {
+        $('#hdn-selected-status').val(1);
     });
 
-    $('#btn-confirm-reservation').click(function () {
-        var reservationId = $('#hdf-reservation-id').val();
-
-        //4 = Confirmed
-        UpdateReservation(reservationId, 4);
+    $('#rdb-canceled').click(function () {
+        $('#hdn-selected-status').val(3);
     });
 
+    $('#rdb-confirmed').click(function () {
+        $('#hdn-selected-status').val(4);
+    });
 });
 
-function UpdateReservationModal(reservationId, date, time, name, lastName, email, phone, amount) {
-    $('#hdf-reservation-id').val(reservationId);
-    $('#lbl-reservation-date').html(date);
-    $('#lbl-reservation-time').html(time);
-    $('#lbl-reservation-amount').html(amount);
+var selectedDate;
+var logic = function (currentDateTime) {
+    selectedDate = currentDateTime.toLocaleString('en-US');
+};
 
-    $('#txt-name').val(name);
-    $('#txt-last-names').val(lastName);
-    $('#txt-email').val(email);
-    $('#txt-phone').val(phone);
+$('.custom-date').datetimepicker({
+    format: 'd/m/Y',
+    onChangeDateTime: logic,
+    onShow: logic,
+    timepicker: false,
+    allowTimes: [
+        '12:00', '13:00', '15:00',
+        '17:00', '17:05', '17:20', '19:00', '20:00'
+    ],
+    formatDate: 'd/m/Y',
+    validateOnBlur: false,
+    minDate: new Date()
+});
 
-    $('#reservation-handler-modal').modal('toggle');
+function GetReservations() {
+    var status = $('#hdn-selected-status').val();
+    var name = $('#txt-reservation-name').val().trim();
+    var email = $('#txt-reservation-email').val().trim();
+    var phone = $('#txt-reservation-phone').val().trim();
+    var date = selectedDate;
+
+    $('#div-reservation-handler-container').fadeOut(500);
+
+    setTimeout(() => {
+        $.get('/Home/RetrieveReservations', { status: status, name, email: email, phone: phone, date: date },
+            function (data) {
+                $('#div-reservation-handler-container').html(data);
+                $('#div-reservation-handler-container').fadeIn(800);
+            });
+    }, 500);
 }
 
-function UpdateReservation(reservationId, statusId) {
-    if (statusId === 3) {
-        if (!confirm("¡CONFIRMA CANCELACIÓN!")) {
-            return;
-        }
-    } else if (statusId === 4) {
-        if (!confirm("¡CONFIRMA VERIFICACIÓN!")) {
-            return;
-        }
+$('#txt-reservation-date').change(function () {
+    var currentValue = $('#txt-reservation-date').val().trim();
+
+    if (currentValue === "") {
+        var today = new Date();
+        var todayFormatted = FormatEsDate(today);
+
+        $('#txt-reservation-date').val(todayFormatted);
+    }
+});
+
+function FormatEsDate(date) {
+    var day = date.getDate();
+    var month = date.getMonth() + 1;
+
+    if (day < 10) {
+        day = '0' + day;
     }
 
-    $.post('/Home/UpdateReservationStatus', { reservationId: reservationId, status: statusId },
-        function (data) {
-            var code = Number(data);
+    if (month < 10) {
+        month = '0' + month;
+    }
 
-            if (code === -1) {
-                $.notify("¡HUBO UN ERROR AL ENCONTRAR REGISTRO!", "error");
-            } else if (code === -2) {
-                $.notify("¡ESTADO INCORRECTO!", "error");
-            } else if (code === -3) {
-                $.notify("¡HUBO UN ERROR!", "error");
-            } else if (code === 1) {
-                var status = (statusId === 4) ? "CONFIRMADA" : "CANCELADA";
-
-                $.notify("¡RESERVACIÓN " + status + "!", "success");
-
-                $('#reservation-handler-modal').modal('toggle');
-            }
-
-            $('#reservation-handler-modal').modal('toggle');
-        });
+    return day + '/' + month + '/' + date.getFullYear();
 }
 
+function FormatEnDate(date) {
+    var day = date.getDate();
+    var month = date.getMonth() + 1;
+
+    if (day < 10) {
+        day = '0' + day;
+    }
+
+    if (month < 10) {
+        month = '0' + month;
+    }
+
+    return month + '/' + day + '/' + date.getFullYear();
+}

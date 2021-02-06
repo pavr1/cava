@@ -95,3 +95,7 @@
     color:white !important;
     vertical-align:central !important;
 }
+
+.no-max-width{
+    max-width:none;
+}
