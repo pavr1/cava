@@ -18,6 +18,21 @@
     $("input[type=text]").keyup(function () {
         $(this).val($(this).val().toUpperCase());
     });
+
+    $(window).bind("resize", function () {
+        return false;
+    });
+
+    $(window).bind("orientationchange", function () {
+        var orientation = window.orientation;
+
+        console.log(orientation);
+
+        var new_orientation = (orientation) ? 0 : 180 + orientation;
+        $('body').css({
+            "-webkit-transform": "rotate(" + new_orientation + "deg)"
+        });
+    });
 });
 
 function ShouldItCollapse() {

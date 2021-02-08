@@ -1,31 +1,30 @@
 ﻿jQuery.datetimepicker.setLocale('es-CR');
-
-var weekday = new Array(7);
-weekday[0] = "Domingo";
-weekday[1] = "Lunes";
-weekday[2] = "Martes";
-weekday[3] = "Miércoles";
-weekday[4] = "Jueves";
-weekday[5] = "Viernes";
-weekday[6] = "Sábado";
-
-var month = new Array();
-month[0] = "Enero";
-month[1] = "Febrero";
-month[2] = "Marzo";
-month[3] = "Abríl";
-month[4] = "Mayo";
-month[5] = "Junio";
-month[6] = "Julio";
-month[7] = "Agosto";
-month[8] = "Setiembre";
-month[9] = "Octubre";
-month[10] = "Noviembre";
-month[11] = "Diciembre";
-
 var selectedReservationDate = new Date();
 
 var logic = function (currentDateTime) {
+    var weekday = new Array(7);
+    weekday[0] = "Domingo";
+    weekday[1] = "Lunes";
+    weekday[2] = "Martes";
+    weekday[3] = "Miércoles";
+    weekday[4] = "Jueves";
+    weekday[5] = "Viernes";
+    weekday[6] = "Sábado";
+
+    var month = new Array();
+    month[0] = "Enero";
+    month[1] = "Febrero";
+    month[2] = "Marzo";
+    month[3] = "Abríl";
+    month[4] = "Mayo";
+    month[5] = "Junio";
+    month[6] = "Julio";
+    month[7] = "Agosto";
+    month[8] = "Setiembre";
+    month[9] = "Octubre";
+    month[10] = "Noviembre";
+    month[11] = "Diciembre";
+
     var formattedDate = weekday[currentDateTime.getDay()] + " " + currentDateTime.getDate() + " de " + month[currentDateTime.getMonth()];
     var formattedTime = currentDateTime.toLocaleString('es-CR', { hour: 'numeric', minute: 'numeric', hour12: true });
 
@@ -48,6 +47,16 @@ jQuery('.custom-date').datetimepicker({
     validateOnBlur: false,
     minDate: new Date()
 });
+
+setTimeout(function () {
+    $('#whatsapp-link').notify(
+        "¡CONTACTANOS!",
+        {
+            position: "left-top",
+            className: "success"
+        },
+    );
+}, 1000);
 
 $('#txt-phone').mask('0000-0000');
 
@@ -76,7 +85,10 @@ $("#btn-reservation-1").click(function () {
     if (amount === "") {
         $("#txt-people-amount").notify(
             "¡NÚMERO DE PERSONAS REQUERIDO!",
-            { position: "top" },
+            {
+                position: "top",
+                className: "warn"
+            },
         );
 
         $("#txt-people-amount").focus();
@@ -85,7 +97,10 @@ $("#btn-reservation-1").click(function () {
     } else if (reservationDateTime === "") {
         $("#txt-reservation-date").notify(
             "¡FECHA DE RESERVACIÓN REQUERIDA!",
-            { position: "top" }
+            {
+                position: "top",
+                className: "warn"
+            }
         );
 
         $("#txt-reservation-date").focus();
@@ -114,7 +129,10 @@ $("#btn-confirm-reservation").click(function () {
     if (firstName === "") {
         $("#txt-name").notify(
             "¡NOMBRE REQUERIDO!",
-            { position: "top" }
+            {
+                position: "top",
+                className: "warn"
+            }
         );
 
         $("#txt-name").focus();
@@ -126,7 +144,10 @@ $("#btn-confirm-reservation").click(function () {
     if (lastName === "") {
         $("#txt-last-names").notify(
             "¡APELLIDOS REQUERIDOS!",
-            { position: "top" }
+            {
+                position: "top",
+                className: "warn"
+            }
         );
 
         $("#txt-last-names").focus();
@@ -138,7 +159,10 @@ $("#btn-confirm-reservation").click(function () {
     if (email === "") {
         $("#txt-email").notify(
             "¡CORREO ELECTRÓNICO REQUERIDO!",
-            { position: "top" }
+            {
+                position: "top",
+                className: "warn"
+            }
         );
 
         $("#txt-email").focus();
@@ -152,7 +176,10 @@ $("#btn-confirm-reservation").click(function () {
     if (!re.test(email)) {
         $("#txt-email").notify(
             "¡CORREO ELECTRÓNICO INVÁLIDO!",
-            { position: "top" }
+            {
+                position: "top",
+                className: "warn"
+            }
         );
 
         $("#txt-email").focus();
@@ -164,7 +191,10 @@ $("#btn-confirm-reservation").click(function () {
     if (phone === "") {
         $("#txt-phone").notify(
             "¡TELÉFONO REQUERIDO!",
-            { position: "top" }
+            {
+                position: "top",
+                className: "warn"
+            }
         );
 
         $("#txt-phone").focus();
@@ -192,6 +222,8 @@ function ClearReservationData() {
 
 function CreateReservation() {
     $('#btn-confirm-reservation').html('<div class="d-inline-flex"><span class="spinner-grow spinner-grow-sm d-inline-block" role="status" aria-hidden="true"></span><span class="input-group-prepend ml-2">PROCESANDO...</span></div>');
+    $('#btn-confirm-reservation').prop('disabled', true);
+    $('#btn-cancel-reservation').prop('disabled', true);
 
     var amount = $("#txt-people-amount").val();
     var firstName = $("#txt-name").val();
@@ -216,6 +248,8 @@ function CreateReservation() {
                 }
 
                 $('#btn-confirm-reservation').html('CONFIRMAR RESERVCIÓN');
+                $('#btn-confirm-reservation').prop('disabled', false);
+                $('#btn-cancel-reservation').prop('disabled', false);
             });
     }, 1000);
 }

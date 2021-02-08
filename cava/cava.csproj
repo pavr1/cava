@@ -4042,6 +4042,7 @@
     <Content Include="Content\images\Kitchen\cava_83.jpg" />
     <Content Include="Content\images\Kitchen\cava_86.jpg" />
     <Content Include="Content\images\Kitchen\cava_92.jpg" />
+    <Content Include="Content\images\whatsapp.png" />
     <Content Include="Content\jquery.datetimepicker.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
