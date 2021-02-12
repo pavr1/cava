@@ -15,6 +15,14 @@
         LoadReservation();
     });
 
+    $("#menu-login").click(function () {
+        LoadLogin();
+    });
+
+    $("#lbl-login").click(function () {
+        LoadLogin();
+    });
+
     $("input[type=text]").keyup(function () {
         $(this).val($(this).val().toUpperCase());
     });
@@ -23,16 +31,16 @@
         return false;
     });
 
-    $(window).bind("orientationchange", function () {
-        var orientation = window.orientation;
+    //$(window).bind("orientationchange", function () {
+    //    var orientation = window.orientation;
 
-        console.log(orientation);
+    //    console.log(orientation);
 
-        var new_orientation = (orientation) ? 0 : 180 + orientation;
-        $('body').css({
-            "-webkit-transform": "rotate(" + new_orientation + "deg)"
-        });
-    });
+    //    var new_orientation = (orientation) ? 0 : 180 + orientation;
+    //    $('body').css({
+    //        "-webkit-transform": "rotate(" + new_orientation + "deg)"
+    //    });
+    //});
 });
 
 function ShouldItCollapse() {
@@ -76,6 +84,7 @@ function LoadKitchen() {
         });
     }, 500);
 }
+
 function LoadExperience() {
     if (ShouldItCollapse()) {
         $('.collapse').collapse('toggle');
@@ -103,6 +112,17 @@ function LoadReservation() {
         $.get("Home/Reservation", {}, function (data) {
             $('#main-container').html(data);
             $('#main-container').fadeIn(800);
+        });
+    }, 500);
+}
+
+function LoadLogin() {
+    $('#div-reservation-handler-login-container').fadeOut(500);
+
+    setTimeout(() => {
+        $.get("/Home/Login", {}, function (data) {
+            $('#div-reservation-handler-login-container').html(data);
+            $('#div-reservation-handler-login-container').fadeIn(800);
         });
     }, 500);
 }

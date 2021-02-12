@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNet.Identity
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -41,13 +43,25 @@
                         </a>
                     </div>
                 </div>
-                <div class="row col-xl-6 col-lg-2 col-md-12 col-sm-2">
+                <div class="row col-xl-6 col-lg-2 col-md-12 col-sm-2 mr-0">
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mt-md-3 mt-sm-3 mt-3">
                         <img src="~/Content/images/Icons/icon3.png" class="float-right d-xl-block d-lg-none d-md-block d-sm-none" style="height:50px;width:110px;border-radius:20px;" />
                         <img src="~/Content/images/Icons/icon3.png" class="d-xl-none d-lg-block d-md-none d-sm-none d-none" style="height: 50px; width: 110px; border-radius: 20px;" />
                     </div>
                 </div>
-                <a class="nav-link" href="~/Account/Login" id="loginLink"><i class="fas fa-sign-in-alt">&nbsp;</i>Inicia Sesión</a>
+                @if (Request.IsAuthenticated)
+                {
+                    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <a href="javascript:document.getElementById('logoutForm').submit()" class="nav-link white-label p-1" title="CERRAR SESIÓN"><i class="bi bi-person-x">&nbsp;</i></a>
+                    }
+                }
+                else
+                {
+                    <a id="menu-login" class="nav-link white-label p-1" href="#" title="INICIA SESIÓN"><i class="bi bi-person">&nbsp;</i></a>
+                }
             </div>
         </nav>
     </div>
@@ -56,50 +70,73 @@
     <br />
     <br />
     <br />
-    <div id="filter-container" class="card no-flex p-3" hidden="hidden">
-        <div class="row">
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <label class="white-label">BÚSQUEDA</label>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-xs-12">
-                <input id="txt-reservation-name" type="text" class="form-control no-max-width" placeholder="NOMBRE" />
-            </div>
-            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-xs-12">
-                <input id="txt-reservation-email" type="text" class="form-control no-max-width" placeholder="CORREO ELECTRÓNICO" />
-            </div>
-            <div class="col-xl-3 col-lg-3 col-md-6 ccol-sm-12 col-xs-12">
-                <input id="txt-reservation-phone" type="text" class="form-control no-max-width" placeholder="TELÉFONO" />
-            </div>
-            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-xs-12">
-                <input id="txt-reservation-date" type="datetime" autocomplete="off" class="form-control custom-date col no-max-width" value="@DateTime.Now.ToString("dd/MM/yyyy")" placeholder="FECHA DE RESERVACIÓN" />
-            </div>
-        </div>
-        <div class="row pt-3">
-            <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9 col-12">
-                <input type="hidden" id="hdn-selected-status" value="1" />
-                <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                    <label class="btn btn-info active" id="rdb-active">
-                        <input type="radio" name="options" autocomplete="off" checked> ACTIVAS
-                    </label>
-                    <label class="btn btn-info" id="rdb-canceled">
-                        <input type="radio" name="options" autocomplete="off"> CANCELADAS
-                    </label>
-                    <label class="btn btn-info" id="rdb-confirmed">
-                        <input type="radio" name="options" autocomplete="off"> CONFIRMADAS
-                    </label>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-12 pt-3 pt-xl-0 pt-lg-0 pt-md-0 pt-sm-0">
-                <input id="btn-retrieve-reservations" type="button" class="btn btn-info float-right" value="CONSULTAR" />
-            </div>
-        </div>
-    </div>
+    <br />
+
     <link rel="stylesheet" href="~/Content/jquery.datetimepicker.css" />
     <script src="~/Scripts/jquery.datetimepicker.full.js"></script>
-    <div id="div-reservation-handler-container">
 
+    <div id="div-reservation-handler-login-container">
+        @{if (User != null && User.Identity != null && User.Identity.IsAuthenticated)
+            {
+                <div id="filter-container" class="card no-flex p-3" hidden="hidden">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <label class="white-label">BÚSQUEDA</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <input id="txt-reservation-name" type="text" class="form-control no-max-width" placeholder="NOMBRE" />
+                        </div>
+                        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <input id="txt-reservation-email" type="text" class="form-control no-max-width" placeholder="CORREO ELECTRÓNICO" />
+                        </div>
+                        <div class="col-xl-3 col-lg-3 col-md-6 ccol-sm-12 col-xs-12">
+                            <input id="txt-reservation-phone" type="text" class="form-control no-max-width" placeholder="TELÉFONO" />
+                        </div>
+                        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                            <input id="txt-reservation-date" type="datetime" autocomplete="off" class="form-control custom-date col no-max-width" value="@DateTime.Now.ToString("dd/MM/yyyy")" placeholder="FECHA DE RESERVACIÓN" />
+                        </div>
+                    </div>
+                    <div class="row pt-3">
+                        <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9 col-12">
+                            <input type="hidden" id="hdn-selected-status" value="1" />
+                            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                <label class="btn btn-info active" id="rdb-active">
+                                    <input type="radio" name="options" autocomplete="off" checked> ACTIVAS
+                                </label>
+                                <label class="btn btn-info" id="rdb-canceled">
+                                    <input type="radio" name="options" autocomplete="off"> CANCELADAS
+                                </label>
+                                <label class="btn btn-info" id="rdb-confirmed">
+                                    <input type="radio" name="options" autocomplete="off"> CONFIRMADAS
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-12 pt-3 pt-xl-0 pt-lg-0 pt-md-0 pt-sm-0">
+                            <input id="btn-retrieve-reservations" type="button" class="btn btn-info float-right" value="CONSULTAR" />
+                        </div>
+                    </div>
+                </div>
+                <div id="div-reservation-handler-container">
+
+                </div>
+            }
+            else
+            {
+                <br />
+                <br />
+                <br />
+                <hr />
+                <div class="row">
+                    <div class="col-xl-4 col-lg-4 col-md-2 col-sm-2 d-none d-sm-block"></div>
+                    <div class="col-xl-4 col-lg-4 col-md-8 col-sm-8 col-12">
+                        <label id="lbl-login" class="btn btn-lg btn-success white-label w-100 font-weight-bold">POR FAVOR INICIA SESIÓN AQUÍ</label>
+                    </div>
+                    <div class="col-xl-4 col-lg-4 col-md-2 col-sm-2 d-none d-sm-block"></div>
+                </div>
+            }
+        }
     </div>
 
     <link rel="stylesheet" href="/Content/jquery.datetimepicker.css">

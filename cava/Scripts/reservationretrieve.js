@@ -59,6 +59,8 @@ function UpdateReservation(reservationId, statusId, ctrlid) {
                 $.notify("¡RESERVACIÓN " + status + "!", "success");
 
                 $('#reservation-handler-modal').modal('toggle');
+
+                GetReservations();
             }
 
             $('#reservation-handler-modal').modal('toggle');

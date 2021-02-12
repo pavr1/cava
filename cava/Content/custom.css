@@ -136,7 +136,7 @@
     }
 }*/
 
-@media (orientation: landscape) {
+/*@media (orientation: landscape) {
     body {
         flex-direction: row;
     }
@@ -146,4 +146,4 @@
     body {
         flex-direction: row;
     }
-}
+}*/

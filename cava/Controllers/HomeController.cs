@@ -4,6 +4,7 @@ using cava.Models;
 using System;
 using System.Linq;
 using System.Web.Mvc;
+using System.Web.UI;
 
 namespace cava.Controllers
 {
@@ -48,6 +49,11 @@ namespace cava.Controllers
             return Serializer.RenderViewToString(this.ControllerContext, "Reservation", null);
         }
 
+        public string Login()
+        {
+            return Serializer.RenderViewToString(this.ControllerContext, "Login", null);
+        }
+
         [HttpPost]
         public int CreateReservation(DateTime reservationDate, int numberOfPeople, string reserverFirstName, string reserverLastName, DateTime? DOB, string phone, string email)
         {
@@ -88,8 +94,15 @@ namespace cava.Controllers
             }
         }
 
-        public ActionResult ReservationHandler()
+        public ActionResult ReservationHandler(string msg)
         {
+            ViewBag.Message = msg;
+
+            //var script = "$('#txt-email').notify('¡" + msg + "!', { position: 'top', className: 'warn' });";
+
+            //var scriptManager = ScriptManager.GetCurrent(this);
+            //new ClientScriptManager().RegisterStartupScript(script);
+
             return View();
         }
 

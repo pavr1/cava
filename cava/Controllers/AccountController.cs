@@ -79,15 +79,14 @@ namespace cava.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
-                    return RedirectToLocal(returnUrl);
+                    return RedirectToLocal("~/home/reservationhandler?msg=¡BIENVENIDO!");
                 case SignInStatus.LockedOut:
                     return View("Lockout");
                 case SignInStatus.RequiresVerification:
                     return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = model.RememberMe });
                 case SignInStatus.Failure:
                 default:
-                    ModelState.AddModelError("", "Invalid login attempt.");
-                    return View(model);
+                    return RedirectToLocal("~/home/reservationhandler?msg=¡USUARIO O CONTRASEÑA INCORRECTA!");
             }
         }
 
@@ -392,7 +391,7 @@ namespace cava.Controllers
         public ActionResult LogOff()
         {
             AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("ReservationHandler?msg=¡HASTA LUEGO!", "Home");
         }
 
         //

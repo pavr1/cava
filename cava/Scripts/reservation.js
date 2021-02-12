@@ -1,7 +1,20 @@
 ﻿jQuery.datetimepicker.setLocale('es-CR');
 var selectedReservationDate = new Date();
 
+//$('#lbl-reservation-message').fadeOut(10);
+
 var logic = function (currentDateTime) {
+
+    var formattedDate = FormatDate(currentDateTime);
+    var formattedTime = FormatTime(currentDateTime);
+
+    $('#lbl-reservation-date').html(formattedDate);
+    $('#lbl-reservation-time').html(formattedTime);
+
+    selectedReservationDate = currentDateTime.toLocaleString('en-US');
+};
+
+function FormatDate(currentDateTime) {
     var weekday = new Array(7);
     weekday[0] = "Domingo";
     weekday[1] = "Lunes";
@@ -25,14 +38,12 @@ var logic = function (currentDateTime) {
     month[10] = "Noviembre";
     month[11] = "Diciembre";
 
-    var formattedDate = weekday[currentDateTime.getDay()] + " " + currentDateTime.getDate() + " de " + month[currentDateTime.getMonth()];
-    var formattedTime = currentDateTime.toLocaleString('es-CR', { hour: 'numeric', minute: 'numeric', hour12: true });
+    return weekday[currentDateTime.getDay()] + " " + currentDateTime.getDate() + " de " + month[currentDateTime.getMonth()].toUpperCase();
+}
 
-    $('#lbl-reservation-date').html(formattedDate.toUpperCase());
-    $('#lbl-reservation-time').html(formattedTime.toUpperCase());
-
-    selectedReservationDate = currentDateTime.toLocaleString('en-US');
-};
+function FormatTime(currentDateTime) {
+    return currentDateTime.toLocaleString('es-CR', { hour: 'numeric', minute: 'numeric', hour12: true }).toUpperCase();
+}
 
 jQuery('.custom-date').datetimepicker({
     format: 'd/m/Y h:i a',
@@ -241,6 +252,14 @@ function CreateReservation() {
                     ClearAndCloseModal();
 
                     $.notify("¡RESERVACIÓN CREADA!", "success");
+                    
+                    $('#lbl-reservation-message').html('HAS HECHO UNA RESERVA PARA ' + amount + ' PERSONAS EL ' + FormatDate(new Date(selectedReservationDate)) + ' A LAS ' + FormatTime(new Date(selectedReservationDate)));
+                    $('#lbl-reservation-message').fadeIn(500);
+
+                    setTimeout(function () {
+                        $('#lbl-reservation-message').fadeOut(500);
+                        $('#lbl-reservation-message').html("");
+                    }, 5000);
                 } else if (code === 2) {
                     $.notify("¡DATOS INVÁLIDOS!", "warn");
                 } else if (code === -1) {
