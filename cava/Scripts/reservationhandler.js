@@ -3,11 +3,16 @@
     setTimeout(() => {
         $('#filter-container').removeAttr('hidden');
     }, 200);
+
     $('#filter-container').fadeIn(800);
 
-    //setTimeout(() => {
-    //    GetReservations();
-    //}, 500);
+    setTimeout(() => {
+        GetReservations();
+    }, 500);
+
+    $('#menu-reservations').click(function () {
+        GetReservations();
+    });
 
     $('#btn-retrieve-reservations').click(function () {
         GetReservations();
@@ -24,8 +29,6 @@
     $('#rdb-confirmed').click(function () {
         $('#hdn-selected-status').val(4);
     });
-
-    alert(@ViewBag.Message);
 });
 
 var selectedDate;

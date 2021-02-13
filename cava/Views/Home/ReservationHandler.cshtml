@@ -36,12 +36,15 @@
 
             <div class="collapse navbar-collapse" id="navbarColor02">
                 <div class="row col-xl-6 col-lg-10 col-md-12 col-sm-10 pl-0 pr-0">
-                    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-6 center-aligned">
-                        <a id="menu-experience-id" class="nav-link btn btn-primary w-100">
-                            CONSULTA DE RESERVACIONES
-                            <span class="sr-only">(current)</span>
-                        </a>
-                    </div>
+                    @if (Request.IsAuthenticated)
+                    {
+                        <div class="p-3">
+                            <a id="menu-reservations" class="nav-link btn btn-primary w-100">
+                                CONSULTA DE RESERVACIONES
+                                <span class="sr-only">(current)</span>
+                            </a>
+                        </div>
+                    }
                 </div>
                 <div class="row col-xl-6 col-lg-2 col-md-12 col-sm-2 mr-0">
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mt-md-3 mt-sm-3 mt-3">
@@ -76,7 +79,21 @@
     <script src="~/Scripts/jquery.datetimepicker.full.js"></script>
 
     <div id="div-reservation-handler-login-container">
-        @{if (User != null && User.Identity != null && User.Identity.IsAuthenticated)
+        @if (!string.IsNullOrEmpty(Session["msg"]?.ToString()))
+        {
+            <div class="row">
+                <div class="col-xl-4 col-lg-4 col-md-2 col-sm-2 d-none d-sm-block">
+                </div>
+                <div class="col-xl-4 col-lg-4 col-md-8 col-sm-8 col-12 center-aligned">
+                    <label class="white-label font-weight-bold">@Session["msg"]</label>
+                </div>
+                <div class="col-xl-4 col-lg-4 col-md-2 col-sm-2 d-none d-sm-block"></div>
+            </div>
+
+            Session["msg"] = null;
+        }
+        @{
+            if (User != null && User.Identity != null && User.Identity.IsAuthenticated)
             {
                 <div id="filter-container" class="card no-flex p-3" hidden="hidden">
                     <div class="row">

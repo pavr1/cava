@@ -1,8 +1,11 @@
-﻿using cava.Custom.Serialization;
+﻿using cava.Custom.Notification;
+using cava.Custom.Serialization;
 using cava.Enums;
 using cava.Models;
+using Microsoft.AspNet.Identity;
 using System;
 using System.Linq;
+using System.Web.Configuration;
 using System.Web.Mvc;
 using System.Web.UI;
 
@@ -10,6 +13,13 @@ namespace cava.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly EmailSender _emailService;
+
+        public HomeController()
+        {
+            _emailService = new EmailSender();
+        }
+
         public ActionResult Index()
         {
             return View();
@@ -77,6 +87,26 @@ namespace cava.Controllers
 
                         db.Reservations.Add(reservation);
                         db.SaveChanges();
+
+                        IdentityMessage msg = new IdentityMessage
+                        {
+                            Body = string.Format("<html><head></head><body>{0} HA REALIZADO UNA RESERVA DE {1} PERSONA(S) PARA EL {2}. <br /> INFORMACIÓN DE USUARIO: <br /> - CORREO ELECTRÓNICO: {3} <br /> - TELÉFONO: {4} </body></html>",
+                            reserverFirstName + " " + reserverLastName, numberOfPeople, reservationDate.ToString("dd/MM/yyyy") + " a las " + reservationDate.ToShortTimeString(), email, phone),
+                            Destination = WebConfigurationManager.AppSettings["adminEmail"],
+                            Subject = "NUEVA RESERVA CREADA"
+                        };
+
+                        _emailService.SendAsync(msg);
+
+                        msg = new IdentityMessage
+                        {
+                            Body = string.Format("<html><head></head><body>USTED HA REALIZADO UNA RESERVA EN WWW.CAVARESTOBAR.COM DE {0} PERSONA(S) PARA EL {1}. </body></html>",
+                            numberOfPeople, reservationDate.ToString("dd/MM/yyyy") + " a las " + reservationDate.ToShortTimeString(), email, phone),
+                            Destination = email,
+                            Subject = "RESERVACIONES CAVA RESTOBAR"
+                        };
+
+                        _emailService.SendAsync(msg);
                     }
 
                     return 1;
@@ -110,7 +140,7 @@ namespace cava.Controllers
         {
             var statusEnum = ReservationStatus.Active;
 
-            if(date == null)
+            if (date == null)
             {
                 date = DateTime.Now;
             }
