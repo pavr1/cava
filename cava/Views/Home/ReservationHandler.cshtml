@@ -120,13 +120,13 @@
                             <input type="hidden" id="hdn-selected-status" value="1" />
                             <div class="btn-group btn-group-toggle" data-toggle="buttons">
                                 <label class="btn btn-info active" id="rdb-active">
-                                    <input type="radio" name="options" autocomplete="off" checked> ACTIVAS
+                                    <input id="rbt-active" type="radio" name="options" autocomplete="off" checked> ACTIVAS
                                 </label>
                                 <label class="btn btn-info" id="rdb-canceled">
-                                    <input type="radio" name="options" autocomplete="off"> CANCELADAS
+                                    <input id="rbt-canceled" type="radio" name="options" autocomplete="off"> CANCELADAS
                                 </label>
                                 <label class="btn btn-info" id="rdb-confirmed">
-                                    <input type="radio" name="options" autocomplete="off"> CONFIRMADAS
+                                    <input id="rbt-confirmed" type="radio" name="options" autocomplete="off"> CONFIRMADAS
                                 </label>
                             </div>
                         </div>
@@ -135,6 +135,13 @@
                         </div>
                     </div>
                 </div>
+                <br />
+                <div class="row">
+                    <div class="col">
+                        <label id="lbl-retrieve-tltie" class="white-label">¡RESERVACIONES ACTIVAS!</label>
+                    </div>
+                </div>
+                <hr class="custom-hr" />
                 <div id="div-reservation-handler-container">
 
                 </div>

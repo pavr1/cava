@@ -18,6 +18,16 @@ namespace cava.Controllers
         public HomeController()
         {
             _emailService = new EmailSender();
+
+            IdentityMessage msg = new IdentityMessage
+            {
+                Body = string.Format("<html><head></head><body>{0} HA REALIZADO UNA RESERVA DE {1} PERSONA(S) PARA EL {2}. <br /> INFORMACIÓN DE USUARIO: <br /> - CORREO ELECTRÓNICO: {3} <br /> - TELÉFONO: {4} </body></html>",
+                            "PABLO VILLALOBOS", 2, new DateTime().ToString("dd/MM/yyyy") + " a las " + new DateTime().ToShortTimeString(), "pavr1@hotmail.com", "8844-3317"),
+                Destination = WebConfigurationManager.AppSettings["adminEmail"],
+                Subject = "NUEVA RESERVA CREADA"
+            };
+
+            _emailService.SendAsync(msg);
         }
 
         public ActionResult Index()

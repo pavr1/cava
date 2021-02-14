@@ -253,13 +253,16 @@ function CreateReservation() {
 
                     $.notify("¡RESERVACIÓN CREADA!", "success");
                     
-                    $('#lbl-reservation-message').html('HAS HECHO UNA RESERVA PARA ' + amount + ' PERSONAS EL ' + FormatDate(new Date(selectedReservationDate)) + ' A LAS ' + FormatTime(new Date(selectedReservationDate)));
+                    $('#lbl-reservation-message').html('HAS HECHO UNA RESERVA PARA ' + amount + ' PERSONAS EL ' + FormatDate(new Date(selectedReservationDate)).toUpperCase() + ' A LAS ' + FormatTime(new Date(selectedReservationDate)));
                     $('#lbl-reservation-message').fadeIn(500);
 
                     setTimeout(function () {
                         $('#lbl-reservation-message').fadeOut(500);
-                        $('#lbl-reservation-message').html("");
-                    }, 5000);
+
+                        setTimeout(function () {
+                            $('#lbl-reservation-message').html("");
+                        }, 500);
+                    }, 8000);
                 } else if (code === 2) {
                     $.notify("¡DATOS INVÁLIDOS!", "warn");
                 } else if (code === -1) {

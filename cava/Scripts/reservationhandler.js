@@ -18,6 +18,24 @@
         GetReservations();
     });
 
+    $('#rbt-active').click(function () {
+        GetReservations();
+
+        $('#lbl-retrieve-tltie').html("RESERVACIONES ACTIVAS");
+    });
+
+    $('#rbt-canceled').click(function () {
+        $('#lbl-retrieve-tltie').html("RESERVACIONES CANCELADAS");
+
+        GetReservations();
+    });
+
+    $('#rbt-confirmed').click(function () {
+        $('#lbl-retrieve-tltie').html("RESERVACIONES CONFIRMADAS");
+
+        GetReservations();
+    });
+
     $('#rdb-active').click(function () {
         $('#hdn-selected-status').val(1);
     });
