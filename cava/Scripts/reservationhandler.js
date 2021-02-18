@@ -77,11 +77,21 @@ function GetReservations() {
 
     $('#div-reservation-handler-container').fadeOut(500);
 
+    StartProcessing('btn-retrieve-reservations');
+    DisableControl('rdb-active');
+    DisableControl('rdb-canceled');
+    DisableControl('rdb-confirmed');
+
     setTimeout(() => {
         $.get('/Home/RetrieveReservations', { status: status, name, email: email, phone: phone, date: date },
             function (data) {
                 $('#div-reservation-handler-container').html(data);
                 $('#div-reservation-handler-container').fadeIn(800);
+
+                EnableControl('btn-retrieve-reservations');
+                EnableControl('rdb-active');
+                EnableControl('rdb-canceled');
+                EnableControl('rdb-confirmed');
             });
     }, 500);
 }

@@ -7,7 +7,7 @@
         var reservationId = $('#hdf-reservation-id').val();
 
         //3 = Canceled
-        UpdateReservation(reservationId, 3, 'btn-confirm-reservation');
+        UpdateReservation(reservationId, 3, 'btn-cancel-reservation');
     });
 
     $('#btn-confirm-reservation').click(function () {
@@ -43,6 +43,12 @@ function UpdateReservation(reservationId, statusId, ctrlid) {
         }
     }
 
+    StartProcessing(ctrlid);
+    DisableControl('rdb-active');
+    DisableControl('rdb-canceled');
+    DisableControl('rdb-confirmed');
+    DisableControl('btn-retrieve-reservations');
+
     $.post('/Home/UpdateReservationStatus', { reservationId: reservationId, status: statusId },
         function (data) {
             var code = Number(data);
@@ -64,5 +70,10 @@ function UpdateReservation(reservationId, statusId, ctrlid) {
             }
 
             $('#reservation-handler-modal').modal('toggle');
+
+            EnableControl('rdb-active');
+            EnableControl('rdb-canceled');
+            EnableControl('rdb-confirmed');
+            EnableControl('btn-retrieve-reservations');
         });
 }

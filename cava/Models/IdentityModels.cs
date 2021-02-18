@@ -31,5 +31,6 @@ namespace cava.Models
         }
 
         public System.Data.Entity.DbSet<cava.Models.Reservation> Reservations { get; set; }
+        public System.Data.Entity.DbSet<cava.Models.Log> Logs { get; set; }
     }
 }

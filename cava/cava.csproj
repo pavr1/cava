@@ -169,6 +169,8 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Controllers\LogController.cs" />
+    <Compile Include="Custom\Common\CommonStatic.cs" />
     <Compile Include="Custom\Cultures\CostaRicanCulture.cs" />
     <Compile Include="Custom\Notification\EmailSender.cs" />
     <Compile Include="Custom\Serialization\Serializer.cs" />
@@ -185,6 +187,7 @@
     <Compile Include="Models\Experience.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Kitchen.cs" />
+    <Compile Include="Models\Log.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Reservation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -4353,6 +4356,7 @@
     <Content Include="Scripts\umd\popper-utils.min.js" />
     <Content Include="Scripts\umd\popper.js" />
     <Content Include="Scripts\umd\popper.min.js" />
+    <Content Include="Security\Certificates\Generation.txt" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -4416,6 +4420,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Log\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

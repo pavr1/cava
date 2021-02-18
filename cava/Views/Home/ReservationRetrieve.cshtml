@@ -53,8 +53,11 @@
                     </div>
                     <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6 col-6">
                         <label class="font-weight-bold d-xl-none d-lg-none d-md-block d-sm-block d-block">TELÉFONO: </label> <label class="">@reservation.Phone</label>
-                        <input type="button" class="btn btn-info float-right btn-small" value="..." onclick="UpdateReservationModal(@reservation.ReservationId, '@reservation.ReservationDate.ToString("dddd, dd MMMM")', '@reservation.ReservationDate.ToString("hh:mm tt")', '@reservation.ReserverFirstName', '@reservation.ReserverLastName',
+                        @if (reservation.Status == cava.Enums.ReservationStatus.Active)
+                        {
+                            <input type="button" class="btn btn-info float-right btn-small" value="..." onclick="UpdateReservationModal(@reservation.ReservationId, '@reservation.ReservationDate.ToString("dddd, dd MMMM")', '@reservation.ReservationDate.ToString("hh:mm tt")', '@reservation.ReserverFirstName', '@reservation.ReserverLastName',
                             '@reservation.Email', '@reservation.Phone', @reservation.NumberOfPeople)" />
+                        }
                     </div>
                     <hr />
                 </div>

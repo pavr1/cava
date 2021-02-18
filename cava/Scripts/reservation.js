@@ -38,7 +38,7 @@ function FormatDate(currentDateTime) {
     month[10] = "Noviembre";
     month[11] = "Diciembre";
 
-    return weekday[currentDateTime.getDay()] + " " + currentDateTime.getDate() + " de " + month[currentDateTime.getMonth()].toUpperCase();
+    return weekday[currentDateTime.getDay()].toUpperCase() + " " + currentDateTime.getDate() + " DE " + month[currentDateTime.getMonth()].toUpperCase();
 }
 
 function FormatTime(currentDateTime) {
@@ -232,9 +232,12 @@ function ClearReservationData() {
 }
 
 function CreateReservation() {
-    $('#btn-confirm-reservation').html('<div class="d-inline-flex"><span class="spinner-grow spinner-grow-sm d-inline-block" role="status" aria-hidden="true"></span><span class="input-group-prepend ml-2">PROCESANDO...</span></div>');
-    $('#btn-confirm-reservation').prop('disabled', true);
-    $('#btn-cancel-reservation').prop('disabled', true);
+    StartProcessing('btn-confirm-reservation');
+    DisableControl('btn-cancel-reservation');
+
+    //$('#btn-confirm-reservation').html('<div class="d-inline-flex"><span class="spinner-grow spinner-grow-sm d-inline-block" role="status" aria-hidden="true"></span><span class="input-group-prepend ml-2">PROCESANDO...</span></div>');
+    //$('#btn-confirm-reservation').prop('disabled', true);
+    //$('#btn-cancel-reservation').prop('disabled', true);
 
     var amount = $("#txt-people-amount").val();
     var firstName = $("#txt-name").val();
@@ -270,8 +273,9 @@ function CreateReservation() {
                 }
 
                 $('#btn-confirm-reservation').html('CONFIRMAR RESERVCIÓN');
-                $('#btn-confirm-reservation').prop('disabled', false);
-                $('#btn-cancel-reservation').prop('disabled', false);
+
+                EnableControl('btn-confirm-reservation');
+                EnableControl('btn-cancel-reservation');
             });
     }, 1000);
 }

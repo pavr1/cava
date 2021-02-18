@@ -14,6 +14,7 @@ using cava.Models;
 
 namespace cava
 {
+    [Obsolete("Please use the EmailsSender instead.")]
     public class EmailService : IIdentityMessageService
     {
         public Task SendAsync(IdentityMessage message)

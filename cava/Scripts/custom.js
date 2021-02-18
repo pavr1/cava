@@ -126,3 +126,17 @@ function LoadLogin() {
         });
     }, 500);
 }
+
+function StartProcessing(button) {
+    $('#' + button).html('<div class="d-inline-flex"><span class="spinner-grow spinner-grow-sm d-inline-block" role="status" aria-hidden="true"></span><span class="input-group-prepend ml-2">PROCESANDO...</span></div>');
+
+    DisableControl(button);
+}
+
+function DisableControl(control) {
+    $('#' + control).prop('disabled', true);
+}
+
+function EnableControl(control) {
+    $('#' + control).prop('disabled', false);
+}
