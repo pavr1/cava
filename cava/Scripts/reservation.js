@@ -214,6 +214,21 @@ $("#btn-confirm-modal-reservation").click(function () {
         return;
     }
 
+    if (phone.length != 9) {
+        $("#txt-phone").notify(
+            "¡TELÉFONO INVÁLIDO!",
+            {
+                position: "top",
+                className: "warn"
+            }
+        );
+
+        $("#txt-phone").focus();
+        $("#txt-phone").removeClass("border-danger");
+
+        return;
+    }
+
     CreateReservation();
 });
 

@@ -31,31 +31,31 @@
             {
                 <div class="row div-table-border table-hover">
                     <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-6">
-                        <label class="font-weight-bold d-xl-none d-lg-none d-md-block d-sm-block d-block">A NOMBRE DE: </label> <label class="">@reservation.ReserverFirstName  @reservation.ReserverLastName</label>
+                        <label class="font-weight-bold d-xl-none d-lg-none d-md-block d-sm-block d-block">A NOMBRE DE: </label> <label class=""> @Html.Encode(reservation.ReserverFirstName)  @Html.Encode(reservation.ReserverLastName)</label>
                     </div>
                     <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6 col-6 pt-xl-0 pt-lg-0 pt-md-4">
-                        <label class="font-weight-bold d-xl-none d-lg-none d-md-block d-sm-block d-block">FECHA: </label> <label class="">@reservation.ReservationDate</label>
+                        <label class="font-weight-bold d-xl-none d-lg-none d-md-block d-sm-block d-block">FECHA: </label> <label class="">@Html.Encode(reservation.ReservationDate)</label>
                     </div>
                     <div class="d-xl-none d-lg-none d-md-none d-sm-none d-block pt-xl-0 pt-lg-0 col-6">
 
                     </div>
                     <div class="col-xl-1 col-lg-1 col-md-4 col-sm-6 col-6 pt-xl-0 pt-lg-0 pt-md-4">
-                        <label class="font-weight-bold d-xl-none d-lg-none d-md-block d-sm-block d-block">PERSONAS: </label> <label class="">@reservation.NumberOfPeople</label>
+                        <label class="font-weight-bold d-xl-none d-lg-none d-md-block d-sm-block d-block">PERSONAS: </label> <label class="">@Html.Encode(reservation.NumberOfPeople)</label>
                     </div>
                     <div class="d-xl-none d-lg-none d-md-block d-sm-block d-block pt-xl-0 pt-lg-0 col-md-4 col-6">
 
                     </div>
                     <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-6">
-                        <label class="font-weight-bold d-xl-none d-lg-none d-md-block d-sm-block d-block">CORREO ELECTRÓNICO: </label> <label class="">@reservation.Email</label>
+                        <label class="font-weight-bold d-xl-none d-lg-none d-md-block d-sm-block d-block">CORREO ELECTRÓNICO: </label> <label class="">@Html.Encode(reservation.Email)</label>
                     </div>
                     <div class="d-xl-none d-lg-none d-md-none d-sm-none d-block pt-xl-0 pt-lg-0 col-6">
 
                     </div>
                     <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6 col-6">
-                        <label class="font-weight-bold d-xl-none d-lg-none d-md-block d-sm-block d-block">TELÉFONO: </label> <label class="">@reservation.Phone</label>
+                        <label class="font-weight-bold d-xl-none d-lg-none d-md-block d-sm-block d-block">TELÉFONO: </label> <label class="">@Html.Encode(reservation.Phone)</label>
                         @if (reservation.Status == cava.Enums.ReservationStatus.Active)
                         {
-                            <input type="button" class="btn btn-info float-right btn-small" value="..." onclick="UpdateReservationModal(@reservation.ReservationId, '@reservation.ReservationDate.ToString("dddd, dd MMMM")', '@reservation.ReservationDate.ToString("hh:mm tt")', '@reservation.ReserverFirstName', '@reservation.ReserverLastName',
+                            <input type="button" class="btn btn-info float-right btn-small" value="..." onclick="UpdateReservationModal(@reservation.ReservationId, '@reservation.ReservationDate.ToString("dddd, dd MMMM")', '@reservation.ReservationDate.ToString("hh:mm tt")', '@Html.Encode(reservation.ReserverFirstName)', '@Html.Encode(reservation.ReserverLastName)',
                             '@reservation.Email', '@reservation.Phone', @reservation.NumberOfPeople)" />
                         }
                     </div>

@@ -87,6 +87,11 @@ namespace cava.Controllers
                 {
                     using (ApplicationDbContext db = new ApplicationDbContext())
                     {
+                        reserverFirstName = Server.HtmlEncode(reserverFirstName);
+                        reserverLastName = Server.HtmlEncode(reserverLastName);
+                        phone = Server.HtmlEncode(phone);
+                        email = Server.HtmlEncode(email);
+
                         var reservation = new Reservation
                         {
                             DOB = DOB,
@@ -163,6 +168,11 @@ namespace cava.Controllers
             try
             {
                 var statusEnum = ReservationStatus.Active;
+
+                status = Server.HtmlEncode(status).Trim();
+                name = Server.HtmlEncode(name).Trim();
+                email = Server.HtmlEncode(email).Trim();
+                phone = Server.HtmlEncode(phone).Trim();
 
                 if (date == null)
                 {
