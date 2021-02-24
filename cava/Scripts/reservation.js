@@ -287,7 +287,7 @@ function CreateReservation() {
                     $.notify("¡ALGO SALIÓ MAL, INTENTA DE NUEVO!", "warn");
                 }
 
-                $('#btn-confirm-modal-reservation').html('CONFIRMAR RESERVCIÓN');
+                $('#btn-confirm-modal-reservation').html('CONFIRMAR RESERVACIÓN');
 
                 EnableControl('btn-confirm-modal-reservation');
                 EnableControl('btn-cancel-modal-reservation');
