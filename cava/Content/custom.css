@@ -13,7 +13,6 @@
 }
 
 html {
-    
 }
 
 .navbar {
@@ -101,7 +100,42 @@ html {
     max-width: none;
 }
 
-@media only screen and (min-width: 2559px) and (max-width:2561px){
+.spinner-grow {
+    background-color: #2c3e50 !important;
+}
+
+.notifyjs-foo-base {
+    opacity: 1;
+    width: 345px;
+    height: 145px;
+    background: #2c3e50;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+    .notifyjs-foo-base .title {
+        color: white;
+        width: 320px;
+        margin: 10px 0 0 10px;
+        text-align: center;
+    }
+
+    .notifyjs-foo-base .buttons {
+        width: 70px;
+        float: unset;
+        font-size: 15px;
+        padding: 5px;
+        margin: 2px;
+    }
+
+    .notifyjs-foo-base button {
+        font-size: 15px;
+        padding: 5px;
+        margin: 2px;
+        width: 320px;
+    }
+
+@media only screen and (min-width: 2559px) and (max-width:2561px) {
     .device-height {
         height: 900px
     }
@@ -130,6 +164,7 @@ html {
         height: 500px
     }
 }
+
 /*
 @media only screen and (min-width: 320px) and (max-device-with: 425px) {
     .device-height {

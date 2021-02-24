@@ -23,7 +23,7 @@ namespace cava.Controllers
                     {
                         Subject = string.Format(CommonObjects._NEW_ERROR_SUBJECT2 + log.LogGuid),
                         Destination = WebConfigurationManager.AppSettings[CommonObjects._CONFIG_ADMIN_EMAIL_KEY],
-                        Body = string.Format(CommonObjects._ERROR_EMAIL_BODY, log.LogGuid)
+                        Body = string.Format(CommonObjects._ERROR_EMAIL_BODY, log.LogGuid, log.MessageDetail)
                     };
 
                     await new EmailSender().SendAsync(msg);

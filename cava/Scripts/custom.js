@@ -30,17 +30,6 @@
     $(window).bind("resize", function () {
         return false;
     });
-
-    //$(window).bind("orientationchange", function () {
-    //    var orientation = window.orientation;
-
-    //    console.log(orientation);
-
-    //    var new_orientation = (orientation) ? 0 : 180 + orientation;
-    //    $('body').css({
-    //        "-webkit-transform": "rotate(" + new_orientation + "deg)"
-    //    });
-    //});
 });
 
 function ShouldItCollapse() {
@@ -64,10 +53,19 @@ function LoadBar() {
     $('#main-container').fadeOut(500);
 
     setTimeout(() => {
-        $.get("/Home/Bar", {}, function (data) {
-            $('#main-container').html(data);
-            $('#main-container').fadeIn(800);
-        });
+        $('#main-container').html('<div class="w-100 text-center no-flex"><span class="spinner-grow spinner-grow-lg d-inline-block" style="width: 4rem; height: 4rem;" role="status" aria-hidden="true"></div>');
+        $('#main-container').fadeIn(500);
+
+        setTimeout(() => {
+            $('#main-container').fadeOut(100);
+
+            setTimeout(() => {
+                $.get("/Home/Bar", {}, function (data) {
+                    $('#main-container').html(data);
+                    $('#main-container').fadeIn(800);
+                });
+            }, 500);
+        }, 2000);
     }, 500);
 }
 function LoadKitchen() {
@@ -76,12 +74,20 @@ function LoadKitchen() {
     }
 
     $('#main-container').fadeOut(500);
-
     setTimeout(() => {
-        $.get("/Home/Kitchen", {}, function (data) {
-            $('#main-container').html(data);
-            $('#main-container').fadeIn(800);
-        });
+        $('#main-container').html('<div class="w-100 text-center no-flex"><span class="spinner-grow spinner-grow-lg d-inline-block" style="width: 4rem; height: 4rem;" role="status" aria-hidden="true"></div>');
+        $('#main-container').fadeIn(500);
+
+        setTimeout(() => {
+            $('#main-container').fadeOut(100);
+
+            setTimeout(() => {
+                $.get("/Home/Kitchen", {}, function (data) {
+                    $('#main-container').html(data);
+                    $('#main-container').fadeIn(800);
+                });
+            }, 500);
+        }, 2000);
     }, 500);
 }
 
@@ -91,13 +97,21 @@ function LoadExperience() {
     }
 
     $('#main-container').fadeOut(500);
-    
 
     setTimeout(() => {
-        $.get("Home/Experience", {}, function (data) {
-            $('#main-container').html(data);
-            $('#main-container').fadeIn(800);
-        });
+        $('#main-container').html('<div class="w-100 text-center no-flex"><span class="spinner-grow spinner-grow-lg d-inline-block" style="width: 4rem; height: 4rem;" role="status" aria-hidden="true"></div>');
+        $('#main-container').fadeIn(500);
+
+        setTimeout(() => {
+            $('#main-container').fadeOut(100);
+
+            setTimeout(() => {
+                $.get("Home/Experience", {}, function (data) {
+                    $('#main-container').html(data);
+                    $('#main-container').fadeIn(800);
+                });
+            }, 500);
+        }, 2000);
     }, 500);
 }
 
@@ -109,10 +123,19 @@ function LoadReservation() {
     $('#main-container').fadeOut(500);
 
     setTimeout(() => {
-        $.get("Home/Reservation", {}, function (data) {
-            $('#main-container').html(data);
-            $('#main-container').fadeIn(800);
-        });
+        $('#main-container').html('<div class="w-100 text-center no-flex"><span class="spinner-grow spinner-grow-lg d-inline-block" style="width: 4rem; height: 4rem;" role="status" aria-hidden="true"></div>');
+        $('#main-container').fadeIn(500);
+
+        setTimeout(() => {
+            $('#main-container').fadeOut(100);
+
+            setTimeout(() => {
+                $.get("Home/Reservation", {}, function (data) {
+                    $('#main-container').html(data);
+                    $('#main-container').fadeIn(800);
+                });
+            }, 500);
+        }, 2000);
     }, 500);
 }
 

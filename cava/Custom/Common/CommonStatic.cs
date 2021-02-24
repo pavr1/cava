@@ -30,7 +30,7 @@ namespace cava.Custom.Common
 
         public const string _RESERVATION_BODY = "<html><head></head><body>{0} HA REALIZADO UNA RESERVA DE {1} PERSONA(S) PARA EL {2}. <br /> INFORMACIÓN DE USUARIO: <br /> - CORREO ELECTRÓNICO: {3} <br /> - TELÉFONO: {4} </body></html>";
         public const string _RESERVATION_EMAIL_BODY = "<html><head></head><body>USTED HA REALIZADO UNA RESERVA EN WWW.CAVARESTOBAR.COM DE {0} PERSONA(S) PARA EL {1}. </body></html>";
-        public const string _ERROR_EMAIL_BODY = "<html><head></head><body>HEMOS ENCONTRADO UN ERROR GUID: {1}</body></html>";
+        public const string _ERROR_EMAIL_BODY = "<html><head></head><body>HEMOS ENCONTRADO UN ERROR GUID: {0}. ERROR: {1}</body></html>";
 
         public const string _NEW_RESERVATION_SUBJECT = "NUEVA RESERVA CREADA";
         public const string _NEW_RESERVATION_SUBJECT2 = "RESERVACIONES CAVA RESTOBAR";

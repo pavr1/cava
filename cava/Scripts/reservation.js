@@ -127,11 +127,11 @@ $("#btn-reservation-1").click(function () {
     $("#txt-name").focus();
 });
 
-$("#btn-cancel-reservation").click(function () {
+$("#btn-cancel-modal-reservation").click(function () {
     ClearAndCloseModal();
 });
 
-$("#btn-confirm-reservation").click(function () {
+$("#btn-confirm-modal-reservation").click(function () {
     var firstName = $("#txt-name").val();
     var lastName = $("#txt-last-names").val();
     var email = String($("#txt-email").val()).toLowerCase();
@@ -223,7 +223,7 @@ function ClearAndCloseModal() {
     $("#txt-email").val("");
     $("#txt-phone").val("");
 
-    $('#reservation-modal').modal('toggle')
+    $('#reservation-modal').modal('toggle');
 }
 
 function ClearReservationData() {
@@ -232,12 +232,12 @@ function ClearReservationData() {
 }
 
 function CreateReservation() {
-    StartProcessing('btn-confirm-reservation');
-    DisableControl('btn-cancel-reservation');
+    StartProcessing('btn-confirm-modal-reservation');
+    DisableControl('btn-cancel-modal-reservation');
 
-    //$('#btn-confirm-reservation').html('<div class="d-inline-flex"><span class="spinner-grow spinner-grow-sm d-inline-block" role="status" aria-hidden="true"></span><span class="input-group-prepend ml-2">PROCESANDO...</span></div>');
-    //$('#btn-confirm-reservation').prop('disabled', true);
-    //$('#btn-cancel-reservation').prop('disabled', true);
+    //$('#btn-confirm-modal-reservation').html('<div class="d-inline-flex"><span class="spinner-grow spinner-grow-sm d-inline-block" role="status" aria-hidden="true"></span><span class="input-group-prepend ml-2">PROCESANDO...</span></div>');
+    //$('#btn-confirm-modal-reservation').prop('disabled', true);
+    //$('#btn-cancel-modal-reservation').prop('disabled', true);
 
     var amount = $("#txt-people-amount").val();
     var firstName = $("#txt-name").val();
@@ -272,10 +272,10 @@ function CreateReservation() {
                     $.notify("¡ALGO SALIÓ MAL, INTENTA DE NUEVO!", "warn");
                 }
 
-                $('#btn-confirm-reservation').html('CONFIRMAR RESERVCIÓN');
+                $('#btn-confirm-modal-reservation').html('CONFIRMAR RESERVCIÓN');
 
-                EnableControl('btn-confirm-reservation');
-                EnableControl('btn-cancel-reservation');
+                EnableControl('btn-confirm-modal-reservation');
+                EnableControl('btn-cancel-modal-reservation');
             });
     }, 1000);
 }

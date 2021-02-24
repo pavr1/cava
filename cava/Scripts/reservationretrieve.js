@@ -18,6 +18,36 @@
     });
 });
 
+//add a new style 'foo'
+$.notify.addStyle('foo', {
+    html:
+        "<div>" +
+        "<div class='clearfix'>" +
+        "<div class='title' data-notify-html='title'></div>" +
+        "<div class='buttons'>" +
+        "<button class='btn btn-danger no'>SALIR</button>" +
+        "<button class='btn btn-info yes' data-notify-text='button'></button>" +
+        "</div>" +
+        "</div>" +
+        "</div>"
+});
+
+//listen for click events from this style
+$(document).on('click', '.notifyjs-foo-base .no', function () {
+    //programmatically trigger propogating hide event
+    $(this).trigger('notify-hide');
+});
+$(document).on('click', '.notifyjs-foo-base .yes', function () {
+    //show button text
+    alert($(this).text() + " clicked!");
+    //hide notification
+    $(this).trigger('notify-hide');
+});
+$(document).on('triggered', '.notifyjs-foo-base', function () {
+    //show button text
+    alert($(this).text() + " triggered!");
+});
+
 function UpdateReservationModal(reservationId, date, time, name, lastName, email, phone, amount) {
     $('#hdf-reservation-id').val(reservationId);
     $('#lbl-reservation-date').html(date);
@@ -34,13 +64,31 @@ function UpdateReservationModal(reservationId, date, time, name, lastName, email
 
 function UpdateReservation(reservationId, statusId, ctrlid) {
     if (statusId === 3) {
-        if (!confirm("¡CONFIRMA CANCELACIÓN!")) {
-            return;
-        }
+        $('#btn-cancel-reservation').notify({
+            title: '¡CONFIRMA ANTES DE PROCEDER!',
+            button: 'CANCELAR',
+            position: "top-center"
+        }, {
+            style: 'foo',
+            autoHide: true,
+            clickToHide: true
+        });
+        return;
+        //if (!confirm("")) {
+        //    return;
+        //}
     } else if (statusId === 4) {
-        if (!confirm("¡CONFIRMA VERIFICACIÓN!")) {
-            return;
-        }
+        $('#btn-cancel-reservation').notify({
+            title: '¡CONFIRMA ANTES DE PROCEDER!',
+            button: 'VERIFICAR',
+            position: "top-center"
+        }, {
+            style: 'foo',
+            autoHide: true,
+            clickToHide: true
+        });
+
+        return;
     }
 
     StartProcessing(ctrlid);
