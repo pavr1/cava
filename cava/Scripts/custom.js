@@ -130,7 +130,7 @@ function LoadReservation() {
             $('#main-container').fadeOut(100);
 
             setTimeout(() => {
-                $.get("Home/Reservation", {}, function (data) {
+                $.get("./Home/Reservation", {}, function (data) {
                     $('#main-container').html(data);
                     $('#main-container').fadeIn(800);
                 });
@@ -143,7 +143,7 @@ function LoadLogin() {
     $('#div-reservation-handler-login-container').fadeOut(500);
 
     setTimeout(() => {
-        $.get("/Home/Login", {}, function (data) {
+        $.get("./Home/Login", {}, function (data) {
             $('#div-reservation-handler-login-container').html(data);
             $('#div-reservation-handler-login-container').fadeIn(800);
         });
