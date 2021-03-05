@@ -4020,11 +4020,54 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\images\background.jpg" />
-    <Content Include="Content\images\Bar\cava_130.jpg" />
-    <Content Include="Content\images\Bar\cava_137.jpg" />
-    <Content Include="Content\images\Bar\cava_158.jpg" />
-    <Content Include="Content\images\Bar\cava_160.jpg" />
-    <Content Include="Content\images\Bar\cava_91.jpg" />
+    <Content Include="Content\images\Bar\cava_febrero2021_103.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\images\Bar\cava_febrero2021_18.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\images\Bar\cava_febrero2021_21.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\images\Bar\cava_febrero2021_24.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\images\Bar\cava_febrero2021_59.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\images\Bar\cava_febrero2021_70.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\images\Bar\cava_febrero2021_97.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\images\Bar\cava_febrero2021_99tif.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\images\Experience\cava_febrero2021_21.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\images\Experience\cava_febrero2021_23.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\images\Experience\cava_febrero2021_24.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\images\Experience\cava_febrero2021_29.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\images\Experience\cava_febrero2021_34.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\images\Experience\cava_febrero2021_37.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\images\Experience\cava_febrero2021_45.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\images\Experience\cava_febrero2021_48.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\images\Experience\e1.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -4041,11 +4084,30 @@
     <Content Include="Content\images\Icons\icon.png" />
     <Content Include="Content\images\Icons\icon2.png" />
     <Content Include="Content\images\IMG_9893.jpg" />
-    <Content Include="Content\images\Kitchen\cava_141.jpg" />
-    <Content Include="Content\images\Kitchen\cava_157.jpg" />
-    <Content Include="Content\images\Kitchen\cava_83.jpg" />
-    <Content Include="Content\images\Kitchen\cava_86.jpg" />
-    <Content Include="Content\images\Kitchen\cava_92.jpg" />
+    <Content Include="Content\images\Kitchen\cava_febrero2021_15.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\images\Kitchen\cava_febrero2021_37.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\images\Kitchen\cava_febrero2021_46.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\images\Kitchen\cava_febrero2021_48.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\images\Kitchen\cava_febrero2021_62.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\images\Kitchen\cava_febrero2021_76.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\images\Kitchen\cava_febrero2021_8.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\images\Kitchen\cava_febrero2021_88.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\images\whatsapp.png" />
     <Content Include="Content\jquery.datetimepicker.css" />
     <Content Include="favicon.ico" />

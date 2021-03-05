@@ -19,21 +19,33 @@
     });
 
     $('#rbt-active').click(function () {
+        $('#rbt-active').attr("checked", "checked");
+        $('#rbt-canceled').removeAttr("checked");
+        $('#rbt-confirmed').removeAttr("checked");
+
         GetReservations();
 
         $('#lbl-retrieve-tltie').html("RESERVACIONES ACTIVAS");
     });
 
     $('#rbt-canceled').click(function () {
-        $('#lbl-retrieve-tltie').html("RESERVACIONES CANCELADAS");
+        $('#rbt-canceled').attr("checked", "checked");
+        $('#rbt-active').removeAttr("checked");
+        $('#rbt-confirmed').removeAttr("checked");
 
         GetReservations();
+
+        $('#lbl-retrieve-tltie').html("RESERVACIONES CANCELADAS");
     });
 
     $('#rbt-confirmed').click(function () {
-        $('#lbl-retrieve-tltie').html("RESERVACIONES CONFIRMADAS");
+        $('#rbt-confirmed').attr("checked", "checked");
+        $('#rbt-active').removeAttr("checked");
+        $('#rbt-canceled').removeAttr("checked");
 
         GetReservations();
+
+        $('#lbl-retrieve-tltie').html("RESERVACIONES CONFIRMADAS");
     });
 
     $('#rdb-active').click(function () {
@@ -70,10 +82,15 @@ $('.custom-date').datetimepicker({
 
 function GetReservations() {
     var status = $('#hdn-selected-status').val();
-    var name = $('#txt-reservation-name').val().trim();
-    var email = $('#txt-reservation-email').val().trim();
-    var phone = $('#txt-reservation-phone').val().trim();
+    var name = $('#txt-reservation-name').val();
+    var email = $('#txt-reservation-email').val();
+    var phone = $('#txt-reservation-phone').val();
     var date = selectedDate;
+
+    var status = status.trim();
+    var name = name.trim();
+    var email = email.trim();
+    var phone = phone.trim();
 
     $('#div-reservation-handler-container').fadeOut(500);
 

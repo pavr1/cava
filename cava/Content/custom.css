@@ -75,6 +75,9 @@ html {
     border-color: white !important;
 }
 
+.row.card{
+    padding-bottom: 15px !important;
+}
 
 .div-table {
     background-color: white !important;
