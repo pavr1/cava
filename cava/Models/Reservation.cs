@@ -1,6 +1,7 @@
 ﻿using cava.Enums;
 using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace cava.Models
 {
@@ -28,5 +29,8 @@ namespace cava.Models
         [Display(Name = "Correo Electrónico")]
         public string Email { get; set; }
         public ReservationStatus Status { get; set; }
+
+        [NotMapped]
+        public string Whatsapp { get; set; }
     }
 }

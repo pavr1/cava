@@ -14,7 +14,12 @@
     </div>
     <div class="card row pb-5 pt-4">
         <div class="col-12">
-            <a href="https://wa.me/+50686717598?text=Hola%20Cava,%20tengo%20una%20consulta" target="_blank" class="float-right"><img id="whatsapp-link" src="~/Content/images/whatsapp.png" style="width:50px;height:50px"></a>
+            @{
+                if (!string.IsNullOrEmpty(Model.Whatsapp))
+                {
+                    <a href="@Model.Whatsapp" target="_blank" class="float-right"><img id="whatsapp-link" src="~/Content/images/whatsapp.png" style="width:50px;height:50px"></a>
+                }
+            }
         </div>
         <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 mt-3">
             <input id="txt-people-amount" type="number" pattern="\d*" class="form-control d-flex col" min="1" max="20" value="" placeholder="NÚMERO DE PERSONAS" />

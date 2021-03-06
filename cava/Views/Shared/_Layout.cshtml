@@ -16,7 +16,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 </head>
-<body class="bg" style="overflow-y:hidden">
+<body class="bg">
     <div class="navbar navbar-expand-lg fixed-top navbar-dark bg-primary">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <a class="nav-link flex-row cava-title" href="#">
@@ -54,12 +54,14 @@
             </div>
         </nav>
     </div>
-    <div class="container body-content pt-5">
+    <div class="body-content pl-0 pr-0">
         @RenderBody()
-        <hr />
-        <footer>
-            <p class="white-label float-right">&copy; @DateTime.Now.Year - cava.com</p>
-        </footer>
+        <div class="row h-200 footer-bg">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 p-0 footer-details">
+                <br />
+                <p class="white-label">&copy; @DateTime.Now.Year - CAVARESTOBAR.COM</p>
+            </div>
+        </div>
     </div>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")

@@ -6,6 +6,7 @@ using cava.Models;
 using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Configuration;
@@ -70,7 +71,13 @@ namespace cava.Controllers
 
         public string Reservation()
         {
-            return Serializer.RenderViewToString(this.ControllerContext, CommonObjects.Actions.Reservation.ToString(), null);
+            var whatsapplink = ConfigurationManager.AppSettings["WhatsappLink"];
+            var whatsappPhone = ConfigurationManager.AppSettings["WhatsappPhone"];
+            var whatsappDefaultMessage = ConfigurationManager.AppSettings["WhatsappMessage"];
+
+            var whatsappUrl = whatsapplink + whatsappPhone + (!string.IsNullOrEmpty(whatsappDefaultMessage) ? "?text=" + whatsappDefaultMessage : string.Empty);
+            
+            return Serializer.RenderViewToString(this.ControllerContext, CommonObjects.Actions.Reservation.ToString(), new Reservation { Whatsapp = whatsappUrl });
         }
 
         public string Login()

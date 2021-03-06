@@ -3,16 +3,16 @@ var selectedReservationDate = new Date();
 
 //$('#lbl-reservation-message').fadeOut(10);
 
-var logic = function (currentDateTime) {
+//var logic = function (currentDateTime) {
 
-    var formattedDate = FormatDate(currentDateTime);
-    var formattedTime = FormatTime(currentDateTime);
+//    var formattedDate = FormatDate(currentDateTime);
+//    var formattedTime = FormatTime(currentDateTime);
 
-    $('#lbl-reservation-date').html(formattedDate);
-    $('#lbl-reservation-time').html(formattedTime);
+//    $('#lbl-reservation-date').html(formattedDate);
+//    $('#lbl-reservation-time').html(formattedTime);
 
-    selectedReservationDate = currentDateTime.toLocaleString('en-US');
-};
+//    selectedReservationDate = currentDateTime.toLocaleString('en-US');
+//};
 
 function FormatDate(currentDateTime) {
     var weekday = new Array(7);
@@ -47,8 +47,26 @@ function FormatTime(currentDateTime) {
 
 jQuery('.custom-date').datetimepicker({
     format: 'd/m/Y h:i a',
-    onChangeDateTime: logic,
-    onShow: logic,
+    onChangeDateTime: function (currentDateTime) {
+
+        var formattedDate = FormatDate(currentDateTime);
+        var formattedTime = FormatTime(currentDateTime);
+
+        $('#lbl-reservation-date').html(formattedDate);
+        $('#lbl-reservation-time').html(formattedTime);
+
+        selectedReservationDate = currentDateTime.toLocaleString('en-US');
+    },
+    onShow: function (currentDateTime) {
+
+        var formattedDate = FormatDate(currentDateTime);
+        var formattedTime = FormatTime(currentDateTime);
+
+        $('#lbl-reservation-date').html(formattedDate);
+        $('#lbl-reservation-time').html(formattedTime);
+
+        selectedReservationDate = currentDateTime.toLocaleString('en-US');
+    },
     allowTimes: [
         '12:00', '13:00', '15:00',
         '17:00', '17:05', '17:20', '19:00', '20:00'
