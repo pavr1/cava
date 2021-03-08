@@ -30,6 +30,46 @@
     $(window).bind("resize", function () {
         return false;
     });
+
+    $('#experience-carousel').carousel({
+        interval: 8000
+    });
+
+    var title;
+    var subTitle;
+
+    //This event fires immediately when the slide instance method is invoked.
+    $('#experience-carousel').on('slide.bs.carousel', function () {
+        if (title) {
+            title.fadeOut(100);
+            subTitle.fadeOut(100);
+
+            title.addClass("invisible");
+            subTitle.addClass("invisible");
+        }
+    });
+
+    //This event is fired when the carousel has completed its slide transition.
+    $('#experience-carousel').on('slid.bs.carousel', function () {
+        var activeElement = $("div.carousel-item.active");
+        title = activeElement.find(".slide-title");
+        subTitle = activeElement.find(".slide-sub-title");
+
+        title.fadeOut(1);
+        subTitle.fadeOut(1);
+
+        setTimeout(() => {
+            title.removeClass("invisible");
+            subTitle.removeClass("invisible");
+
+            title.fadeIn(1000);
+
+            setTimeout(() => {
+                subTitle.fadeIn(1000);
+            }, 1000);
+        }, 1000);
+
+    });
 });
 
 function ShouldItCollapse() {

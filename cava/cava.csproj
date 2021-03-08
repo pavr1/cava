@@ -4020,27 +4020,15 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\images\background.jpg" />
-    <Content Include="Content\images\Bar\cava_febrero2021_103.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\images\Bar\cava_febrero2021_18.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\images\Bar\cava_febrero2021_21.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\images\Bar\cava_febrero2021_24.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\images\Bar\cava_febrero2021_59.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\images\Bar\cava_febrero2021_70.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\images\Bar\cava_febrero2021_97.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    <Content Include="Content\images\Bar\cava_febrero2021_102.jpg" />
+    <Content Include="Content\images\Bar\cava_febrero2021_26.jpg" />
+    <Content Include="Content\images\Bar\cava_febrero2021_29.jpg" />
+    <Content Include="Content\images\Bar\cava_febrero2021_49.jpg" />
+    <Content Include="Content\images\Bar\cava_febrero2021_56.jpg" />
+    <Content Include="Content\images\Bar\cava_febrero2021_69.jpg" />
+    <Content Include="Content\images\Bar\cava_febrero2021_72.jpg" />
+    <Content Include="Content\images\Bar\cava_febrero2021_96.jpg" />
+    <Content Include="Content\images\Bar\cava_febrero2021_978tif.jpg" />
     <Content Include="Content\images\Bar\cava_febrero2021_99tif.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

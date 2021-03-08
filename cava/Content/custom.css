@@ -163,7 +163,7 @@
     text-align: center;
     font-family: "futura-pt";
     font-size: 15px;
-    color: white;
+    color: #2c3e50;
     letter-spacing: .20em;
 }
 
@@ -218,7 +218,7 @@
 .transparent8 {
     opacity: 0.8;
     transition: opacity 0.8s;
-    background: #2c3e50;
+    /*background: #2c3e50;*/
 }
 
 img.transparent5:hover {
@@ -233,6 +233,11 @@ div.transparent8:hover {
     cursor: pointer;
 }
 
+img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
 .h-200 {
     height: 200px;
 }
@@ -241,39 +246,20 @@ div.transparent8:hover {
     height: 400px;
 }
 
-.h-600 {
-    height: 600px;
+.h-700 {
+    height: 700px;
+}
+
+.fade-edge {
+    -moz-box-shadow: 1px 2px 3px rgba(0,0,0,.5);
+    -webkit-box-shadow: 1px 2px 3px rgba(0,0,0,.5);
+    box-shadow: 1px 2px 3px rgba(0,0,0,.5);
 }
 
 .footer-bg {
     background-color: #2c3e50;
 }
 
-.carousel-fade .carousel-item {
-    opacity: 0;
-    transition-duration: .9s;
-    transition-property: opacity;
-}
-
-    .carousel-fade .carousel-item.active,
-    .carousel-fade .carousel-item-next.carousel-item-left,
-    .carousel-fade .carousel-item-prev.carousel-item-right {
-        opacity: 1;
-    }
-
-.carousel-fade .active.carousel-item-left,
-.carousel-fade .active.carousel-item-right {
-    opacity: 0;
-}
-
-.carousel-fade .carousel-item-next,
-.carousel-fade .carousel-item-prev,
-.carousel-fade .carousel-item.active,
-.carousel-fade .active.carousel-item-left,
-.carousel-fade .active.carousel-item-prev {
-    transform: translateX(0);
-    transform: translate3d(0, 0, 0);
-}
 
 /*@media only screen and (min-width: 2559px) and (max-width:2561px) {
     .device-height {
