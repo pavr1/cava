@@ -7,77 +7,92 @@
 {
     @Html.AntiForgeryToken()
 
-    <div class="row">
-        <div class="col">
-            <label class="white-label">¡RESERVA CON NOSOTROS!</label>
-        </div>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+<div class="row">
+    <div class="col-xl-2 col-lg-2 col-md-1 col-sm-12 col-12">
+
     </div>
-    <div class="card row pb-5 pt-4">
-        <div class="col-12">
-            @{
-                if (!string.IsNullOrEmpty(Model.Whatsapp))
-                {
-                    <a href="@Model.Whatsapp" target="_blank" class="float-right"><img id="whatsapp-link" src="~/Content/images/whatsapp.png" style="width:50px;height:50px"></a>
-                }
-            }
-        </div>
-        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 mt-3">
-            <input id="txt-people-amount" type="number" pattern="\d*" class="form-control d-flex col" min="1" max="20" value="" placeholder="NÚMERO DE PERSONAS" />
-        </div>
-        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 mt-3">
-            <input id="txt-reservation-date" type="datetime" class="form-control custom-date col" value="" placeholder="FECHA DE RESERVACIÓN" />
-        </div>
-        <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mt-3">
-            <button id="btn-reservation-1" type="button" class="btn btn-info float-right w-100">CONTINUAR</button>
-        </div>
-        <div class="row pb-3 pl-3 pr-3">
-            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mt-3">
-                <label id="lbl-reservation-message" class="white-label"></label>
+    <div class="col-xl-8 col-lg-8 col-md-10 col-sm-12 col-12">
+        <div class="row">
+            <div class="col">
+                <label class="white-label">¡RESERVA CON NOSOTROS!</label>
             </div>
         </div>
-    </div>
-
-    <div id="reservation-modal" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="card no-flex">
-                    <div class="row pb-3 pl-3 pr-3">
-                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6 mt-3">
-                            <span class="bi bi-calendar pr-3"><br class="d-sm-none" /></span><label id="lbl-reservation-date" class="col-form-label white-label"></label>
+        <div class="card row pb-5 pt-4">
+            <div class="col-12">
+                @{
+                    if (!string.IsNullOrEmpty(Model.Whatsapp))
+                    {
+                        <a href="@Model.Whatsapp" target="_blank" class="float-right"><img id="whatsapp-link" src="~/Content/images/whatsapp.png" style="width:50px;height:50px"></a>
+                    }
+                }
+            </div>
+            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 mt-3">
+                <input id="txt-people-amount" type="number" pattern="\d*" class="form-control d-flex col" min="1" max="20" value="" placeholder="NÚMERO DE PERSONAS" />
+            </div>
+            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 mt-3">
+                <input id="txt-reservation-date" type="datetime" class="form-control custom-date col" value="" placeholder="FECHA DE RESERVACIÓN" />
+            </div>
+            <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mt-3">
+                <button id="btn-reservation-1" type="button" class="btn btn-info float-right w-100">CONTINUAR</button>
+            </div>
+            <div class="row pb-3 pl-3 pr-3">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mt-3">
+                    <label id="lbl-reservation-message" class="white-label"></label>
+                </div>
+            </div>
+        </div>
+        <div id="reservation-modal" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="card no-flex">
+                        <div class="row pb-3 pl-3 pr-3">
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6 mt-3">
+                                <span class="bi bi-calendar pr-3"><br class="d-sm-none" /></span><label id="lbl-reservation-date" class="col-form-label white-label"></label>
+                            </div>
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6 mt-3">
+                                <span class="bi bi-alarm pr-3"><br class="d-sm-none" /></span><label id="lbl-reservation-time" class="col-form-label white-label"></label>
+                            </div>
                         </div>
-                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6 mt-3">
-                            <span class="bi bi-alarm pr-3"><br class="d-sm-none" /></span><label id="lbl-reservation-time" class="col-form-label white-label"></label>
+                        <hr class="custom-hr" />
+                        <div class="row pb-3 pl-3 pr-3">
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 mt-3">
+                                <input type="text" class="form-control col pr-5" id="txt-name" value="" placeholder="NOMBRE" />
+                            </div>
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 mt-3 pl-md-0 pr-md-3">
+                                <input type="text" class="form-control col" id="txt-last-names" value="" placeholder="APELLIDOS" />
+                            </div>
                         </div>
-                    </div>
-                    <hr class="custom-hr" />
-                    <div class="row pb-3 pl-3 pr-3">
-                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 mt-3">
-                            <input type="text" class="form-control col pr-5" id="txt-name" value="" placeholder="NOMBRE" />
+                        <div class="row pb-3 pl-3 pr-3">
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 mt-3">
+                                <input type="text" class="form-control col" id="txt-email" value="" placeholder="CORREO ELECTRÓNICO" />
+                            </div>
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 mt-3 pl-md-0">
+                                <input type="text" class="form-control col" id="txt-phone" value="" placeholder="TELÉFONO" />
+                            </div>
                         </div>
-                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 mt-3 pl-md-0 pr-md-3">
-                            <input type="text" class="form-control col" id="txt-last-names" value="" placeholder="APELLIDOS" />
-                        </div>
-                    </div>
-                    <div class="row pb-3 pl-3 pr-3">
-                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 mt-3">
-                            <input type="text" class="form-control col" id="txt-email" value="" placeholder="CORREO ELECTRÓNICO" />
-                        </div>
-                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 mt-3 pl-md-0">
-                            <input type="text" class="form-control col" id="txt-phone" value="" placeholder="TELÉFONO" />
-                        </div>
-                    </div>
-                    <div class="row pb-3 pl-3 pr-3">
-                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 mt-3">
-                            <button id="btn-cancel-modal-reservation" type="button" class="btn btn-danger w-100">CANCELAR</button>
-                        </div>
-                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 mt-3">
-                            <button id="btn-confirm-modal-reservation" type="button" class="btn btn-info float-right w-100">CONFIRMAR RESERVACIÓN</button>
+                        <div class="row pb-3 pl-3 pr-3">
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 mt-3">
+                                <button id="btn-cancel-modal-reservation" type="button" class="btn btn-danger w-100">CANCELAR</button>
+                            </div>
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 mt-3">
+                                <button id="btn-confirm-modal-reservation" type="button" class="btn btn-info float-right w-100">CONFIRMAR RESERVACIÓN</button>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <div class="col-xl-2 col-lg-2 col-md-1 col-sm-12 col-12">
+
+    </div>
+</div>
 }
 
 <script src="~/Scripts/reservation.js"></script>

@@ -32,8 +32,10 @@
     });
 
     $('#experience-carousel').carousel({
-        interval: 8000
+        interval: 7000
     });
+
+    $('#audio-player').get(0).play();
 
     var title;
     var subTitle;
@@ -115,6 +117,7 @@ function LoadKitchen() {
     }
 
     $('#main-container').fadeOut(500);
+
     setTimeout(() => {
         $('#main-container').html('<div class="w-100 text-center no-flex"><span class="spinner-grow spinner-grow-lg d-inline-block processing-icon" style="width: 4rem; height: 4rem;" role="status" aria-hidden="true"></div>');
         $('#main-container').fadeIn(500);

@@ -17,10 +17,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 </head>
 <body class="bg" style="overflow-x:hidden">
-    <div class="navbar navbar-expand-lg fixed-top navbar-dark bg-primary">
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="navbar navbar-expand-lg fixed-top bg-blue">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-blue">
             <a class="nav-link flex-row cava-title" href="#">
-                <img src="~/Content/images/Icons/icon2.png" style="height:90px;width:150px;border-radius:20px" />
+                <img src="~/Content/v2.0/images/logos/logo1.png" class="logo" />
                 <span class="sr-only">(current)</span>
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
@@ -30,19 +30,16 @@
             <div class="collapse navbar-collapse" id="navbarColor02">
                 <div class="row col-xl-6 col-lg-10 col-md-12 col-sm-10 pl-0 pr-0">
                     <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-6 center-aligned">
-                        <a id="menu-experience-id" class="nav-link btn btn-primary">
-                            EXPERIENCIAS
-                            <span class="sr-only">(current)</span>
-                        </a>
+                        <a id="menu-experience-id" href="#" class="nav-link white-label menu">EXPERIENCIAS</a>
                     </div>
                     <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-6">
-                        <a id="menu-bar-id" href="#" class="nav-link btn btn-primary mr-xl-3 mr-lg-3 mr-md-3 mr-sm-3">MIXOLOGÍA</a>
+                        <a id="menu-bar-id" href="#" class="nav-link white-label menu mr-xl-3 mr-lg-3 mr-md-3 mr-sm-3">MIXOLOGÍA</a>
                     </div>
                     <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-6">
-                        <a id="menu-kitchen-id" href="#" class="nav-link btn btn-primary mr-xl-3 mr-lg-3 mr-md-3 mr-sm-3 mt-1">GASTRONOMÍA</a>
+                        <a id="menu-kitchen-id" href="#" class="nav-link white-label menu mr-xl-3 mr-lg-3 mr-md-3 mr-sm-3 mt-1">GASTRONOMÍA</a>
                     </div>
                     <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-6">
-                        <a id="menu-reservation-id" href="#" class="nav-link btn btn-danger mr-xl-3 mr-lg-3 mr-md-3 mr-sm-3 mt-1">RESERVAS</a>
+                        <a id="menu-reservation-id" href="#" class="nav-link white-label menu mr-xl-3 mr-lg-3 mr-md-3 mr-sm-3 mt-1">RESERVAS</a>
                     </div>
                 </div>
                 <div class="row col-xl-6 col-lg-2 col-md-12 col-sm-2">
@@ -54,9 +51,21 @@
             </div>
         </nav>
     </div>
-    <div class="body-content pl-0 pr-0">
+    <div class="body-content content pl-0 pr-0">
+        <div class="push"></div>
         @RenderBody()
-        <div class="row h-200 footer-bg">
+    </div>
+    <div class="footer">
+        <iframe src="~/Content/audio/BackgroundAudio.m4a" type="audio/mp3" allow="autoplay" id="audio" style="display:none"></iframe>
+        <audio id="audio-player" controls autoplay>
+            <source src="~/Content/v2.0/audios/BackgroundAudio.m4a" type="audio/mp3">
+        </audio>
+        <div class="row h-150">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 p-0 bg-orange">
+                <img class="mx-auto d-block" style="width:400px; height:160px" src="~/Content/images/logo-bg-orange.png">
+            </div>
+        </div>
+        <div class="row h-100 footer-bg">
             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 p-0 footer-details">
                 <br />
                 <p class="white-label">&copy; @DateTime.Now.Year - CAVARESTOBAR.COM</p>

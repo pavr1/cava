@@ -4096,8 +4096,11 @@
     <Content Include="Content\images\Kitchen\cava_febrero2021_88.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\images\logo-bg-orange.png" />
     <Content Include="Content\images\whatsapp.png" />
     <Content Include="Content\jquery.datetimepicker.css" />
+    <Content Include="Content\v2.0\audios\BackgroundAudio.m4a" />
+    <Content Include="Content\v2.0\images\logos\logo1.png" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css">
@@ -4467,6 +4470,7 @@
     <Content Include="Views\Home\Reservation.cshtml" />
     <Content Include="Views\Home\ReservationHandler.cshtml" />
     <Content Include="Views\Home\ReservationRetrieve.cshtml" />
+    <Content Include="Views\Home\board.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
