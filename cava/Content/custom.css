@@ -23,6 +23,19 @@
     background-size: cover;
 }
 
+.icon {
+    height: 50px;
+    width: 50px;
+    border-radius: 50px;
+    margin: 10px;
+    cursor:pointer;
+}
+
+.icon:hover {
+    opacity: 0.5;
+    transition: opacity 0.8s;
+}
+
 .navbar {
     width: 100%;
     border-style: none !important;
@@ -50,6 +63,10 @@
 .btn {
     width: 120px;
     font-family: "PFDinDisplayPro-Medium", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+}
+
+.border-1{
+    border:solid !important;
 }
 
 input {
@@ -201,11 +218,44 @@ input {
 }
 
 .bg-orange {
-    background-color: #DF6A27;
+    background-color: #DF6A27 !important;
 }
 
 .bg-blue {
-    background-color: #0D2749;
+    background-color: #0D2749 !important;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+    background-color: #111;
+}
+
+.radius-top-5 {
+    border-radius: 5px 5px 0px 0px;
+}
+
+.radius-buttom-5{
+    border-radius: 0px 0px 5px 5px;
 }
 
 .processing-icon {
@@ -255,11 +305,11 @@ img.transparent5:hover {
     transition: opacity 0.8s;
 }
 
-img.logo{
-    height:150px;
-    width:190px;
-    margin-left:20px;
-    margin-right:20px;
+img.logo {
+    height: 150px;
+    width: 190px;
+    margin-left: 20px;
+    margin-right: 20px;
 }
 
 div.transparent8:hover {
@@ -295,10 +345,6 @@ img {
 
 .h-dynamic {
     height: 100px;
-}
-
-.footer-bg {
-    background-color: #273D61;
 }
 
 @media screen and (min-device-width: 320px) and (max-device-width: 376px) {
@@ -386,6 +432,7 @@ img {
         height: 329px;
     }
 }
+
 @media screen and (min-device-width: 1440px) and (max-device-width: 2560px) {
     .h-700 {
         height: 830px

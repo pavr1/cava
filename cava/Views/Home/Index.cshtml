@@ -1,7 +1,9 @@
-﻿@{
+﻿@model cava.Models.Custom.Deliverer
+
+@{
     ViewBag.Title = "Cava";
 }
 
 <div id="main-container" class="device-height">
-    @Html.Partial("Experience")
+    @Html.Partial("Experience", Model)
 </div>

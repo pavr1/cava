@@ -184,6 +184,7 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Bar.cs" />
+    <Compile Include="Models\Custom\Deliverer.cs" />
     <Compile Include="Models\Experience.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Kitchen.cs" />
@@ -4101,6 +4102,8 @@
     <Content Include="Content\jquery.datetimepicker.css" />
     <Content Include="Content\v2.0\audios\BackgroundAudio.m4a" />
     <Content Include="Content\v2.0\images\logos\logo1.png" />
+    <Content Include="Content\v2.0\logos\facebook.png" />
+    <Content Include="Content\v2.0\logos\instagram.png" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css">
@@ -4310,6 +4313,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Scripts\jquery.datetimepicker.full.js" />
+    <Content Include="Scripts\jquery.scrollTo.min.js" />
     <Content Include="Scripts\jquery.validate.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

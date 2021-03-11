@@ -8,11 +8,13 @@
     });
 
     $("#menu-kitchen-id").click(function () {
-        LoadKitchen();
+        window.open('https://drive.google.com/file/d/1ns87LHZeXpkh0OO1s89g4-Lukl7lRK0_/view', '_blank');
+        //delete LoadKitchen();
     });
 
     $("#menu-reservation-id").click(function () {
-        LoadReservation();
+        ScrollTo('txt-people-amount');
+        //delete LoadReservation();
     });
 
     $("#menu-login").click(function () {
@@ -32,10 +34,11 @@
     });
 
     $('#experience-carousel').carousel({
-        interval: 7000
+        interval: 3000,
+        pause: false,
     });
 
-    $('#audio-player').get(0).play();
+    //$('#audio-player').get(0).play();
 
     var title;
     var subTitle;
@@ -85,6 +88,14 @@ function ShouldItCollapse() {
 
     //if with is less lg or xl (md/sm/xs)
     return (width < 992);
+}
+
+function ScrollTo(controlId) {
+    var control = $('#' + controlId);
+
+    $.scrollTo(control.offset().top, 2000);
+
+    control.focus();
 }
 
 function LoadBar() {

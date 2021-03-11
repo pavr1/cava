@@ -3,6 +3,7 @@ using cava.Custom.Notification;
 using cava.Custom.Serialization;
 using cava.Enums;
 using cava.Models;
+using cava.Models.Custom;
 using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
@@ -37,7 +38,27 @@ namespace cava.Controllers
 
         public ActionResult Index()
         {
-            return View();
+            var delivered = CreateDeliverer();
+
+            return View(delivered);
+        }
+
+        private static Deliverer CreateDeliverer()
+        {
+            var whatsapplink = ConfigurationManager.AppSettings["WhatsappLink"];
+            var whatsappPhone = ConfigurationManager.AppSettings["WhatsappPhone"];
+            var whatsappDefaultMessage = ConfigurationManager.AppSettings["WhatsappMessage"];
+
+            var delivered = new Deliverer
+            {
+                WhatsappUrl = whatsapplink + whatsappPhone + (!string.IsNullOrEmpty(whatsappDefaultMessage) ? "?text=" + whatsappDefaultMessage : string.Empty),
+                FacebookLink = ConfigurationManager.AppSettings["FacebookLink"],
+                InstagramLink = ConfigurationManager.AppSettings["InstagramLink"],
+                Schedules = ConfigurationManager.AppSettings["Schedules"].ToUpper().Split(new string[] { "|" }, StringSplitOptions.RemoveEmptyEntries).ToList(),
+                BriefDescription = ConfigurationManager.AppSettings["BriefDescription"].ToUpper(),
+            };
+
+            return delivered;
         }
 
         public ActionResult About()
@@ -66,18 +87,14 @@ namespace cava.Controllers
 
         public string Experience()
         {
-            return Serializer.RenderViewToString(this.ControllerContext, CommonObjects.Actions.Experience.ToString(), null);
+            var delivered = CreateDeliverer();
+
+            return Serializer.RenderViewToString(this.ControllerContext, CommonObjects.Actions.Experience.ToString(), delivered);
         }
 
         public string Reservation()
-        {
-            var whatsapplink = ConfigurationManager.AppSettings["WhatsappLink"];
-            var whatsappPhone = ConfigurationManager.AppSettings["WhatsappPhone"];
-            var whatsappDefaultMessage = ConfigurationManager.AppSettings["WhatsappMessage"];
-
-            var whatsappUrl = whatsapplink + whatsappPhone + (!string.IsNullOrEmpty(whatsappDefaultMessage) ? "?text=" + whatsappDefaultMessage : string.Empty);
-            
-            return Serializer.RenderViewToString(this.ControllerContext, CommonObjects.Actions.Reservation.ToString(), new Reservation { Whatsapp = whatsappUrl });
+        {            
+            return Serializer.RenderViewToString(this.ControllerContext, CommonObjects.Actions.Reservation.ToString(), null);
         }
 
         public string Login()
