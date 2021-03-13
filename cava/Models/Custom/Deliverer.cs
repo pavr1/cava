@@ -12,5 +12,7 @@ namespace cava.Models.Custom
         public string InstagramLink { get; set; }
         public List<string> Schedules { get; set; }
         public string BriefDescription { get; set; }
+        public List<string> Slides { get; set; }
+        public List<string> ReservationReasons { get; set; }
     }
 }

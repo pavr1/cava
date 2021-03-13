@@ -84,16 +84,6 @@ jQuery('.custom-date').datetimepicker({
     minDate: new Date()
 });
 
-setTimeout(function () {
-    $('#whatsapp-link').notify(
-        "¡CONTACTANOS!",
-        {
-            position: "left-top",
-            className: "success"
-        },
-    );
-}, 1000);
-
 $('#txt-phone').mask('0000-0000');
 
 $(".reservation-people-number").keyup(function () {
@@ -117,6 +107,7 @@ $("input[type=text]").keyup(function () {
 $("#btn-reservation-1").click(function () {
     var amount = $("#txt-people-amount").val();
     var reservationDateTime = $("#txt-reservation-date").val();
+    var reason = $("#ddl-reason").val();
 
     if (amount === "") {
         $("#txt-people-amount").notify(
@@ -142,6 +133,20 @@ $("#btn-reservation-1").click(function () {
         $("#txt-reservation-date").focus();
         $("#txt-people-amount").removeClass("border-danger");
         $("#txt-reservation-date").addClass("border-danger");
+        return;
+    } else if (reason === null) {
+        $("#ddl-reason").notify(
+            "¡MOTIVO DE RESERVA REQUERIDO!",
+            {
+                position: "top",
+                className: "warn"
+            }
+        );
+
+        $("#ddl-reason").focus();
+        $("#txt-people-amount").removeClass("border-danger");
+        $("#txt-reservation-date").removeClass("border-danger");
+        $("#ddl-reason").addClass("border-danger");
         return;
     }
 

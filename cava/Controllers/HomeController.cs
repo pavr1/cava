@@ -8,6 +8,7 @@ using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Configuration;
@@ -43,11 +44,12 @@ namespace cava.Controllers
             return View(delivered);
         }
 
-        private static Deliverer CreateDeliverer()
+        private Deliverer CreateDeliverer()
         {
             var whatsapplink = ConfigurationManager.AppSettings["WhatsappLink"];
             var whatsappPhone = ConfigurationManager.AppSettings["WhatsappPhone"];
             var whatsappDefaultMessage = ConfigurationManager.AppSettings["WhatsappMessage"];
+
 
             var delivered = new Deliverer
             {
@@ -56,6 +58,8 @@ namespace cava.Controllers
                 InstagramLink = ConfigurationManager.AppSettings["InstagramLink"],
                 Schedules = ConfigurationManager.AppSettings["Schedules"].ToUpper().Split(new string[] { "|" }, StringSplitOptions.RemoveEmptyEntries).ToList(),
                 BriefDescription = ConfigurationManager.AppSettings["BriefDescription"].ToUpper(),
+                ReservationReasons = ConfigurationManager.AppSettings["ReservationReasons"].ToUpper().Split(new string[] { "|"}, StringSplitOptions.RemoveEmptyEntries).ToList(),
+                Slides = GetSlides()
             };
 
             return delivered;
@@ -93,7 +97,7 @@ namespace cava.Controllers
         }
 
         public string Reservation()
-        {            
+        {
             return Serializer.RenderViewToString(this.ControllerContext, CommonObjects.Actions.Reservation.ToString(), null);
         }
 
@@ -297,6 +301,25 @@ namespace cava.Controllers
                     return -3;
                 }
             }
+        }
+
+        private List<string> GetSlides()
+        {
+            var path = Server.MapPath("~/Content/v2.0/images/slides");
+
+            string[] slides = Directory.GetFiles(path);
+            List<string> slidePaths = new List<string>();
+
+            foreach (string fileName in slides)
+            {
+                var splitValues = fileName.Split(new string[] { "\\" }, StringSplitOptions.RemoveEmptyEntries);
+
+                var name = "/Content/v2.0/images/slides/" + splitValues[splitValues.Length - 1];
+
+                slidePaths.Add(name);
+            }
+
+            return slidePaths;
         }
     }
 }

@@ -13,7 +13,20 @@
     });
 
     $("#menu-reservation-id").click(function () {
+        $('.collapse').collapse('toggle');
+
         ScrollTo('txt-people-amount');
+
+        setTimeout(function () {
+            $('#whatsapp-link').notify(
+                "¡CONTÁCTANOS!",
+                {
+                    position: "left-top",
+                    className: "success"
+                },
+            );
+        }, 3000);
+
         //delete LoadReservation();
     });
 
@@ -34,7 +47,7 @@
     });
 
     $('#experience-carousel').carousel({
-        interval: 3000,
+        interval: 4000,
         pause: false,
     });
 
@@ -93,7 +106,7 @@ function ShouldItCollapse() {
 function ScrollTo(controlId) {
     var control = $('#' + controlId);
 
-    $.scrollTo(control.offset().top, 2000);
+    $.scrollTo(control.offset().top - 500, 2000);
 
     control.focus();
 }

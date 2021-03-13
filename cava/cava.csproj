@@ -4102,6 +4102,30 @@
     <Content Include="Content\jquery.datetimepicker.css" />
     <Content Include="Content\v2.0\audios\BackgroundAudio.m4a" />
     <Content Include="Content\v2.0\images\logos\logo1.png" />
+    <Content Include="Content\v2.0\images\slides\cava_febrero2021_15.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\v2.0\images\slides\cava_febrero2021_37.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\v2.0\images\slides\cava_febrero2021_46.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\v2.0\images\slides\cava_febrero2021_48.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\v2.0\images\slides\cava_febrero2021_62.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\v2.0\images\slides\cava_febrero2021_76.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\v2.0\images\slides\cava_febrero2021_8.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\v2.0\images\slides\cava_febrero2021_88.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\v2.0\logos\facebook.png" />
     <Content Include="Content\v2.0\logos\instagram.png" />
     <Content Include="favicon.ico" />

@@ -10470,7 +10470,7 @@ a.text-dark:focus, a.text-dark:hover {
     }
 
     .navbar.fixed-top {
-        border-radius: 0 25px 225px 0/25px 0 25px 255px;
+        border-radius: 0 25px 225px 0/25px 0 35px 255px;
         border-width: 0 0 2px
     }
 

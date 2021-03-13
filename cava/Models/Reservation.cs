@@ -29,8 +29,8 @@ namespace cava.Models
         [Display(Name = "Correo Electrónico")]
         public string Email { get; set; }
         public ReservationStatus Status { get; set; }
-
-        [NotMapped]
-        public string Whatsapp { get; set; }
+        [Required]
+        [Display(Name = "Motivo")]
+        public string Reason { get; set; }
     }
 }
