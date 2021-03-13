@@ -107,56 +107,62 @@ namespace cava.Controllers
         }
 
         [HttpPost]
-        public async Task<int> CreateReservation(DateTime reservationDate, int numberOfPeople, string reserverFirstName, string reserverLastName, DateTime? DOB, string phone, string email)
+        public async Task<int> CreateReservation(DateTime reservationDate, int numberOfPeople, string reserverFirstName, string reserverLastName, DateTime? DOB, string phone, string email, string reason)
         {
             try
             {
                 if (ModelState.IsValid)
                 {
-                    using (ApplicationDbContext db = new ApplicationDbContext())
+                    var task = Task.Run(async () =>
                     {
-                        reserverFirstName = Server.HtmlEncode(reserverFirstName);
-                        reserverLastName = Server.HtmlEncode(reserverLastName);
-                        phone = Server.HtmlEncode(phone);
-                        email = Server.HtmlEncode(email);
-
-                        var reservation = new Reservation
+                        using (ApplicationDbContext db = new ApplicationDbContext())
                         {
-                            DOB = DOB,
-                            Email = email,
-                            NumberOfPeople = numberOfPeople,
-                            Phone = phone,
-                            ReservationDate = reservationDate,
-                            ReserverFirstName = reserverFirstName,
-                            ReserverLastName = reserverLastName,
-                            Status = Enums.ReservationStatus.Active
-                        };
+                            reserverFirstName = Server.HtmlEncode(reserverFirstName);
+                            reserverLastName = Server.HtmlEncode(reserverLastName);
+                            phone = Server.HtmlEncode(phone);
+                            email = Server.HtmlEncode(email);
 
-                        db.Reservations.Add(reservation);
-                        db.SaveChanges();
+                            var reservation = new Reservation
+                            {
+                                DOB = DOB,
+                                Email = email,
+                                NumberOfPeople = numberOfPeople,
+                                Phone = phone,
+                                ReservationDate = reservationDate,
+                                ReserverFirstName = reserverFirstName,
+                                ReserverLastName = reserverLastName,
+                                Status = Enums.ReservationStatus.Active,
+                                Reason = reason
+                            };
 
-                        //Reservation email sent to admin
-                        IdentityMessage msg = new IdentityMessage
-                        {
-                            Body = string.Format(CommonObjects._RESERVATION_BODY,
-                            reserverFirstName + " " + reserverLastName, numberOfPeople, reservationDate.ToString(CommonObjects._DATE_FORMAT_1) + CommonObjects._A_LAS + reservationDate.ToShortTimeString(), email, phone).ToUpper(),
-                            Destination = WebConfigurationManager.AppSettings[CommonObjects._CONFIG_ADMIN_EMAIL_KEY] + "," + WebConfigurationManager.AppSettings[CommonObjects._CAVA_ADMIN_EMAIL_KEY],
-                            Subject = CommonObjects._NEW_RESERVATION_SUBJECT
-                        };
+                            db.Reservations.Add(reservation);
+                            db.SaveChanges();
 
-                        await _emailService.SendAsync(msg);
+                            //Reservation email sent to admin
+                            IdentityMessage msg = new IdentityMessage
+                            {
+                                Body = string.Format(CommonObjects._RESERVATION_BODY,
+                                reserverFirstName + " " + reserverLastName, numberOfPeople, reservationDate.ToString(CommonObjects._DATE_FORMAT_1) + CommonObjects._A_LAS + reservationDate.ToShortTimeString(), email, phone).ToUpper(),
+                                Destination = WebConfigurationManager.AppSettings[CommonObjects._CONFIG_ADMIN_EMAIL_KEY] + "," + WebConfigurationManager.AppSettings[CommonObjects._CAVA_ADMIN_EMAIL_KEY],
+                                Subject = CommonObjects._NEW_RESERVATION_SUBJECT
+                            };
 
-                        //Confirmation email sent to customer
-                        msg = new IdentityMessage
-                        {
-                            Body = string.Format(CommonObjects._RESERVATION_EMAIL_BODY,
-                            numberOfPeople, reservationDate.ToString(CommonObjects._DATE_FORMAT_1) + CommonObjects._A_LAS + reservationDate.ToShortTimeString(), email, phone).ToUpper(),
-                            Destination = email,
-                            Subject = CommonObjects._NEW_RESERVATION_SUBJECT2
-                        };
+                            await _emailService.SendAsync(msg);
 
-                        await _emailService.SendAsync(msg);
-                    }
+                            //Confirmation email sent to customer
+                            msg = new IdentityMessage
+                            {
+                                Body = string.Format(CommonObjects._RESERVATION_EMAIL_BODY,
+                                numberOfPeople, reservationDate.ToString(CommonObjects._DATE_FORMAT_1) + CommonObjects._A_LAS + reservationDate.ToShortTimeString(), email, phone).ToUpper(),
+                                Destination = email,
+                                Subject = CommonObjects._NEW_RESERVATION_SUBJECT2
+                            };
+
+                            await _emailService.SendAsync(msg);
+                        }
+                    });
+
+                    await task;
 
                     return 1;
                 }
