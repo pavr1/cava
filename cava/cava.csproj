@@ -4028,45 +4028,98 @@
     <Content Include="Content\v2.0\images\logos\logo1.png" />
     <Content Include="Content\v2.0\images\logos\facebook.png" />
     <Content Include="Content\v2.0\images\logos\instagram.png" />
-    <Content Include="Content\v2.0\images\slides\cava_febrero2021_15.jpg" />
-    <Content Include="Content\v2.0\images\slides\cava_febrero2021_8.jpg" />
-    <Content Include="Content\v2.0\images\slides\images\lg-30\cava_febrero2021_15.jpg" />
-    <Content Include="Content\v2.0\images\slides\images\lg-30\cava_febrero2021_8.jpg" />
-    <Content Include="Content\v2.0\images\slides\images\md-20\cava_febrero2021_15.jpg" />
-    <Content Include="Content\v2.0\images\slides\images\md-20\cava_febrero2021_8.jpg" />
-    <Content Include="Content\v2.0\images\slides\images\sm-10\cava_febrero2021_15.jpg" />
-    <Content Include="Content\v2.0\images\slides\images\sm-10\cava_febrero2021_8.jpg" />
-    <Content Include="Content\v2.0\images\slides\images\xl-40\cava_febrero2021_15.jpg" />
-    <Content Include="Content\v2.0\images\slides\images\xl-40\cava_febrero2021_8.jpg" />
-    <Content Include="Content\v2.0\images\slides\sprites\lg-30\mysprite.sprite.css">
-      <DependentUpon>mysprite.sprite</DependentUpon>
+    <Content Include="Content\v2.0\images\slides\cava_febrero2021_17.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\v2.0\images\slides\sprites\lg-30\mysprite.sprite.jpg">
-      <DependentUpon>mysprite.sprite</DependentUpon>
+    <Content Include="Content\v2.0\images\slides\cava_febrero2021_18.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\v2.0\images\slides\sprites\md-20\mysprite.sprite.css">
-      <DependentUpon>mysprite.sprite</DependentUpon>
+    <Content Include="Content\v2.0\images\slides\cava_febrero2021_21.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\v2.0\images\slides\sprites\md-20\mysprite.sprite.jpg">
-      <DependentUpon>mysprite.sprite</DependentUpon>
+    <Content Include="Content\v2.0\images\slides\cava_febrero2021_24.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\v2.0\images\slides\sprites\sm-10\mysprite.sprite.css">
-      <DependentUpon>mysprite.sprite</DependentUpon>
+    <Content Include="Content\v2.0\images\slides\cava_febrero2021_31.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\v2.0\images\slides\sprites\sm-10\mysprite.sprite.jpg">
-      <DependentUpon>mysprite.sprite</DependentUpon>
+    <Content Include="Content\v2.0\images\slides\cava_febrero2021_35.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\v2.0\images\slides\sprites\xl-40\mysprite.sprite.css">
-      <DependentUpon>mysprite.sprite</DependentUpon>
+    <Content Include="Content\v2.0\images\slides\cava_febrero2021_41.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\v2.0\images\slides\sprites\xl-40\mysprite.sprite.jpg">
+    <Content Include="Content\v2.0\images\slides\cava_febrero2021_45.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\v2.0\images\slides\cava_febrero2021_47.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\v2.0\images\slides\cava_febrero2021_8.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\v2.0\images\slides\sprites\1024\mysprite.sprite.css">
       <DependentUpon>mysprite.sprite</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\v2.0\images\slides\sprites\1024\mysprite.sprite.jpg">
+      <DependentUpon>mysprite.sprite</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\v2.0\images\slides\sprites\1440\mysprite.sprite.css">
+      <DependentUpon>mysprite.sprite</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\v2.0\images\slides\sprites\1440\mysprite.sprite.jpg">
+      <DependentUpon>mysprite.sprite</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\v2.0\images\slides\sprites\2560\mysprite.sprite.css">
+      <DependentUpon>mysprite.sprite</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\v2.0\images\slides\sprites\2560\mysprite.sprite.jpg">
+      <DependentUpon>mysprite.sprite</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\v2.0\images\slides\sprites\320\mysprite.sprite.css">
+      <DependentUpon>mysprite.sprite</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\v2.0\images\slides\sprites\320\mysprite.sprite.jpg">
+      <DependentUpon>mysprite.sprite</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\v2.0\images\slides\sprites\375\mysprite.sprite.css">
+      <DependentUpon>mysprite.sprite</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\v2.0\images\slides\sprites\375\mysprite.sprite.jpg">
+      <DependentUpon>mysprite.sprite</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\v2.0\images\slides\sprites\425\mysprite.sprite.css">
+      <DependentUpon>mysprite.sprite</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\v2.0\images\slides\sprites\425\mysprite.sprite.jpg">
+      <DependentUpon>mysprite.sprite</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\v2.0\images\slides\sprites\768\mysprite.sprite.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\v2.0\images\slides\sprites\768\mysprite.sprite.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="manifest.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <Content Include="Scripts\bootstrap-datepicker.es.min.js" />
     <Content Include="Scripts\bootstrap.bundle.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -4131,10 +4184,27 @@
     <Content Include="Content\bootstrap-icons-1.3.0\fonts\bootstrap-icons.woff2">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <None Include="Content\v2.0\images\slides\sprites\lg-30\mysprite.sprite" />
-    <None Include="Content\v2.0\images\slides\sprites\md-20\mysprite.sprite" />
-    <None Include="Content\v2.0\images\slides\sprites\sm-10\mysprite.sprite" />
-    <None Include="Content\v2.0\images\slides\sprites\xl-40\mysprite.sprite" />
+    <None Include="Content\v2.0\images\slides\sprites\1024\mysprite.sprite">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Content\v2.0\images\slides\sprites\1440\mysprite.sprite">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Content\v2.0\images\slides\sprites\2560\mysprite.sprite">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Content\v2.0\images\slides\sprites\320\mysprite.sprite">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Content\v2.0\images\slides\sprites\375\mysprite.sprite">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Content\v2.0\images\slides\sprites\425\mysprite.sprite">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <Content Include="Content\v2.0\images\slides\sprites\768\mysprite.sprite">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="Properties\PublishProfiles\cavarestobar_produccion.pubxml" />
     <None Include="Scripts\jquery-3.5.1.intellisense.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -4442,6 +4512,13 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\v2.0\images\slides\images\1024\" />
+    <Folder Include="Content\v2.0\images\slides\images\1440\" />
+    <Folder Include="Content\v2.0\images\slides\images\2560\" />
+    <Folder Include="Content\v2.0\images\slides\images\320\" />
+    <Folder Include="Content\v2.0\images\slides\images\375\" />
+    <Folder Include="Content\v2.0\images\slides\images\425\" />
+    <Folder Include="Content\v2.0\images\slides\images\768\" />
     <Folder Include="Views\Log\" />
   </ItemGroup>
   <ItemGroup>

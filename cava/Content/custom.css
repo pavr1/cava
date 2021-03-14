@@ -396,9 +396,9 @@ input#txt-reservation-date {
     pointer-events: auto;
 }
 
-@media screen and (min-device-width: 320px) and (max-device-width: 376px) {
+@media screen and (min-device-width: 320px) and (max-device-width: 375px) {
     .sprite {
-        background: url("v2.0/images/slides/sprite/sm-10/mysprite.sprite.jpg") no-repeat;
+        background: url("v2.0/images/slides/sprite/320/mysprite.sprite.jpg") no-repeat;
     }
 
     .h-700 {
@@ -424,9 +424,9 @@ input#txt-reservation-date {
     }
 }
 
-@media screen and (min-device-width: 376px) and (max-device-width: 426px) {
+@media screen and (min-device-width: 375px) and (max-device-width: 425px) {
     .sprite {
-        background: url("v2.0/images/slides/sprite/sm-10/mysprite.sprite.jpg") no-repeat;
+        background: url("v2.0/images/slides/sprite/375/mysprite.sprite.jpg") no-repeat;
     }
 
     .h-700 {
@@ -448,9 +448,9 @@ input#txt-reservation-date {
     }
 }
 
-@media screen and (min-device-width: 426px) and (max-device-width: 768px) {
+@media screen and (min-device-width: 425px) and (max-device-width: 768px) {
     .sprite {
-        background: url("v2.0/images/slides/sprite/md-20/mysprite.sprite.jpg") no-repeat;
+        background: url("v2.0/images/slides/sprite/425/mysprite.sprite.jpg") no-repeat;
     }
 
     .h-700 {
@@ -480,7 +480,7 @@ input#txt-reservation-date {
 
 @media screen and (min-device-width: 768px) and (max-device-width: 1024px) {
     .sprite {
-        background: url("v2.0/images/slides/sprite/lg-30/mysprite.sprite.jpg") no-repeat;
+        background: url("v2.0/images/slides/sprite/768/mysprite.sprite.jpg") no-repeat;
     }
 
     .h-700 {
@@ -510,7 +510,7 @@ input#txt-reservation-date {
 
 @media screen and (min-device-width: 1024px) and (max-device-width: 1440px) {
     .sprite {
-        background: url("v2.0/images/slides/sprite/lx-90/mysprite.sprite.jpg") no-repeat;
+        background: url("v2.0/images/slides/sprite/1024/mysprite.sprite.jpg") center;
     }
 
     .h-700 {
@@ -535,6 +535,10 @@ input#txt-reservation-date {
 }
 
 @media screen and (min-device-width: 1440px) and (max-device-width: 2560px) {
+    .sprite {
+        background: url("v2.0/images/slides/sprite/1440/mysprite.sprite.jpg") center;
+    }
+
     .h-700 {
         height: 700px
     }
@@ -555,49 +559,41 @@ input#txt-reservation-date {
         height: 430px;
     }
 }
-/*@media only screen and (min-width: 2559px) and (max-width:2561px) {
-    .device-height {
-        height: 900px
-    }
-}
 
-@media only screen and (min-width: 1440px) and (max-width:2559px) {
-    .device-height {
+@media screen and (min-device-width: 2560px) {
+    .sprite {
+        background: url("v2.0/images/slides/sprite/2560/mysprite.sprite.jpg") center;
+    }
+
+    .h-700 {
         height: 700px
     }
-}
 
-@media only screen and (min-width: 1024px) and (max-width:1440px) {
-    .device-height {
-        height: 600px
+    .slide-title {
+        top: 0%;
     }
-}
 
-@media only screen and (min-width: 768px) and (max-width:1024px) {
-    .device-height {
-        height: 600px
+    .custom-font-size {
+        font-size: 15px !important;
     }
-}
 
-@media only screen and (min-width: 320px) and (max-width:768px) {
-    .device-height {
-        height: 500px
+    .slide-sub-title {
+        top: 10%;
     }
-}*/
-/*
-@media only screen and (min-width: 320px) and (max-device-with: 425px) {
-    .device-height {
-        height: 700px
-    }
-}*/
-/*@media (orientation: landscape) {
-    body {
-        flex-direction: row;
+
+    .h-dynamic {
+        height: 430px;
     }
 }
 
-@media (orientation: portrait) {
-    body {
-        flex-direction: row;
+@media screen and (min-width: 320px) and (max-width: 767px) and (orientation: landscape) {
+    html {
+        transform: rotate(-90deg);
+        transform-origin: left top;
+        width: 100vh;
+        overflow-x: hidden;
+        position: absolute;
+        top: 100%;
+        left: 0;
     }
-}*/
+}

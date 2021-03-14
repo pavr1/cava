@@ -98,27 +98,46 @@
 
 function setSpriteCss() {
     var screenWidth = $(window).width();
+    console.log("Screen width: " + screenWidth);
 
-    if (screenWidth >= 320 && screenWidth <= 426) {
-        $("#css-sprite-link").attr("href", "../Content/v2.0/images/slides/sprites/sm-10/mysprite.sprite.css");
+    if (screenWidth >= 320 && screenWidth < 375) {
+        $("#css-sprite-link").attr("href", "../Content/v2.0/images/slides/sprites/320/mysprite.sprite.css");
 
-        console.log("Sprite set sm");
-    } else if (screenWidth >= 427 && screenWidth <= 768) {
-        $("#css-sprite-link").attr("href", "../Content/v2.0/images/slides/sprites/md-20/mysprite.sprite.css");
+        console.log("Sprite 320");
+    } else if (screenWidth >= 375 && screenWidth < 425) {
+        $("#css-sprite-link").attr("href", "../Content/v2.0/images/slides/sprites/375/mysprite.sprite.css");
 
-        console.log("Sprite set md");
-    } else if (screenWidth >= 769 && screenWidth <= 1024) {
-        $("#css-sprite-link").attr("href", "../Content/v2.0/images/slides/sprites/lg-30/mysprite.sprite.css");
+        console.log("Sprite set 375");
+    } else if (screenWidth >= 425 && screenWidth < 768) {
+        $("#css-sprite-link").attr("href", "../Content/v2.0/images/slides/sprites/425/mysprite.sprite.css");
 
-        console.log("Sprite set lg");
-    } else if (screenWidth >= 1025) {
-        $("#css-sprite-link").attr("href", "../Content/v2.0/images/slides/sprites/xl-40/mysprite.sprite.css");
+        console.log("Sprite set 425");
+    } else if (screenWidth >= 768 && screenWidth < 1024) {
+        $("#css-sprite-link").attr("href", "../Content/v2.0/images/slides/sprites/768/mysprite.sprite.css");
 
-        console.log("Sprite set xl");
+        console.log("Sprite set 768");
+    } else if (screenWidth >= 1024 && screenWidth < 1440) {
+        $("#css-sprite-link").attr("href", "../Content/v2.0/images/slides/sprites/1024/mysprite.sprite.css");
+
+        console.log("Sprite set 1024");
+    } else if (screenWidth >= 1440 && screenWidth < 2560) {
+        $("#css-sprite-link").attr("href", "../Content/v2.0/images/slides/sprites/1440/mysprite.sprite.css");
+
+        console.log("Sprite set 1440");
+    } else if (screenWidth >= 2560) {
+        $("#css-sprite-link").attr("href", "../Content/v2.0/images/slides/sprites/2560/mysprite.sprite.css");
+
+        console.log("Sprite set 2560");
     }
+
 
     console.log($("#css-sprite-link").attr("href"));
 }
+
+//$(window).on("orientationchange", function (event) {
+//    alert(screen.orientation);
+//    event.preventDefault();
+//});
 
 function ShouldItCollapse() {
     var width = $(window).width();
@@ -136,7 +155,9 @@ function ShouldItCollapse() {
 function ScrollTo(controlId) {
     var control = $('#' + controlId);
 
-    $.scrollTo(control.offset().top - 500, 2000);
+    $([document.documentElement, document.body]).animate({
+        scrollTop: control.offset().top - 500
+    }, 2000);
 }
 
 function LoadBar() {

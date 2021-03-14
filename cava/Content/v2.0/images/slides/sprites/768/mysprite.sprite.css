@@ -1,0 +1,58 @@
+/*
+This is an example of how to use the image sprite in your own CSS files
+*/
+.mysprite {
+	background-image: url('mysprite.sprite.jpg');
+	background-repeat: no-repeat;
+	display: inline-block;
+}
+.mysprite.cava_febrero2021_17 {
+	width: 936px;
+	height: 624px;
+	background-position: -10px -10px;
+}
+.mysprite.cava_febrero2021_18 {
+	width: 936px;
+	height: 624px;
+	background-position: -10px -644px;
+}
+.mysprite.cava_febrero2021_21 {
+	width: 936px;
+	height: 624px;
+	background-position: -10px -1278px;
+}
+.mysprite.cava_febrero2021_24 {
+	width: 936px;
+	height: 624px;
+	background-position: -10px -1912px;
+}
+.mysprite.cava_febrero2021_31 {
+	width: 936px;
+	height: 624px;
+	background-position: -10px -2546px;
+}
+.mysprite.cava_febrero2021_35 {
+	width: 936px;
+	height: 624px;
+	background-position: -10px -3180px;
+}
+.mysprite.cava_febrero2021_41 {
+	width: 936px;
+	height: 624px;
+	background-position: -10px -3814px;
+}
+.mysprite.cava_febrero2021_45 {
+	width: 936px;
+	height: 624px;
+	background-position: -10px -4448px;
+}
+.mysprite.cava_febrero2021_47 {
+	width: 936px;
+	height: 624px;
+	background-position: -10px -5082px;
+}
+.mysprite.cava_febrero2021_8 {
+	width: 936px;
+	height: 624px;
+	background-position: -10px -5716px;
+}

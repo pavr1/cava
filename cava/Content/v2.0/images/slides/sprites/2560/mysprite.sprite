@@ -1,0 +1,25 @@
+{
+  "images": {
+    "cava_febrero2021_17": "../../images/2560/cava_febrero2021_17.jpg",
+    "cava_febrero2021_18": "../../images/2560/cava_febrero2021_18.jpg",
+    "cava_febrero2021_21": "../../images/2560/cava_febrero2021_21.jpg",
+    "cava_febrero2021_24": "../../images/2560/cava_febrero2021_24.jpg",
+    "cava_febrero2021_31": "../../images/2560/cava_febrero2021_31.jpg",
+    "cava_febrero2021_35": "../../images/2560/cava_febrero2021_35.jpg",
+    "cava_febrero2021_41": "../../images/2560/cava_febrero2021_41.jpg",
+    "cava_febrero2021_45": "../../images/2560/cava_febrero2021_45.jpg",
+    "cava_febrero2021_47": "../../images/2560/cava_febrero2021_47.jpg",
+    "cava_febrero2021_8": "../../images/2560/cava_febrero2021_8.jpg"
+  },
+  "orientation": "vertical",
+  "optimize": "lossless",
+  "padding": 10,
+  "output": "jpg",
+  "dpi": 150,
+  "stylesheet": "css",
+  "pathprefix": "",
+  "customstyles": {
+    "display": "inline-block"
+  },
+  "appendcachebustspritesuffix": false
+}
