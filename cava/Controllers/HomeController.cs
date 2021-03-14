@@ -58,7 +58,7 @@ namespace cava.Controllers
                 InstagramLink = ConfigurationManager.AppSettings["InstagramLink"],
                 Schedules = ConfigurationManager.AppSettings["Schedules"].ToUpper().Split(new string[] { "|" }, StringSplitOptions.RemoveEmptyEntries).ToList(),
                 BriefDescription = ConfigurationManager.AppSettings["BriefDescription"].ToUpper(),
-                ReservationReasons = ConfigurationManager.AppSettings["ReservationReasons"].ToUpper().Split(new string[] { "|"}, StringSplitOptions.RemoveEmptyEntries).ToList(),
+                ReservationReasons = ConfigurationManager.AppSettings["ReservationReasons"].ToUpper().Split(new string[] { "|" }, StringSplitOptions.RemoveEmptyEntries).ToList(),
                 Slides = GetSlides()
             };
 
@@ -113,7 +113,7 @@ namespace cava.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    var task = Task.Run(async () =>
+                    Task.Run(async () =>
                     {
                         using (ApplicationDbContext db = new ApplicationDbContext())
                         {
@@ -161,8 +161,6 @@ namespace cava.Controllers
                             await _emailService.SendAsync(msg);
                         }
                     });
-
-                    await task;
 
                     return 1;
                 }
@@ -320,7 +318,7 @@ namespace cava.Controllers
             {
                 var splitValues = fileName.Split(new string[] { "\\" }, StringSplitOptions.RemoveEmptyEntries);
 
-                var name = "/Content/v2.0/images/slides/" + splitValues[splitValues.Length - 1];
+                var name = splitValues[splitValues.Length - 1].Split(new string[] { "." }, StringSplitOptions.RemoveEmptyEntries)[0];
 
                 slidePaths.Add(name);
             }

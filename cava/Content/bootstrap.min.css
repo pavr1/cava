@@ -10514,23 +10514,23 @@ a.text-dark:focus, a.text-dark:hover {
         border-left: 1px solid rgba(0,0,0,.2)
     }
 
-@media (max-width:576px) {
+/*@media (max-width:576px) {
     .navbar-expand-sm .nav-link, .navbar-expand-sm .navbar-brand {
-        border: none !important
+        border: solid !important
     }
 }
 
 @media (max-width:768px) {
     .navbar-expand-md .nav-link, .navbar-expand-md .navbar-brand {
-        border: none !important
+        border: solid !important
     }
 }
 
 @media (max-width:992px) {
     .navbar-expand-lg .nav-link, .navbar-expand-lg .navbar-brand {
-        border: none !important
+        border: solid !important
     }
-}
+}*/
 
 .btn {
     border-color: rgba(0,0,0,.6);

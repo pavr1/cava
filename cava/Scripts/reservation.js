@@ -295,6 +295,7 @@ function CreateReservation() {
         $.ajax({
             url: "/Home/CreateReservation",
             type: 'POST',
+            async: true,
             data: {
                 reservationDate: selectedReservationDate,
                 numberOfPeople: amount,
@@ -312,18 +313,26 @@ function CreateReservation() {
                     ClearReservationData();
                     ClearAndCloseModal();
 
-                    $.notify("¡RESERVACIÓN CREADA!", "success");
-
-                    $('#lbl-reservation-message').html('HAS HECHO UNA RESERVA PARA ' + amount + ' PERSONAS EL ' + FormatDate(new Date(selectedReservationDate)).toUpperCase() + ' A LAS ' + FormatTime(new Date(selectedReservationDate)));
-                    $('#lbl-reservation-message').fadeIn(500);
+                    $.notify("¡RESERVACIÓN ENVIADA!", { className: "success", autoHideDelay: 2000});
 
                     setTimeout(function () {
-                        $('#lbl-reservation-message').fadeOut(500);
+                        $.notify("UN E-MAIL DE CONFIRMACIÓN", { className: "success", autoHideDelay: 4000 });
 
                         setTimeout(function () {
-                            $('#lbl-reservation-message').html("");
-                        }, 500);
-                    }, 8000);
+                            $.notify("EN BREVE RECIBIRÁS", { className: "success", autoHideDelay: 4000 });
+                        }, 200);
+                    }, 2200);
+
+                    //$('#lbl-reservation-message').html('HAS HECHO UNA RESERVA PARA ' + amount + ' PERSONAS EL ' + FormatDate(new Date(selectedReservationDate)).toUpperCase() + ' A LAS ' + FormatTime(new Date(selectedReservationDate)));
+                    //$('#lbl-reservation-message').fadeIn(500);
+
+                    //setTimeout(function () {
+                    //    $('#lbl-reservation-message').fadeOut(500);
+
+                    //    setTimeout(function () {
+                    //        $('#lbl-reservation-message').html("");
+                    //    }, 500);
+                    //}, 8000);
                 } else if (code === 2) {
                     $.notify("¡DATOS INVÁLIDOS!", "warn");
                 } else if (code === -1) {
@@ -336,7 +345,7 @@ function CreateReservation() {
                 EnableControl('btn-cancel-modal-reservation');
             },
             error: function (jqXHR, textStatus, errorThrown) {
-                $.notify("¡HUBO UN ERROR!", "danger");
+                $.notify("¡HUBO UN ERROR!", "error");
             }
         });
 

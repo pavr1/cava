@@ -1,11 +1,26 @@
-﻿html, body {
-    height: 92%;
+﻿.sprite {
+    background: url("v2.0/images/slides/sprite/mysprite.sprite.jpg") no-repeat;
+}
+
+html, body {
     margin: 0;
+    overflow-x: hidden;
     font-family: "PFDinDisplayPro-Medium", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+    height: 100%
+}
+
+body {
+    height: 100%;
 }
 
 .form-control {
     max-width: 500px;
+}
+
+#nav-bar-menu {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
 }
 
 .content {
@@ -25,6 +40,7 @@
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+    background-color: #0D2749 !important;
 }
 
 .icon {
@@ -186,7 +202,6 @@ option, optgroup {
         width: 320px;
     }
 
-
 .slide-title {
     top: 10%;
     left: 0;
@@ -218,7 +233,6 @@ option, optgroup {
     letter-spacing: .10em;
     text-decoration: none;
 }
-
 
 .container-title {
     top: 40%;
@@ -332,6 +346,7 @@ img.logo {
     width: 190px;
     margin-left: 20px;
     margin-right: 20px;
+    margin: 0px;
 }
 
 div.transparent8:hover {
@@ -373,7 +388,19 @@ img {
     font-size: 12px !important;
 }
 
+.covered {
+    object-fit: cover;
+}
+
+input#txt-reservation-date {
+    pointer-events: auto;
+}
+
 @media screen and (min-device-width: 320px) and (max-device-width: 376px) {
+    .sprite {
+        background: url("v2.0/images/slides/sprite/sm-10/mysprite.sprite.jpg") no-repeat;
+    }
+
     .h-700 {
         height: 215px;
     }
@@ -398,8 +425,12 @@ img {
 }
 
 @media screen and (min-device-width: 376px) and (max-device-width: 426px) {
+    .sprite {
+        background: url("v2.0/images/slides/sprite/sm-10/mysprite.sprite.jpg") no-repeat;
+    }
+
     .h-700 {
-        height: 285px
+        height: 300px
     }
 
     .custom-font-size {
@@ -418,6 +449,10 @@ img {
 }
 
 @media screen and (min-device-width: 426px) and (max-device-width: 768px) {
+    .sprite {
+        background: url("v2.0/images/slides/sprite/md-20/mysprite.sprite.jpg") no-repeat;
+    }
+
     .h-700 {
         height: 505px
     }
@@ -444,8 +479,12 @@ img {
 }
 
 @media screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+    .sprite {
+        background: url("v2.0/images/slides/sprite/lg-30/mysprite.sprite.jpg") no-repeat;
+    }
+
     .h-700 {
-        height: 478px
+        height: 490px
     }
 
     .slide-title {
@@ -457,7 +496,7 @@ img {
     }
 
     .custom-font-size {
-        font-size: 15px !important;
+        font-size: 12px !important;
     }
 
     .slide-sub-title {
@@ -470,6 +509,10 @@ img {
 }
 
 @media screen and (min-device-width: 1024px) and (max-device-width: 1440px) {
+    .sprite {
+        background: url("v2.0/images/slides/sprite/lx-90/mysprite.sprite.jpg") no-repeat;
+    }
+
     .h-700 {
         height: 500px
     }
@@ -493,7 +536,7 @@ img {
 
 @media screen and (min-device-width: 1440px) and (max-device-width: 2560px) {
     .h-700 {
-        height: 830px
+        height: 700px
     }
 
     .slide-title {
@@ -512,7 +555,6 @@ img {
         height: 430px;
     }
 }
-
 /*@media only screen and (min-width: 2559px) and (max-width:2561px) {
     .device-height {
         height: 900px
@@ -542,14 +584,12 @@ img {
         height: 500px
     }
 }*/
-
 /*
 @media only screen and (min-width: 320px) and (max-device-with: 425px) {
     .device-height {
         height: 700px
     }
 }*/
-
 /*@media (orientation: landscape) {
     body {
         flex-direction: row;

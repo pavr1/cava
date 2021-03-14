@@ -1,216 +1,213 @@
 ﻿@model cava.Models.Custom.Deliverer
 
-@*<div class="device-height">
+<div class="device-height">
+    <div class="row">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 pr-0">
+            <div id="experience-carousel" class="carousel slide carousel-fade h-700 lazy" data-ride="carousel">
+                <div class="carousel-inner h-700">
+                    @{
+                        for (int i = 0; i < Model.Slides.Count; i++)
+                        {
+                            var item = Model.Slides[i];
+                            var active = i == 0 ? "active" : string.Empty;
 
-    </div>*@
-<div class="row">
-    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 pr-0">
-        <div id="experience-carousel" class="carousel slide carousel-fade h-700" data-ride="carousel">
-            <div class="carousel-inner h-700">
-                <div class="carousel-item active">
-                    <a href="#" class="slide-title invisible"><p class="p-5"></p></a>
-                    <a href="#" class="slide-sub-title invisible"><p class="p-5"></p></a>
-                    <img class="d-block w-100" src="@Model.Slides[Model.Slides.Count - 1]">
-                </div>
-                @{
-                    foreach (var item in Model.Slides)
-                    {
-                        <div class="carousel-item">
-                            <a href="#" class="slide-title invisible"><p class="p-5"></p></a>
-                            <a href="#" class="slide-sub-title invisible"><p class="p-5"></p></a>
-                            <img class="d-block w-100" src="@item" />
-                        </div>
-                    }
-                }
-            </div>
-        </div>
-    </div>
-</div>
-<div class="row bg-blue">
-    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-        <hr class="bg-orange ml-5 mr-5" />
-        <label class="white-label text-justify custom-font-size p-3">
-            @Model.BriefDescription
-        </label>
-        <hr class="bg-orange ml-5 mr-5" />
-    </div>
-</div>
-<div class="row pt-5 bg-blue">
-    <div class="col-xl-2 col-lg-2 col-md-1 col-sm-1 col-1">
-
-    </div>
-    <div class="col-xl-8 col-lg-8 col-md-10 col-sm-10 col-10 bg-orange radius-top-5">
-        <label class="white-label font-weight-bold ml-3 mt-4 custom-font-size">¡RESERVA CON NOSOTROS!</label>
-        @{
-            if (Model != null && !string.IsNullOrEmpty(Model.WhatsappUrl))
-            {
-                <a href="@Model.WhatsappUrl" target="_blank" class="float-right icon"><img id="whatsapp-link" src="~/Content/images/whatsapp.png" style="width:50px;height:50px"></a>
-            }
-        }
-    </div>
-    <div class="col-xl-2 col-lg-2 col-md-1 col-sm-1 col-1">
-
-    </div>
-</div>
-<div class="row p-0 bg-blue">
-    <div class="col-xl-2 col-lg-2 col-md-1 col-sm-1 col-1">
-
-    </div>
-    <div class="col-xl-8 col-lg-8 col-md-10 col-sm-10 col-10 bg-orange">
-        <hr class="m-0 bg-blue" />
-    </div>
-    <div class="col-xl-2 col-lg-2 col-md-1 col-sm-10 col-10">
-
-    </div>
-</div>
-<div class="row bg-blue">
-    <div class="col-xl-2 col-lg-2 col-md-1 col-sm-1 col-1">
-
-    </div>
-    <div class="col-xl-8 col-lg-8 col-md-10 col-sm-10 col-10">
-        <div class="row bg-orange p-3 pt-0 radius-buttom-5">
-            <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12 mt-3">
-                <input id="txt-people-amount" type="number" pattern="\d*" class="form-control d-flex col custom-font-size" min="1" max="20" value="" placeholder="NÚMERO DE PERSONAS" />
-            </div>
-            <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12 mt-3">
-                <input id="txt-reservation-date" type="datetime" class="form-control custom-date col custom-font-size" value="" placeholder="FECHA DE RESERVACIÓN" />
-            </div>
-            <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12 mt-3">
-                <select id="ddl-reason" class="form-control custom-font-size">
-                    <option selected disabled class="custom-font-size">MOTIVO DE RESERVA</option>
-                    <optgroup label="¿RESERVACIÓN ESPECIAL?" class="custom-font-size">
-                        <option>NORMAL</option>
-                        @{
-                            foreach (var reason in Model.ReservationReasons)
-                            {
-                                <option class="custom-font-size">@reason</option>
-                            }
+                            <div class="carousel-item h-100 @active" style="object-fit:cover">
+                                <a href="#" class="slide-title invisible"><p class="p-5"></p></a>
+                                <a href="#" class="slide-sub-title invisible"><p class="p-5"></p></a>
+                                <img class="covered d-block w-100 mysprite @item" style="object-fit:cover; height:100%; width:100%; max-height:100%; max-width:100%" />
+                            </div>
                         }
-                    </optgroup>
-                </select>
-            </div>
-            <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12 mt-3">
-                <button id="btn-reservation-1" type="button" class="btn bg-blue white-label font-weight-bold float-right w-100 custom-font-size">RESERVAR</button>
-            </div>
-            <div class="row pb-3 pl-3 pr-3">
-                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mt-3">
-                    <label id="lbl-reservation-message" class="white-label"></label>
+                    }
                 </div>
             </div>
         </div>
-        <div id="reservation-modal" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                    <div class="bg-orange no-flex">
-                        <div class="row pb-3 pl-3 pr-3">
-                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mt-3 d-flex justify-content-center">
-                                <label class="col-form-label white-label font-weight-bold">DATOS DE LA RESERVACIÓN</label>
+    </div>
+    <div class="row bg-blue">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+            <hr class="bg-orange ml-3 mr-3" />
+            <label class="white-label text-justify custom-font-size pl-3 pr-3">
+                @Model.BriefDescription
+            </label>
+            <hr class="bg-orange ml-3 mr-3" />
+        </div>
+    </div>
+    <div class="row pt-5 bg-blue">
+        <div class="col-xl-2 col-lg-2 col-md-1 col-sm-1 col-1">
+
+        </div>
+        <div class="col-xl-8 col-lg-8 col-md-10 col-sm-10 col-10 bg-orange radius-top-5">
+            <label class="white-label font-weight-bold ml-3 mt-4 custom-font-size">¡RESERVA CON NOSOTROS!</label>
+            @{
+                if (Model != null && !string.IsNullOrEmpty(Model.WhatsappUrl))
+                {
+                    <a href="@Model.WhatsappUrl" target="_blank" class="float-right icon"><img id="whatsapp-link" src="~/Content/images/whatsapp.png" style="width:50px;height:50px"></a>
+                }
+            }
+        </div>
+        <div class="col-xl-2 col-lg-2 col-md-1 col-sm-1 col-1">
+
+        </div>
+    </div>
+    <div class="row p-0 bg-blue">
+        <div class="col-xl-2 col-lg-2 col-md-1 col-sm-1 col-1">
+
+        </div>
+        <div class="col-xl-8 col-lg-8 col-md-10 col-sm-10 col-10 bg-orange">
+            <hr class="m-0 bg-blue" />
+        </div>
+        <div class="col-xl-2 col-lg-2 col-md-1 col-sm-10 col-10">
+
+        </div>
+    </div>
+    <div class="row bg-blue">
+        <div class="col-xl-2 col-lg-2 col-md-1 col-sm-1 col-1">
+
+        </div>
+        <div class="col-xl-8 col-lg-8 col-md-10 col-sm-10 col-10">
+            <div class="row bg-orange p-3 pt-0 radius-buttom-5">
+                <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12 mt-3">
+                    <input id="txt-people-amount" type="number" pattern="\d*" class="form-control d-flex col custom-font-size" min="1" max="20" value="" placeholder="NÚMERO DE PERSONAS" />
+                </div>
+                <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12 mt-3">
+                    <input id="txt-reservation-date" type="datetime" class="form-control custom-date col custom-font-size datetime" value="" placeholder="FECHA DE RESERVACIÓN" />
+                </div>
+                <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12 mt-3">
+                    <select id="ddl-reason" class="form-control custom-font-size">
+                        <option selected disabled class="custom-font-size">MOTIVO DE RESERVA</option>
+                        <optgroup label="¿RESERVACIÓN ESPECIAL?" class="custom-font-size">
+                            <option>NORMAL</option>
+                            @{
+                                foreach (var reason in Model.ReservationReasons)
+                                {
+                                    <option class="custom-font-size">@reason</option>
+                                }
+                            }
+                        </optgroup>
+                    </select>
+                </div>
+                <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12 mt-3">
+                    <button id="btn-reservation-1" type="button" class="btn bg-blue white-label font-weight-bold float-right w-100 custom-font-size">RESERVAR</button>
+                </div>
+                <div class="row pb-3 pl-3 pr-3">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mt-3">
+                        <label id="lbl-reservation-message" class="white-label"></label>
+                    </div>
+                </div>
+            </div>
+            <div id="reservation-modal" class="modal fade bd-example-modal-lg p-3" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="bg-orange no-flex">
+                            <div class="row pb-3 pl-3 pr-3">
+                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mt-3 d-flex justify-content-center">
+                                    <label class="col-form-label white-label font-weight-bold">DATOS DE LA RESERVACIÓN</label>
+                                </div>
                             </div>
-                        </div>
-                        <div class="row pb-3 pl-3 pr-3">
-                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6 mt-3">
-                                <span class="bi bi-calendar pr-3"><br class="d-sm-none" /></span><label id="lbl-reservation-date" class="col-form-label white-label"></label>
+                            <div class="row pb-3 pl-3 pr-3">
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6 mt-3">
+                                    <span class="bi bi-calendar pr-3"><br class="d-sm-none" /></span><label id="lbl-reservation-date" class="col-form-label white-label"></label>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6 mt-3">
+                                    <span class="bi bi-alarm pr-3"><br class="d-sm-none" /></span><label id="lbl-reservation-time" class="col-form-label white-label"></label>
+                                </div>
                             </div>
-                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6 mt-3">
-                                <span class="bi bi-alarm pr-3"><br class="d-sm-none" /></span><label id="lbl-reservation-time" class="col-form-label white-label"></label>
+                            <hr class="custom-hr" />
+                            <div class="row pb-3 pl-3 pr-3">
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 mt-3">
+                                    <input type="text" class="form-control col pr-5" id="txt-name" value="" placeholder="NOMBRE" />
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 mt-3 pl-md-0 pr-md-3">
+                                    <input type="text" class="form-control col" id="txt-last-names" value="" placeholder="APELLIDOS" />
+                                </div>
                             </div>
-                        </div>
-                        <hr class="custom-hr" />
-                        <div class="row pb-3 pl-3 pr-3">
-                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 mt-3">
-                                <input type="text" class="form-control col pr-5" id="txt-name" value="" placeholder="NOMBRE" />
+                            <div class="row pb-3 pl-3 pr-3">
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 mt-3">
+                                    <input type="text" class="form-control col" id="txt-email" value="" placeholder="CORREO ELECTRÓNICO" />
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 mt-3 pl-md-0">
+                                    <input type="text" class="form-control col" id="txt-phone" value="" placeholder="TELÉFONO" />
+                                </div>
                             </div>
-                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 mt-3 pl-md-0 pr-md-3">
-                                <input type="text" class="form-control col" id="txt-last-names" value="" placeholder="APELLIDOS" />
-                            </div>
-                        </div>
-                        <div class="row pb-3 pl-3 pr-3">
-                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 mt-3">
-                                <input type="text" class="form-control col" id="txt-email" value="" placeholder="CORREO ELECTRÓNICO" />
-                            </div>
-                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 mt-3 pl-md-0">
-                                <input type="text" class="form-control col" id="txt-phone" value="" placeholder="TELÉFONO" />
-                            </div>
-                        </div>
-                        <div class="row pb-3 pl-3 pr-3">
-                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 mt-3">
-                                <button id="btn-cancel-modal-reservation" type="button" class="btn btn-danger w-100">CANCELAR</button>
-                            </div>
-                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 mt-3">
-                                <button id="btn-confirm-modal-reservation" type="button" class="btn bg-blue white-label float-right w-100">CONFIRMAR RESERVACIÓN</button>
+                            <div class="row pb-3 pl-3 pr-3">
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 mt-3">
+                                    <button id="btn-cancel-modal-reservation" type="button" class="btn btn-danger w-100">CANCELAR</button>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 mt-3">
+                                    <button id="btn-confirm-modal-reservation" type="button" class="btn bg-blue white-label float-right w-100">CONFIRMAR RESERVACIÓN</button>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="col-xl-2 col-lg-2 col-md-1 col-sm-1 col-1">
+        <div class="col-xl-2 col-lg-2 col-md-1 col-sm-1 col-1">
 
+        </div>
     </div>
-</div>
-<div class="row h-100 bg-blue pt-5">
-    <div class="col-xl-2 col-lg-2 col-md-1 col-sm-1 col-1">
+    <div class="row h-100 bg-blue pt-5">
+        <div class="col-xl-2 col-lg-2 col-md-1 col-sm-1 col-1">
 
-    </div>
-    <div class="col-xl-8 col-lg-8 col-md-10 col-sm-10 col-10 pl-0 pr-0">
-        <iframe class="h-400 w-100 radius-5" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3929.9326858265063!2d-84.14470508474251!3d9.939558976798075!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8fa0fd23f5cf1cc1%3A0x6f8b24672ba6fe04!2sCAVA%20Restobar!5e0!3m2!1ses-419!2scr!4v1615589449584!5m2!1ses-419!2scr" allowfullscreen="" loading="lazy">
-        </iframe>
-    </div>
-    <div class="col-xl-2 col-lg-2 col-md-1 col-sm-1 col-1">
+        </div>
+        <div class="col-xl-8 col-lg-8 col-md-10 col-sm-10 col-10 pl-0 pr-0">
+            <iframe class="h-400 w-100 radius-5" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3929.9326858265063!2d-84.14470508474251!3d9.939558976798075!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8fa0fd23f5cf1cc1%3A0x6f8b24672ba6fe04!2sCAVA%20Restobar!5e0!3m2!1ses-419!2scr!4v1615589449584!5m2!1ses-419!2scr" allowfullscreen="" loading="lazy">
+            </iframe>
+        </div>
+        <div class="col-xl-2 col-lg-2 col-md-1 col-sm-1 col-1">
 
+        </div>
     </div>
-</div>
-<div class="row pt-5 pb-5 bg-blue">
-    <div class="col-xl-2 col-lg-2 col-md-1 col-sm-1 col-1">
+    <div class="row pt-5 pb-5 bg-blue">
+        <div class="col-xl-2 col-lg-2 col-md-1 col-sm-1 col-1">
 
-    </div>
-    <div class="col-xl-8 col-lg-8 col-md-10 col-sm-12 col-12">
-        @{
-            if (Model.Schedules.Count() > 0)
-            {
-                <p class="title white-label d-flex justify-content-center custom-font-size">HORARIO</p>
-
-                foreach (var schedule in Model.Schedules)
+        </div>
+        <div class="col-xl-8 col-lg-8 col-md-10 col-sm-12 col-12">
+            @{
+                if (Model.Schedules.Count() > 0)
                 {
-                    <p class="white-label d-flex justify-content-center custom-font-size">
-                        @schedule
-                    </p>
+                    <p class="title white-label d-flex justify-content-center custom-font-size">HORARIO</p>
+
+                    foreach (var schedule in Model.Schedules)
+                    {
+                        <p class="white-label d-flex justify-content-center custom-font-size">
+                            @schedule
+                        </p>
+                    }
                 }
             }
-        }
-    </div>
-    <div class="col-xl-2 col-lg-2 col-md-1 col-sm-12 col-12">
+        </div>
+        <div class="col-xl-2 col-lg-2 col-md-1 col-sm-12 col-12">
 
+        </div>
     </div>
-</div>
-<div class="row h-100 bg-blue">
-    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 p-0 footer-details d-flex justify-content-center">
-        <a href="@Model.InstagramLink" target="_blank"><img src="~/Content/v2.0/logos/instagram.png" class="icon" /></a>
-        <a href="@Model.FacebookLink" target="_blank"><img src="~/Content/v2.0/logos/facebook.png" class="icon" /></a>
+    <div class="row h-100 bg-blue">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 p-0 footer-details d-flex justify-content-center">
+            <a href="@Model.InstagramLink" target="_blank"><img src="~/Content/v2.0/images/logos/instagram.png" class="icon" /></a>
+            <a href="@Model.FacebookLink" target="_blank"><img src="~/Content/v2.0/images/logos/facebook.png" class="icon" /></a>
+        </div>
     </div>
-</div>
-<div class="row h-100 bg-blue">
-    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-        <hr class="bg-orange m-5" />
+    <div class="row h-100 bg-blue">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+            <hr class="bg-orange m-3" />
+        </div>
     </div>
-</div>
-<div class="row h-100 bg-blue">
-    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 p-0 footer-details d-flex justify-content-center">
-        <img src="~/Content/images/Icons/icon3.png" class="d-xl-block d-lg-none d-md-block d-sm-none" style="height:100px;width:210px;border-radius:20px;" />
+    <div class="row h-100 bg-blue">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 p-0 footer-details d-flex justify-content-center">
+            <img src="~/Content/images/Icons/icon3.png" class="d-xl-block d-lg-none d-md-block d-sm-none" style="height:100px;width:210px;border-radius:20px;" />
+        </div>
     </div>
-</div>
-<div class="row h-100 bg-blue pt-5">
-    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 pr-5 d-flex justify-content-center">
-        <small class="white-label ">
-            &copy; Copy Right - @DateTime.Now.Year www.cavarestobar.com
-        </small>
+    <div class="row h-100 bg-blue pt-5">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 pr-5 d-flex justify-content-center">
+            <small class="white-label ">
+                &copy; Copy Right - @DateTime.Now.Year www.cavarestobar.com
+            </small>
+        </div>
     </div>
-</div>
-<div class="row h-100 bg-blue pb-5">
-    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 pr-5 d-flex justify-content-center">
-        <small class="white-label ">
-            San José, Costa Rica
-        </small>
+    <div class="row h-100 bg-blue pb-5">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 pr-5 d-flex justify-content-center">
+            <small class="white-label ">
+                San José, Costa Rica
+            </small>
+        </div>
     </div>
 </div>

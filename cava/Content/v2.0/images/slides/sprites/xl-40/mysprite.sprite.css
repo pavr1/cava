@@ -1,0 +1,18 @@
+/*
+This is an example of how to use the image sprite in your own CSS files
+*/
+.mysprite {
+	background-image: url('mysprite.sprite.jpg');
+	background-repeat: no-repeat;
+	display: inline-block;
+}
+.mysprite.cava_febrero2021_15 {
+	width: 2184px;
+	height: 1456px;
+	background-position: -10px -10px;
+}
+.mysprite.cava_febrero2021_8 {
+	width: 2184px;
+	height: 1456px;
+	background-position: -10px -1476px;
+}

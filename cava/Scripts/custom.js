@@ -1,4 +1,6 @@
 ﻿$(document).ready(function () {
+    setSpriteCss();
+
     $("#menu-bar-id").click(function () {
         LoadBar();
     });
@@ -8,7 +10,11 @@
     });
 
     $("#menu-kitchen-id").click(function () {
-        window.open('https://drive.google.com/file/d/1ns87LHZeXpkh0OO1s89g4-Lukl7lRK0_/view', '_blank');
+        $('.collapse').collapse('toggle');
+
+        setTimeout(function () {
+            window.open('https://drive.google.com/file/d/1ns87LHZeXpkh0OO1s89g4-Lukl7lRK0_/view', '_blank');
+        }, 500);
         //delete LoadKitchen();
     });
 
@@ -57,7 +63,7 @@
     var subTitle;
 
     //This event fires immediately when the slide instance method is invoked.
-    $('#experience-carousel').on('slide.bs.carousel', function () {
+    $('#experience-carousel').on('slide.bs.carousel', function (ev) {
         if (title) {
             title.fadeOut(100);
             subTitle.fadeOut(100);
@@ -90,6 +96,30 @@
     });
 });
 
+function setSpriteCss() {
+    var screenWidth = $(window).width();
+
+    if (screenWidth >= 320 && screenWidth <= 426) {
+        $("#css-sprite-link").attr("href", "../Content/v2.0/images/slides/sprites/sm-10/mysprite.sprite.css");
+
+        console.log("Sprite set sm");
+    } else if (screenWidth >= 427 && screenWidth <= 768) {
+        $("#css-sprite-link").attr("href", "../Content/v2.0/images/slides/sprites/md-20/mysprite.sprite.css");
+
+        console.log("Sprite set md");
+    } else if (screenWidth >= 769 && screenWidth <= 1024) {
+        $("#css-sprite-link").attr("href", "../Content/v2.0/images/slides/sprites/lg-30/mysprite.sprite.css");
+
+        console.log("Sprite set lg");
+    } else if (screenWidth >= 1025) {
+        $("#css-sprite-link").attr("href", "../Content/v2.0/images/slides/sprites/xl-40/mysprite.sprite.css");
+
+        console.log("Sprite set xl");
+    }
+
+    console.log($("#css-sprite-link").attr("href"));
+}
+
 function ShouldItCollapse() {
     var width = $(window).width();
 
@@ -107,8 +137,6 @@ function ScrollTo(controlId) {
     var control = $('#' + controlId);
 
     $.scrollTo(control.offset().top - 500, 2000);
-
-    control.focus();
 }
 
 function LoadBar() {
