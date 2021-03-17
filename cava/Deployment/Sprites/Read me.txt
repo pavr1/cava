@@ -1,0 +1,16 @@
+﻿320		8
+375		10
+425		10
+768		15
+1024	20
+1440	30
+2560	45
+
+Steps:
+1. Copy the images in all folders within /Content/V2.0/images/slides/images
+2. Gp through each folder and change images sices to the percentage provided above
+3. In VS2019, include these images
+4. In VS2019, go through all these folders, select all files, right-click "Create Image Sprinte", save it in the appropriate sprite folder /Content/V2.0/images/slides/sprite
+5. Exclude images previously added in /Content/V2.0/images/slides/images
+6. PRETTY IMPORTANT: leave these images in the following route /Content/V2.0/images/slides
+7. Deploy

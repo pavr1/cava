@@ -10,14 +10,24 @@ namespace cava.Custom.Notification
 {
     public class EmailSender : IIdentityMessageService
     {
-        public Task SendAsync(IdentityMessage message)
+        public class CustomIdentityMessage: IdentityMessage
         {
-            MailMessage mail = new MailMessage(WebConfigurationManager.AppSettings[CommonObjects._CAVA_ADMIN_EMAIL_KEY], message.Destination, message.Subject, message.Body);
+            public string Bcc { get; set; }
+        }
+
+        public Task SendAsync(CustomIdentityMessage message)
+        {
+            MailMessage mail = new MailMessage(WebConfigurationManager.AppSettings[CommonObjects._RESERVATION_EMAIL_KEY], message.Destination, message.Subject, message.Body);
             mail.IsBodyHtml = true;
+
+            if (!string.IsNullOrEmpty(message.Bcc))
+            {
+                mail.Bcc.Add(message.Bcc);
+            }
 
             var client = new SmtpClient(WebConfigurationManager.AppSettings[CommonObjects._MAIL_HOST_KEY], Convert.ToInt32(WebConfigurationManager.AppSettings[CommonObjects._MAIL_PORT_KEY]))
             {
-                Credentials = new NetworkCredential(WebConfigurationManager.AppSettings[CommonObjects._NOTIFICATIONS_USER_KEY], WebConfigurationManager.AppSettings[CommonObjects._NOTIFICATIONS_PASSWORD_KEY]),
+                Credentials = new NetworkCredential(WebConfigurationManager.AppSettings[CommonObjects._RESERVATION_EMAIL_KEY], WebConfigurationManager.AppSettings[CommonObjects._CAVA_ADMIN_EMAIL_PWD_KEY]),
                 EnableSsl = false
             };
 
@@ -31,6 +41,12 @@ namespace cava.Custom.Notification
             }
 
             return Task.FromResult(0);
+        }
+
+        [Obsolete("Use as parameter CustomIdentityMessage")]
+        public Task SendAsync(IdentityMessage message)
+        {
+            throw new NotImplementedException();
         }
     }
 }

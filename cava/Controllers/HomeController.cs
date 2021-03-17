@@ -13,6 +13,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Configuration;
 using System.Web.Mvc;
+using static cava.Custom.Notification.EmailSender;
 
 namespace cava.Controllers
 {
@@ -25,16 +26,6 @@ namespace cava.Controllers
         public HomeController()
         {
             _emailService = new EmailSender();
-
-            //IdentityMessage msg = new IdentityMessage
-            //{
-            //    Body = string.Format("<html><head></head><body>{0} HA REALIZADO UNA RESERVA DE {1} PERSONA(S) PARA EL {2}. <br /> INFORMACIÓN DE USUARIO: <br /> - CORREO ELECTRÓNICO: {3} <br /> - TELÉFONO: {4} </body></html>",
-            //                "PABLO VILLALOBOS", 2, new DateTime().ToString(CommonObjects._DATE_FORMAT_1) + CommonObjects._A_LAS + new DateTime().ToShortTimeString(), "pavr1@hotmail.com", "8844-3317"),
-            //    Destination = WebConfigurationManager.AppSettings[CommonObjects._CONFIG_ADMIN_EMAIL],
-            //    Subject = CommonObjects._NEW_RESERVATION_CREATED
-            //};
-
-            //_emailService.SendAsync(msg);
         }
 
         public ActionResult Index()
@@ -139,26 +130,27 @@ namespace cava.Controllers
                             db.SaveChanges();
 
                             //Reservation email sent to admin
-                            IdentityMessage msg = new IdentityMessage
+                            var msg = new CustomIdentityMessage
                             {
                                 Body = string.Format(CommonObjects._RESERVATION_BODY,
-                                reserverFirstName + " " + reserverLastName, numberOfPeople, reservationDate.ToString(CommonObjects._DATE_FORMAT_1) + CommonObjects._A_LAS + reservationDate.ToShortTimeString(), email, phone).ToUpper(),
-                                Destination = WebConfigurationManager.AppSettings[CommonObjects._CONFIG_ADMIN_EMAIL_KEY] + "," + WebConfigurationManager.AppSettings[CommonObjects._CAVA_ADMIN_EMAIL_KEY],
-                                Subject = CommonObjects._NEW_RESERVATION_SUBJECT
+                                reserverFirstName + " " + reserverLastName, numberOfPeople, reservationDate.ToString(CommonObjects._DATE_FORMAT_1) + " " + CommonObjects._A_LAS + " " + reservationDate.ToShortTimeString(), email, phone).ToUpper(),
+                                Destination = WebConfigurationManager.AppSettings[CommonObjects._CAVA_ADMIN_EMAIL_KEY],
+                                Subject = CommonObjects._NEW_RESERVATION_SUBJECT,
+                                Bcc = WebConfigurationManager.AppSettings[CommonObjects._SUPPORT_ADMIN_EMAIL_KEY]
                             };
 
-                            await _emailService.SendAsync(msg);
+                            _emailService.SendAsync(msg);
 
                             //Confirmation email sent to customer
-                            msg = new IdentityMessage
+                            msg = new CustomIdentityMessage
                             {
                                 Body = string.Format(CommonObjects._RESERVATION_EMAIL_BODY,
-                                numberOfPeople, reservationDate.ToString(CommonObjects._DATE_FORMAT_1) + CommonObjects._A_LAS + reservationDate.ToShortTimeString(), email, phone).ToUpper(),
+                                numberOfPeople, reservationDate.ToString(CommonObjects._DATE_FORMAT_1) + " " + CommonObjects._A_LAS + " " + reservationDate.ToShortTimeString(), email, phone).ToUpper(),
                                 Destination = email,
                                 Subject = CommonObjects._NEW_RESERVATION_SUBJECT2
                             };
 
-                            await _emailService.SendAsync(msg);
+                            _emailService.SendAsync(msg);
                         }
                     });
 

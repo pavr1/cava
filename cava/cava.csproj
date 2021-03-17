@@ -4058,6 +4058,16 @@
     <Content Include="Content\v2.0\images\slides\cava_febrero2021_8.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\v2.0\images\slides\images\1440\cava_febrero2021_17.jpg" />
+    <Content Include="Content\v2.0\images\slides\images\1440\cava_febrero2021_18.jpg" />
+    <Content Include="Content\v2.0\images\slides\images\1440\cava_febrero2021_21.jpg" />
+    <Content Include="Content\v2.0\images\slides\images\1440\cava_febrero2021_24.jpg" />
+    <Content Include="Content\v2.0\images\slides\images\1440\cava_febrero2021_31.jpg" />
+    <Content Include="Content\v2.0\images\slides\images\1440\cava_febrero2021_35.jpg" />
+    <Content Include="Content\v2.0\images\slides\images\1440\cava_febrero2021_41.jpg" />
+    <Content Include="Content\v2.0\images\slides\images\1440\cava_febrero2021_45.jpg" />
+    <Content Include="Content\v2.0\images\slides\images\1440\cava_febrero2021_47.jpg" />
+    <Content Include="Content\v2.0\images\slides\images\1440\cava_febrero2021_8.jpg" />
     <Content Include="Content\v2.0\images\slides\sprites\1024\mysprite.sprite.css">
       <DependentUpon>mysprite.sprite</DependentUpon>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -4112,6 +4122,7 @@
     <Content Include="Content\v2.0\images\slides\sprites\768\mysprite.sprite.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Deployment\Sprites\Read me.txt" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css">
@@ -4447,13 +4458,17 @@
     <Content Include="Scripts\umd\popper-utils.min.js" />
     <Content Include="Scripts\umd\popper.js" />
     <Content Include="Scripts\umd\popper.min.js" />
-    <Content Include="Security\Certificates\Generation.txt" />
-    <Content Include="Web.config" />
+    <Content Include="Deployment\Certificates\Read me.txt" />
+    <Content Include="Web.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
@@ -4513,7 +4528,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\v2.0\images\slides\images\1024\" />
-    <Folder Include="Content\v2.0\images\slides\images\1440\" />
     <Folder Include="Content\v2.0\images\slides\images\2560\" />
     <Folder Include="Content\v2.0\images\slides\images\320\" />
     <Folder Include="Content\v2.0\images\slides\images\375\" />

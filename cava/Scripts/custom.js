@@ -6,7 +6,8 @@
     });
 
     $("#menu-experience-id").click(function () {
-        LoadExperience();
+        $.notify("EXPERIENCIAS BAJO CONSTRUCCIÓN", "warn")
+        //LoadExperience();
     });
 
     $("#menu-kitchen-id").click(function () {
@@ -27,7 +28,7 @@
             $('#whatsapp-link').notify(
                 "¡CONTÁCTANOS!",
                 {
-                    position: "left-top",
+                    position: "left-middle",
                     className: "success"
                 },
             );

@@ -22,7 +22,7 @@ namespace cava.Controllers
                     var msg = new IdentityMessage()
                     {
                         Subject = string.Format(CommonObjects._NEW_ERROR_SUBJECT2, log.LogGuid),
-                        Destination = WebConfigurationManager.AppSettings[CommonObjects._CONFIG_ADMIN_EMAIL_KEY],
+                        Destination = WebConfigurationManager.AppSettings[CommonObjects._SUPPORT_ADMIN_EMAIL_KEY],
                         Body = string.Format(CommonObjects._ERROR_EMAIL_BODY, log.LogGuid, log.MessageDetail)
                     };
 

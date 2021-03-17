@@ -40,7 +40,7 @@
             @{
                 if (Model != null && !string.IsNullOrEmpty(Model.WhatsappUrl))
                 {
-                    <a href="@Model.WhatsappUrl" target="_blank" class="float-right icon"><img id="whatsapp-link" src="~/Content/images/whatsapp.png" style="width:50px;height:50px"></a>
+                    <a href="@Model.WhatsappUrl" target="_blank" class="float-right icon"><img id="whatsapp-link" src="~/Content/images/whatsapp.png"></a>
                 }
             }
         </div>
@@ -104,10 +104,10 @@
                                 </div>
                             </div>
                             <div class="row pb-3 pl-3 pr-3">
-                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6 mt-3">
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 mt-3">
                                     <span class="bi bi-calendar pr-3"><br class="d-sm-none" /></span><label id="lbl-reservation-date" class="col-form-label white-label"></label>
                                 </div>
-                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6 mt-3">
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 mt-3 d-inline-block">
                                     <span class="bi bi-alarm pr-3"><br class="d-sm-none" /></span><label id="lbl-reservation-time" class="col-form-label white-label"></label>
                                 </div>
                             </div>
@@ -150,7 +150,7 @@
 
         </div>
         <div class="col-xl-8 col-lg-8 col-md-10 col-sm-10 col-10 pl-0 pr-0">
-            <iframe class="h-400 w-100 radius-5" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3929.9326858265063!2d-84.14470508474251!3d9.939558976798075!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8fa0fd23f5cf1cc1%3A0x6f8b24672ba6fe04!2sCAVA%20Restobar!5e0!3m2!1ses-419!2scr!4v1615589449584!5m2!1ses-419!2scr" allowfullscreen="" loading="lazy">
+            <iframe class="h-400 w-100 radius-5" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3929.9326858265063!2d-84.14470508474251!3d9.939558976798075!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8fa0fd23f5cf1cc1%3A0x6f8b24672ba6fe04!2sCAVA%20Restobar!5e0!3m2!1ses-419!2scr!4v1615589449584!5m2!1ses-419!2scr" allowfullscreen="">
             </iframe>
         </div>
         <div class="col-xl-2 col-lg-2 col-md-1 col-sm-1 col-1">
@@ -184,6 +184,28 @@
         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 p-0 footer-details d-flex justify-content-center">
             <a href="@Model.InstagramLink" target="_blank"><img src="~/Content/v2.0/images/logos/instagram.png" class="icon" /></a>
             <a href="@Model.FacebookLink" target="_blank"><img src="~/Content/v2.0/images/logos/facebook.png" class="icon" /></a>
+        </div>
+    </div>
+    <div class="row pt-5 bg-blue">
+        <div class="col-xl-2 col-lg-2 col-md-1 col-sm-1 col-1">
+
+        </div>
+        <div class="col-xl-8 col-lg-8 col-md-10 col-sm-12 col-12 d-flex justify-content-center white-label">
+            CONTÁCTANOS
+        </div>
+        <div class="col-xl-2 col-lg-2 col-md-1 col-sm-12 col-12">
+
+        </div>
+    </div>
+    <div class="row bg-blue">
+        <div class="col-xl-2 col-lg-2 col-md-1 col-sm-1 col-1">
+
+        </div>
+        <div class="col-xl-8 col-lg-8 col-md-10 col-sm-12 col-12 d-flex justify-content-center">
+            <a class="white-label" href="mailto: administracion@cavarestobar.com"> administracion@cavarestobar.com</a>
+        </div>
+        <div class="col-xl-2 col-lg-2 col-md-1 col-sm-12 col-12">
+
         </div>
     </div>
     <div class="row h-100 bg-blue">
