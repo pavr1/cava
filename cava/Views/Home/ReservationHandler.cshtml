@@ -22,53 +22,6 @@
     <script src="/Scripts/jquery-mask/src/jquery.mask.js"></script>
 </head>
 <body class="bg" style="overflow-y:scroll">
-    <div class="navbar navbar-expand-lg fixed-top navbar-dark bg-primary">
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <a class="nav-link flex-row cava-title" href="#">
-                <img src="~/Content/images/Icons/icon2.png" style="height:90px;width:150px;border-radius:20px" />
-                <span class="sr-only">(current)</span>
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon accordion"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarColor02">
-                <div class="row col-xl-6 col-lg-10 col-md-12 col-sm-10 pl-0 pr-0">
-                    @if (Request.IsAuthenticated)
-                    {
-                        <div class="p-3">
-                            <a id="menu-reservations" class="nav-link btn btn-primary w-100">
-                                CONSULTA DE RESERVACIONES
-                                <span class="sr-only">(current)</span>
-                            </a>
-                        </div>
-                    }
-                </div>
-                <div class="row col-xl-6 col-lg-2 col-md-12 col-sm-2 mr-0">
-                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mt-md-3 mt-sm-3 mt-3">
-                        <img src="~/Content/images/Icons/icon3.png" class="float-right d-xl-block d-lg-none d-md-block d-sm-none" style="height:50px;width:110px;border-radius:20px;" />
-                        <img src="~/Content/images/Icons/icon3.png" class="d-xl-none d-lg-block d-md-none d-sm-none d-none" style="height: 50px; width: 110px; border-radius: 20px;" />
-                    </div>
-                </div>
-                @if (Request.IsAuthenticated)
-                {
-                    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
-                    {
-                        @Html.AntiForgeryToken()
-
-                        <a href="javascript:document.getElementById('logoutForm').submit()" class="nav-link white-label p-1" title="CERRAR SESIÓN"><i class="bi bi-person-x">&nbsp;</i></a>
-                    }
-                }
-                else
-                {
-                    <a id="menu-login" class="nav-link white-label p-1" href="#" title="INICIA SESIÓN"><i class="bi bi-person">&nbsp;</i></a>
-                }
-            </div>
-        </nav>
-    </div>
-    <br />
-    <br />
-    <br />
     <br />
     <br />
     <br />
@@ -77,6 +30,20 @@
     <script src="~/Scripts/jquery.datetimepicker.full.js"></script>
 
     <div id="div-reservation-handler-login-container">
+        @if (Request.IsAuthenticated)
+        {
+            using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+            {
+                @Html.AntiForgeryToken()
+
+                <a href="javascript:document.getElementById('logoutForm').submit()" class="nav-link white-label p-1 d-flex justify-content-end p-3" title="CERRAR SESIÓN"><i class="bi bi-person-x">&nbsp;</i></a>
+            }
+        }
+        else
+        {
+            <a id="menu-login" class="nav-link white-label p-1" href="#" title="INICIA SESIÓN"><i class="bi bi-person">&nbsp;</i></a>
+        }
+
         @if (!string.IsNullOrEmpty(Session["msg"]?.ToString()))
         {
             <div class="row">
@@ -110,36 +77,36 @@
                             <input id="txt-reservation-phone" type="text" class="form-control no-max-width" placeholder="TELÉFONO" />
                         </div>
                         <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-xs-12">
-                            <input id="txt-reservation-date" type="datetime" autocomplete="off" class="form-control custom-date col no-max-width" value="@DateTime.Now.ToString("dd/MM/yyyy")" placeholder="FECHA DE RESERVACIÓN" />
+                            <input id="txt-reservation-date" type="datetime" autocomplete="off" class="form-control custom-date col no-max-width" value="@DateTime.Now.Date" placeholder="FECHA DE RESERVACIÓN" />
                         </div>
                     </div>
                     <div class="row pt-3">
                         <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9 col-12">
                             <input type="hidden" id="hdn-selected-status" value="1" />
-                            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                            <div class="btn-group btn-group-toggle w-100" data-toggle="buttons">
                                 <label class="btn btn-info active" id="rdb-active">
-                                    <input id="rbt-active" type="radio" name="options" autocomplete="off" checked> ACTIVAS
+                                    <input id="rbt-active" type="radio" name="options" autocomplete="off" checked> <small>ACTIVAS</small>
                                 </label>
                                 <label class="btn btn-info" id="rdb-canceled">
-                                    <input id="rbt-canceled" type="radio" name="options" autocomplete="off"> CANCELADAS
+                                    <input id="rbt-canceled" type="radio" name="options" autocomplete="off"> <small>CANCELADAS</small>
                                 </label>
                                 <label class="btn btn-info" id="rdb-confirmed">
-                                    <input id="rbt-confirmed" type="radio" name="options" autocomplete="off"> CONFIRMADAS
+                                    <input id="rbt-confirmed" type="radio" name="options" autocomplete="off"> <small>CONFIRMADAS</small>
                                 </label>
                             </div>
                         </div>
                         <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-12 pt-3 pt-xl-0 pt-lg-0 pt-md-0 pt-sm-0">
-                            <input id="btn-retrieve-reservations" type="button" class="btn btn-info float-right" value="CONSULTAR" />
+                            <input id="btn-retrieve-reservations" type="button" class="btn btn-success float-right w-100" value="CONSULTAR" />
                         </div>
                     </div>
                 </div>
                 <br />
                 <div class="row">
                     <div class="col">
-                        <label id="lbl-retrieve-tltie" class="white-label">¡RESERVACIONES ACTIVAS!</label>
+                        <label id="lbl-retrieve-tltie" class="white-label m-3">¡RESERVACIONES ACTIVAS!</label>
                     </div>
                 </div>
-                <hr class="custom-hr" />
+                <hr class="custom-hr m-3" />
                 <div id="div-reservation-handler-container">
 
                 </div>

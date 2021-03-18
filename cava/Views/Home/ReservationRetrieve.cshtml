@@ -11,24 +11,28 @@
                     <label class="font-weight-bold font-weight-bolder"><b>A NOMBRE DE: </b></label>
                 </div>
                 <div class="col-xl-2 col-lg-2 col-md-2 col-sm-6 col-6">
-                    <label class="font-weight-bold">FECHA</label>
+                    <label class="font-weight-bold"><b>FECHA</b></label>
                 </div>
                 <div class="col-xl-1 col-lg-1 col-md-1 col-sm-12 col-12">
-                    <label class="font-weight-bold">PERSONAS</label>
+                    <label class="font-weight-bold"><b>PERSONAS</b></label>
                 </div>
                 <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 col-6">
-                    <label class="font-weight-bold">CORREO ELECTRÓNICO</label>
+                    <label class="font-weight-bold"><b>E-MAIL</b></label>
                 </div>
                 <div class="col-xl-2 col-lg-2 col-md-2 col-sm-6 col-6">
-                    <label class="font-weight-bold">TELÉFONO</label>
+                    <label class="font-weight-bold"><b>TELÉFONO</b></label>
                 </div>
                 <hr />
             </div>
         </div>
         @if (Model.Count > 0)
         {
+            var expectedCustomers = 0;
+
             foreach (var reservation in Model)
             {
+                expectedCustomers += reservation.NumberOfPeople;
+
                 <div class="row div-table-border table-hover">
                     <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-6">
                         <label class="font-weight-bold d-xl-none d-lg-none d-md-block d-sm-block d-block">A NOMBRE DE: </label> <label class=""> @Html.Encode(reservation.ReserverFirstName)  @Html.Encode(reservation.ReserverLastName)</label>
@@ -62,6 +66,35 @@
                     <hr />
                 </div>
             }
+
+
+            <div class="row div-table-border table-hover">
+                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-6">
+                    <label class="font-weight-bold d-xl-none d-lg-none d-md-block d-sm-block d-block">A NOMBRE DE: </label> <label><b>TOTAL COMENSALES</b></label>
+                </div>
+                <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6 col-6 pt-xl-0 pt-lg-0 pt-md-4">
+                    <label class="font-weight-bold d-xl-none d-lg-none d-md-block d-sm-block d-block">FECHA: </label>
+                </div>
+                <div class="d-xl-none d-lg-none d-md-none d-sm-none d-block pt-xl-0 pt-lg-0 col-6">
+
+                </div>
+                <div class="col-xl-1 col-lg-1 col-md-4 col-sm-6 col-6 pt-xl-0 pt-lg-0 pt-md-4">
+                    <label class="font-weight-bold d-xl-none d-lg-none d-md-block d-sm-block d-block">PERSONAS: </label> <label class="font-weight-bold"><b>@expectedCustomers</b></label>
+                </div>
+                <div class="d-xl-none d-lg-none d-md-block d-sm-block d-block pt-xl-0 pt-lg-0 col-md-4 col-6">
+
+                </div>
+                <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-6">
+                    <label class="font-weight-bold d-xl-none d-lg-none d-md-block d-sm-block d-block">CORREO ELECTRÓNICO: </label>
+                </div>
+                <div class="d-xl-none d-lg-none d-md-none d-sm-none d-block pt-xl-0 pt-lg-0 col-6">
+
+                </div>
+                <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6 col-6">
+
+                </div>
+                <hr />
+            </div>
         }
         else
         {

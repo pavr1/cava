@@ -1,4 +1,6 @@
 ﻿$(document).ready(function () {
+    $("#loggin-container").html();
+
     $('#btn-toggle-reservation').click(function () {
         $('#reservation-handler-modal').modal('toggle');
     });
@@ -63,34 +65,6 @@ function UpdateReservationModal(reservationId, date, time, name, lastName, email
 }
 
 function UpdateReservation(reservationId, statusId, ctrlid) {
-    if (statusId === 3) {
-        $('#btn-cancel-reservation').notify({
-            title: '¡CONFIRMA ANTES DE PROCEDER!',
-            button: 'CANCELAR',
-            position: "top-center"
-        }, {
-            style: 'foo',
-            autoHide: true,
-            clickToHide: true
-        });
-        return;
-        //if (!confirm("")) {
-        //    return;
-        //}
-    } else if (statusId === 4) {
-        $('#btn-cancel-reservation').notify({
-            title: '¡CONFIRMA ANTES DE PROCEDER!',
-            button: 'VERIFICAR',
-            position: "top-center"
-        }, {
-            style: 'foo',
-            autoHide: true,
-            clickToHide: true
-        });
-
-        return;
-    }
-
     StartProcessing(ctrlid);
     DisableControl('rdb-active');
     DisableControl('rdb-canceled');

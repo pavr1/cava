@@ -1,4 +1,8 @@
 ﻿$(document).ready(function () {
+    $("#menu-reservation-id").hide();
+    $("#menu-kitchen-id").hide();
+    $("#menu-experience-id").hide();
+
     $('#filter-container').fadeOut(1);
     setTimeout(() => {
         $('#filter-container').removeAttr('hidden');
