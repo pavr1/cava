@@ -2,15 +2,28 @@
     background: url("v2.0/images/slides/sprite/mysprite.sprite.jpg") no-repeat;
 }
 
+#pleaserotate-graphic {
+    fill: #fff;
+    height: 90px;
+}
+
+#pleaserotate-backdrop {
+    color: #fff;
+    background-color: #0D2749;
+    top: 80px;
+}
+
+#pleaserotate-message{
+    font-size:small;
+}
+
 html, body {
+    height: 100%;
     margin: 0;
     overflow-x: hidden;
     font-family: "PFDinDisplayPro-Medium", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
-    height: 100%
-}
-
-body {
     height: 100%;
+    padding: unset;
 }
 
 .form-control {
@@ -583,7 +596,7 @@ input#txt-reservation-date {
     }
 }
 
-@media screen and (min-width: 320px) and (max-width: 767px) and (orientation: landscape) {
+/*@media screen and (min-width: 320px) and (max-width: 769px) and (orientation: landscape) {
     html {
         transform: rotate(-90deg);
         transform-origin: left top;
@@ -593,4 +606,4 @@ input#txt-reservation-date {
         top: 100%;
         left: 0;
     }
-}
+}*/

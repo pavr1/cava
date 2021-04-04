@@ -1,4 +1,11 @@
 ﻿$(document).ready(function () {
+    //$(window).on("orientationchange", function (event) {
+        
+    //    if (window.orientation == 0) {
+    //        window.location.reload(true);
+    //    }
+    //});
+
     setSpriteCss();
 
     $("#menu-bar-id").click(function () {
