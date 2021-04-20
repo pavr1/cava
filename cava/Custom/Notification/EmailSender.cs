@@ -27,7 +27,7 @@ namespace cava.Custom.Notification
 
             var client = new SmtpClient(WebConfigurationManager.AppSettings[CommonObjects._MAIL_HOST_KEY], Convert.ToInt32(WebConfigurationManager.AppSettings[CommonObjects._MAIL_PORT_KEY]))
             {
-                Credentials = new NetworkCredential(WebConfigurationManager.AppSettings[CommonObjects._RESERVATION_EMAIL_KEY], WebConfigurationManager.AppSettings[CommonObjects._CAVA_ADMIN_EMAIL_PWD_KEY]),
+                Credentials = new NetworkCredential(WebConfigurationManager.AppSettings[CommonObjects._RESERVATION_EMAIL_KEY], WebConfigurationManager.AppSettings[CommonObjects._RESERVATION_EMAIL_PWD_KEY]),
                 EnableSsl = false
             };
 

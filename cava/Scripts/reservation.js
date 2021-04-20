@@ -161,6 +161,10 @@ $("#btn-cancel-modal-reservation").click(function () {
     ClearAndCloseModal();
 });
 
+$("#btn-close-reservation-confirmation-modal").click(function () {
+    $('#reservation-confirmation-modal').modal('toggle');
+});
+
 $("#btn-confirm-modal-reservation").click(function () {
     var firstName = $("#txt-name").val();
     var lastName = $("#txt-last-names").val();
@@ -313,15 +317,19 @@ function CreateReservation() {
                     ClearReservationData();
                     ClearAndCloseModal();
 
-                    $.notify("¡RESERVACIÓN ENVIADA!", { className: "success", autoHideDelay: 2000});
-
                     setTimeout(function () {
-                        $.notify("UN E-MAIL DE CONFIRMACIÓN", { className: "success", autoHideDelay: 4000 });
+                        $('#reservation-confirmation-modal').modal('toggle');
+                    }, 500)
 
-                        setTimeout(function () {
-                            $.notify("EN BREVE RECIBIRÁS", { className: "success", autoHideDelay: 4000 });
-                        }, 200);
-                    }, 2200);
+                    //$.notify("¡RESERVACIÓN ENVIADA!", { className: "success", autoHideDelay: 2000});
+
+                    //setTimeout(function () {
+                    //    $.notify("UN E-MAIL DE CONFIRMACIÓN", { className: "success", autoHideDelay: 4000 });
+
+                    //    setTimeout(function () {
+                    //        $.notify("EN BREVE RECIBIRÁS", { className: "success", autoHideDelay: 4000 });
+                    //    }, 200);
+                    //}, 2200);
 
                     //$('#lbl-reservation-message').html('HAS HECHO UNA RESERVA PARA ' + amount + ' PERSONAS EL ' + FormatDate(new Date(selectedReservationDate)).toUpperCase() + ' A LAS ' + FormatTime(new Date(selectedReservationDate)));
                     //$('#lbl-reservation-message').fadeIn(500);

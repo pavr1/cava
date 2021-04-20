@@ -24,7 +24,6 @@ namespace cava.Custom.Common
 
         public const string _SUPPORT_ADMIN_EMAIL_KEY = "SupportAdminEmail";
         public const string _CAVA_ADMIN_EMAIL_KEY = "CavaAdminEmail";
-        public const string _CAVA_ADMIN_EMAIL_PWD_KEY = "CavaAdminEmailPwd";
         public const string _RESERVATION_EMAIL_KEY = "reservationEmail";
         public const string _RESERVATION_EMAIL_PWD_KEY = "reservationEmailPwd";
 
