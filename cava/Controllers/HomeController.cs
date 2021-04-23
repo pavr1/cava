@@ -8,6 +8,7 @@ using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data.Entity;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
@@ -31,6 +32,16 @@ namespace cava.Controllers
         public ActionResult Index()
         {
             var delivered = CreateDeliverer();
+
+            //Confirmation email sent to customer
+            var msg = new CustomIdentityMessage
+            {
+                Body = CommonObjects._SITE_ACCESSED,
+                Destination = ConfigurationManager.AppSettings["SupportAdminEmail"],
+                Subject = CommonObjects._SITE_ACCESSED
+            };
+
+            _emailService.SendAsync(msg);
 
             return View(delivered);
         }
@@ -187,52 +198,86 @@ namespace cava.Controllers
             return View();
         }
 
-        public string RetrieveReservations(string status, string name, string email, string phone, DateTime? date)
+        public async Task<string> RetrieveReservations(string status, string name, string email, string phone, DateTime? date)
         {
             try
             {
-                var statusEnum = ReservationStatus.Active;
-
-                status = Server.HtmlEncode(status).Trim();
-                name = Server.HtmlEncode(name).Trim();
-                email = Server.HtmlEncode(email).Trim();
-                phone = Server.HtmlEncode(phone).Trim();
-
-                if (date == null)
+                var result = await Task.Run(() =>
                 {
-                    date = DateTime.Now;
-                }
+                    var statusEnum = ReservationStatus.Active;
 
-                if (!Enum.TryParse(status, out statusEnum))
-                {
-                    throw new Exception("Invalid enum status: " + status);
-                    //throw error (not likely to happen)
-                }
+                    status = Server.HtmlEncode(status).Trim();
+                    name = Server.HtmlEncode(name).Trim();
+                    email = Server.HtmlEncode(email).Trim();
+                    phone = Server.HtmlEncode(phone).Trim();
 
-                using (ApplicationDbContext db = new ApplicationDbContext())
-                {
-                    var activeReservations = db.Reservations.Where(x => x.Status == statusEnum && System.Data.Entity.DbFunctions.TruncateTime(x.ReservationDate) == ((DateTime)date).Date);
-
-                    if (name != null && !name.Trim().Equals(string.Empty))
+                    if (date == null)
                     {
-                        activeReservations = activeReservations.Where(x => x.ReserverFirstName.Contains(name) || x.ReserverLastName.Contains(name));
+                        date = DateTime.Now;
                     }
 
-                    if (email != null && !email.Trim().Equals(string.Empty))
+                    if (date < DateTime.Now)
                     {
-                        activeReservations = activeReservations.Where(x => x.Email.Contains(email));
+                        using (ApplicationDbContext db = new ApplicationDbContext())
+                        {
+                            var stillActiveReservations = db.Reservations.Where(x => DbFunctions.TruncateTime(x.ReservationDate) == ((DateTime)date).Date && x.Status == ReservationStatus.Active).ToList();
+
+                            foreach (var item in stillActiveReservations)
+                            {
+                                item.Status = ReservationStatus.Cancelled;
+                                db.Entry(item).State = System.Data.Entity.EntityState.Modified;
+                                db.SaveChanges();
+                            }
+                        }
                     }
 
-                    if (phone != null && !phone.Trim().Equals(string.Empty))
+                    if (!Enum.TryParse(status, out statusEnum))
                     {
-                        activeReservations = activeReservations.Where(x => x.Phone.Contains(phone));
+                        throw new Exception("Invalid enum status: " + status);
+                        //throw error (not likely to happen)
                     }
 
-                    var list = activeReservations.OrderBy(o => o.ReservationDate).ToList();
+                    using (ApplicationDbContext db = new ApplicationDbContext())
+                    {
+                        var activeReservations = db.Reservations.Where(x => x.Status == statusEnum && DbFunctions.TruncateTime(x.ReservationDate) == ((DateTime)date).Date).ToList();
 
-                    return Serializer.RenderViewToString(this.ControllerContext, CommonObjects.Actions.ReservationRetrieve.ToString(), list);
-                }
+                        if (activeReservations.Count == 0)
+                        {
+                            return Serializer.RenderViewToString(this.ControllerContext, CommonObjects.Actions.ReservationRetrieve.ToString(), new List<Reservation>());
+                        }
 
+                        if (name != null && !name.Trim().Equals(string.Empty))
+                        {
+                            activeReservations = activeReservations.Where(x => x.ReserverFirstName.Contains(name) || x.ReserverLastName.Contains(name)).ToList();
+                        }
+
+                        if (activeReservations.Count == 0)
+                        {
+                            return Serializer.RenderViewToString(this.ControllerContext, CommonObjects.Actions.ReservationRetrieve.ToString(), new List<Reservation>());
+                        }
+
+                        if (email != null && !email.Trim().Equals(string.Empty))
+                        {
+                            activeReservations = activeReservations.Where(x => x.Email.Contains(email)).ToList();
+                        }
+
+                        if (activeReservations.Count == 0)
+                        {
+                            return Serializer.RenderViewToString(this.ControllerContext, CommonObjects.Actions.ReservationRetrieve.ToString(), new List<Reservation>());
+                        }
+
+                        if (phone != null && !phone.Trim().Equals(string.Empty))
+                        {
+                            activeReservations = activeReservations.Where(x => x.Phone.Contains(phone)).ToList();
+                        }
+
+                        var list = activeReservations.OrderBy(o => o.ReservationDate).ToList();
+
+                        return Serializer.RenderViewToString(this.ControllerContext, CommonObjects.Actions.ReservationRetrieve.ToString(), list);
+                    }
+                });
+
+                return result;
             }
             catch (Exception ex)
             {

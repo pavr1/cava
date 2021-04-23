@@ -4,6 +4,7 @@ using cava.Models;
 using Microsoft.AspNet.Identity;
 using System.Web.Configuration;
 using System.Web.Mvc;
+using static cava.Custom.Notification.EmailSender;
 
 namespace cava.Controllers
 {
@@ -19,7 +20,7 @@ namespace cava.Controllers
 
                 if (log.MessageType == CommonObjects._ERROR)
                 {
-                    var msg = new IdentityMessage()
+                    var msg = new CustomIdentityMessage()
                     {
                         Subject = string.Format(CommonObjects._NEW_ERROR_SUBJECT2, log.LogGuid),
                         Destination = WebConfigurationManager.AppSettings[CommonObjects._SUPPORT_ADMIN_EMAIL_KEY],
