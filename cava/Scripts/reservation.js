@@ -201,36 +201,24 @@ $("#btn-confirm-modal-reservation").click(function () {
         return;
     }
 
-    if (email === "") {
-        $("#txt-email").notify(
-            "¡CORREO ELECTRÓNICO REQUERIDO!",
-            {
-                position: "top",
-                className: "warn"
-            }
-        );
-
-        $("#txt-email").focus();
-        $("#txt-email").removeClass("border-danger");
-
-        return;
-    }
 
     var re = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
 
-    if (!re.test(email)) {
-        $("#txt-email").notify(
-            "¡CORREO ELECTRÓNICO INVÁLIDO!",
-            {
-                position: "top",
-                className: "warn"
-            }
-        );
+    if (email != "") {
+        if (!re.test(email)) {
+            $("#txt-email").notify(
+                "¡CORREO ELECTRÓNICO INVÁLIDO!",
+                {
+                    position: "top",
+                    className: "warn"
+                }
+            );
 
-        $("#txt-email").focus();
-        $("#txt-email").removeClass("border-danger");
+            $("#txt-email").focus();
+            $("#txt-email").removeClass("border-danger");
 
-        return;
+            return;
+        }
     }
 
     if (phone === "") {

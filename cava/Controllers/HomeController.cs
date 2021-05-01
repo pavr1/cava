@@ -33,15 +33,18 @@ namespace cava.Controllers
         {
             var delivered = CreateDeliverer();
 
-            //Confirmation email sent to customer
-            var msg = new CustomIdentityMessage
+            if (Boolean.Parse(ConfigurationManager.AppSettings["NotifyUserActions"]))
             {
-                Body = CommonObjects._SITE_ACCESSED,
-                Destination = ConfigurationManager.AppSettings["SupportAdminEmail"],
-                Subject = CommonObjects._SITE_ACCESSED
-            };
+                //Confirmation email sent to customer
+                var msg = new CustomIdentityMessage
+                {
+                    Body = CommonObjects._SITE_ACCESSED,
+                    Destination = ConfigurationManager.AppSettings["SupportAdminEmail"],
+                    Subject = CommonObjects._SITE_ACCESSED
+                };
 
-            _emailService.SendAsync(msg);
+                _emailService.SendAsync(msg);
+            }
 
             return View(delivered);
         }
@@ -115,7 +118,7 @@ namespace cava.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    Task.Run(async () =>
+                    Task.Run(() =>
                     {
                         using (ApplicationDbContext db = new ApplicationDbContext())
                         {
@@ -152,16 +155,19 @@ namespace cava.Controllers
 
                             _emailService.SendAsync(msg);
 
-                            //Confirmation email sent to customer
-                            msg = new CustomIdentityMessage
+                            if (!string.IsNullOrEmpty(email))
                             {
-                                Body = string.Format(CommonObjects._RESERVATION_EMAIL_BODY,
-                                numberOfPeople, reservationDate.ToString(CommonObjects._DATE_FORMAT_1) + " " + CommonObjects._A_LAS + " " + reservationDate.ToShortTimeString(), email, phone).ToUpper(),
-                                Destination = email,
-                                Subject = CommonObjects._NEW_RESERVATION_SUBJECT2
-                            };
+                                //Confirmation email sent to customer
+                                msg = new CustomIdentityMessage
+                                {
+                                    Body = string.Format(CommonObjects._RESERVATION_EMAIL_BODY,
+                                    numberOfPeople, reservationDate.ToString(CommonObjects._DATE_FORMAT_1) + " " + CommonObjects._A_LAS + " " + reservationDate.ToShortTimeString(), email, phone).ToUpper(),
+                                    Destination = email,
+                                    Subject = CommonObjects._NEW_RESERVATION_SUBJECT2
+                                };
 
-                            _emailService.SendAsync(msg);
+                                _emailService.SendAsync(msg);
+                            }
                         }
                     });
 
@@ -171,7 +177,6 @@ namespace cava.Controllers
                 {
                     return 0;
                 }
-
             }
             catch (Exception ex)
             {

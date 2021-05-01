@@ -25,7 +25,6 @@ namespace cava.Models
         [Required]
         [Display(Name = "Número Telefónico")]
         public string Phone { get; set; }
-        [Required]
         [Display(Name = "Correo Electrónico")]
         public string Email { get; set; }
         public ReservationStatus Status { get; set; }
