@@ -68,12 +68,40 @@ jQuery('.custom-date').datetimepicker({
         '12:00', '12:30', '13:00', '13:30', '14:00', '14:30', '15:00', '15:30', '16:00', '16:30', '17:00', '17:30', '18:00', '18:30', '19:00', '19:30', '20:00', '20:30', '21:00', '21:30', '22:00', '22:30', '23:00', '23:30', '24:00'
     ],
     beforeShowDay: function (date) {
-        if (date.getDay() == 1) { // 1= monday = monday closed
+        var daysOff = $("#hidden-none-working-week-days").val();
+        var selectedDate = "," + date.getDay() + ",";
+
+        if (daysOff.includes(selectedDate)) {
             return [false, "", "unAvailable"];
         } else {
-            return [true, "", "Available"]; 
+            return [true, "", "Available"];
         }
-        
+
+    },
+    onChangeDateTime: function (dp, $input) { // this will switch available time when choose the day
+        var array = [];
+        var dayOfWeek = dp.getDay();
+        var values = "";
+
+        switch (dayOfWeek) {
+            case 0: //sun
+                values = $("#hidden-sunday-hours").val().split(",");
+                break;
+            case 6: //sat
+                values = $("#hidden-saturday-hours").val().split(",");
+                break;
+            default: //weekdays
+                values = $("#hidden-week-hours").val().split(",");
+                break;
+        }
+
+        for (var i = 0; i < values.length; i++) {
+            array[i] = values[i]
+        }
+
+        this.setOptions({
+            allowTimes: array
+        });
     },
     disableDates: function (date) {
         return false;

@@ -14,5 +14,9 @@ namespace cava.Models.Custom
         public string BriefDescription { get; set; }
         public List<string> Slides { get; set; }
         public List<string> ReservationReasons { get; set; }
+        public string NoneWorkingWeekDays { get; set; }
+        public string WeekHours { get; set; }
+        public string SaturdayHours { get; set; }
+        public string SundayHours { get; set; }
     }
 }

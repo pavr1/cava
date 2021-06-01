@@ -183,11 +183,9 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\Bar.cs" />
     <Compile Include="Models\Custom\Deliverer.cs" />
     <Compile Include="Models\Experience.cs" />
     <Compile Include="Models\IdentityModels.cs" />
-    <Compile Include="Models\Kitchen.cs" />
     <Compile Include="Models\Log.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Reservation.cs" />
@@ -4519,12 +4517,8 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Views\Home\Experience.cshtml" />
-    <Content Include="Views\Home\Bar.cshtml" />
-    <Content Include="Views\Home\Kitchen.cshtml" />
-    <Content Include="Views\Home\Reservation.cshtml" />
     <Content Include="Views\Home\ReservationHandler.cshtml" />
     <Content Include="Views\Home\ReservationRetrieve.cshtml" />
-    <Content Include="Views\Home\board.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

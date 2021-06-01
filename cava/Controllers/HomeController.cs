@@ -55,7 +55,6 @@ namespace cava.Controllers
             var whatsappPhone = ConfigurationManager.AppSettings["WhatsappPhone"];
             var whatsappDefaultMessage = ConfigurationManager.AppSettings["WhatsappMessage"];
 
-
             var delivered = new Deliverer
             {
                 WhatsappUrl = whatsapplink + whatsappPhone + (!string.IsNullOrEmpty(whatsappDefaultMessage) ? "?text=" + whatsappDefaultMessage : string.Empty),
@@ -64,7 +63,11 @@ namespace cava.Controllers
                 Schedules = ConfigurationManager.AppSettings["Schedules"].ToUpper().Split(new string[] { "|" }, StringSplitOptions.RemoveEmptyEntries).ToList(),
                 BriefDescription = ConfigurationManager.AppSettings["BriefDescription"].ToUpper(),
                 ReservationReasons = ConfigurationManager.AppSettings["ReservationReasons"].ToUpper().Split(new string[] { "|" }, StringSplitOptions.RemoveEmptyEntries).ToList(),
-                Slides = GetSlides()
+                Slides = GetSlides(),
+                NoneWorkingWeekDays = ConfigurationManager.AppSettings["NoneWorkingWeekDays"],
+                WeekHours = ConfigurationManager.AppSettings["WeekHours"],
+                SaturdayHours = ConfigurationManager.AppSettings["SaturdayHours"],
+                SundayHours = ConfigurationManager.AppSettings["SundayHours"]
             };
 
             return delivered;
