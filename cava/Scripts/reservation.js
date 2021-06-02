@@ -41,20 +41,11 @@ function FormatDate(currentDateTime) {
 }
 
 function FormatTime(currentDateTime) {
-    return currentDateTime.toLocaleString('es-CR', { hour: 'numeric', minute: 'numeric', hour12: true }).toUpperCase();
+    return currentDateTime.toLocaleString('es-CR', { hour: 'numeric', minute: 'numeric', hour12: true }).toUpperCase().replace("0:00", "12:00").replace("0:30", "12:30");
 }
 
 jQuery('.custom-date').datetimepicker({
     format: 'd/m/Y h:i a',
-    onChangeDateTime: function (currentDateTime) {
-        var formattedDate = FormatDate(currentDateTime);
-        var formattedTime = FormatTime(currentDateTime);
-
-        $('#lbl-reservation-date').html(formattedDate);
-        $('#lbl-reservation-time').html(formattedTime);
-
-        selectedReservationDate = currentDateTime.toLocaleString('en-US');
-    },
     onShow: function (currentDateTime) {
         var formattedDate = FormatDate(currentDateTime);
         var formattedTime = FormatTime(currentDateTime);
@@ -79,6 +70,14 @@ jQuery('.custom-date').datetimepicker({
 
     },
     onChangeDateTime: function (dp, $input) { // this will switch available time when choose the day
+        var formattedDate = FormatDate(dp);
+        var formattedTime = FormatTime(dp);
+
+        $('#lbl-reservation-date').html(formattedDate);
+        $('#lbl-reservation-time').html(formattedTime);
+
+        selectedReservationDate = dp.toLocaleString('en-US');
+
         var array = [];
         var dayOfWeek = dp.getDay();
         var values = "";
